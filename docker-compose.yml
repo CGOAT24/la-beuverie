@@ -12,14 +12,12 @@ services:
     build: "api"
     ports:
       - "8000:8000"
-    expose:
-      - 8080
     # depends_on:
       # - db
   client:
     container_name: "la-beuverie-client"
     build: "client"
     ports:
-      - "8080:8080"
+      - "8080:80"
     depends_on:
       - api
