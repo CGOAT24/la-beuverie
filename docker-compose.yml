@@ -1,19 +1,19 @@
 version: "3.9"
 services:
-# db:
-    # container_name: "la-beuverie-db"
-    # image: "mongo"
-    # restart: "always"
-    # environment:
-      # MONGO_INITDB_ROOT_USERNAME: "root"
-      # MONGO_INITDB_ROOT_PASSWOR: "password"
+  db:
+    container_name: "la-beuverie-db"
+    image: "mongo"
+    restart: "always"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: "root"
+      MONGO_INITDB_ROOT_PASSWORD: "password"
   api:
     container_name: "la-beuverie-api"
     build: "api"
     ports:
       - "8000:8000"
-    # depends_on:
-      # - db
+    depends_on:
+      - db
   client:
     container_name: "la-beuverie-client"
     build: "client"
