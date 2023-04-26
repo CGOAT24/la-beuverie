@@ -15,14 +15,14 @@ impl MongoClient {
 
     pub async fn delete(&self, id: bson::Document) {
         //TODO: something fucks up here
-        let db = &self.client.database(&self.database).collection(&self.collection);
-        db.delete_one(id, None).await.expect("Error occurred while deleting document");
+        let db = &self.client.database(&self.database).collection::<bson::Document>(&self.collection);
+        db.find_one_and_delete(id, None).await.expect("Error occurred while deleting document");
     }
 
     pub async fn update(&self, document: bson::Document) {
         //TODO: something fucks up here
         let db = &self.client.database(&self.database).collection(&self.collection);
-        db.replace_one(document, None, None).await.expect("Error occurred while updating document");
+        db.replace_one(document.clone(), document.clone(), None).await.expect("Error occurred while updating document");
     }
 
     pub async fn get(&self, id: bson::Document) -> mongodb::error::Result<Option<bson::Document>> {

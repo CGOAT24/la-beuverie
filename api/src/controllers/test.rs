@@ -15,7 +15,7 @@ async fn root() -> impl Responder {
 
 #[get("/mongo/add")]
 async fn mongo_new() -> impl Responder {
-    services::test::add();
+    services::test::add().await;
     HttpResponse::Ok()
 }
 

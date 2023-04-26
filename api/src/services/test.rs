@@ -15,5 +15,5 @@ pub async fn get() -> Option<Document> {
 
 pub async fn add() {
     let client = get_client().await;
-    client.add(doc! { "name": "Chad", "age": 22 });
+    client.add(doc! { "name": "Chad", "age": 22 }).await;
 }
