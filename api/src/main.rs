@@ -1,32 +1,18 @@
-use actix_web::{get, post, web, App, HttpResponse, HttpServer, Responder};
-
-/*
-TODO:
- - Move functions to different services
- - Link with MongoDB
- */
-
-#[get("/")]
-async fn hello() -> impl Responder {
-    HttpResponse::Ok().body("Hello world!")
-}
-
-#[post("/echo")]
-async fn echo(req_body: String) -> impl Responder {
-    HttpResponse::Ok().body(req_body)
-}
-
-async fn manual_hello() -> impl Responder {
-    HttpResponse::Ok().body("Hey there!")
-}
+use actix_web::{get, post, web, App, HttpResponse, HttpServer, Responder, Error};
+use mongodb::{Client, options::ClientOptions};
+mod controllers;
+use controllers::test;
 
 #[actix_web::main]
 async fn main() -> std::io::Result<()> {
-    HttpServer::new(|| {
+    let uri = std::env::var("MONGODB_URI").unwrap_or_else(|_| "mongodb://localhost:27017".into());
+
+    let client = Client::with_uri_str(uri).await.expect("failed to connect");
+
+    HttpServer::new(move || {
         App::new()
-            .service(hello)
-            .service(echo)
-            .route("/hey", web::get().to(manual_hello))
+            .app_data(web::Data::new(client.clone())).service(test::test)
+            
     })
         .bind(("0.0.0.0", 8000))?
         .run()
