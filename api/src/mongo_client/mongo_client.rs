@@ -36,11 +36,11 @@ impl MongoClient {
     }
 
     pub async fn new(collection: String) -> MongoClient {
-        let uri: String = std::env::var("MONGODB_URI").unwrap_or_else(|_| "mongodb://localhost:27017".into());
+        let uri: String = std::env::var("MONGODB_URI").expect("Can't get uri from env"));
         MongoClient {
             client: Client::with_uri_str(uri).await.expect("failed to connect"),
             collection,
-            database: std::env::var("DATABASE").unwrap_or_else(|_| "test".into())
+            database: std::env::var("DATABASE").expect("Can't get database name from env")
         }
     }
 }
