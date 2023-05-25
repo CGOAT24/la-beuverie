@@ -4,7 +4,7 @@ use bson::Document;
 use mongodb::bson::doc;
 
 async fn get_client() -> MongoClient {
-    MongoClient::new("test".to_string()).await
+    MongoClient::new("collection1".to_string()).await.expect("Error while creating mongo client")
 }
 
 pub async fn get() -> Option<Document> {

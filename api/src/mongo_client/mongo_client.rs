@@ -1,5 +1,6 @@
 use mongodb::bson::doc;
 use mongodb::{bson, Client, Cursor};
+use mongodb::options::ClientOptions;
 
 pub struct MongoClient {
     client: Client,
@@ -35,13 +36,15 @@ impl MongoClient {
         db.insert_one(document.clone(), None).await.expect("Error occurred while inserting document");
     }
 
-    pub async fn new(collection: String) -> MongoClient {
-        let uri: String = std::env::var("MONGODB_URI").expect("Can't get uri from env"));
-        MongoClient {
-            client: Client::with_uri_str(uri).await.expect("failed to connect"),
+    pub async fn new(collection: String) -> Result<MongoClient, mongodb::error::Error> {
+        let client_options = ClientOptions::parse("mongodb://root:password@host.docker.internal:27017/test?authSource=admin").await?;
+        let client = Client::with_options(client_options)?;
+
+        Ok(MongoClient {
+            client,
             collection,
-            database: std::env::var("DATABASE").expect("Can't get database name from env")
-        }
+            database: "test".to_string(),
+        })
     }
 }
 
