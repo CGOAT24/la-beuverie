@@ -10,4 +10,4 @@ actix-web = "4"
 mongodb = "2.4.0"
 bson = { version = "2", features = ["chrono-0_4"] }
 chrono = "0.4.24"
-serde = "1.0.160"
+serde = "1.0.175"
