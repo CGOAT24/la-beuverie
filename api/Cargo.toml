@@ -7,7 +7,7 @@ edition = "2021"
 
 [dependencies]
 actix-web = "4"
-mongodb = "2.4.0"
+mongodb = "2.6.1"
 bson = { version = "2", features = ["chrono-0_4"] }
 chrono = "0.4.24"
 serde = "1.0.160"
