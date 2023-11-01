@@ -21,14 +21,14 @@ const searchBarEnabled = ref(false);
         </button>
         <button
           :style="{ minWidth: searchBarEnabled ? '200px' : '0'}"
-          class="border-2 border-[#12110F] rounded-xl py-1 px-3 mx-1 bg-[#FEA9AA] flex justify-between content-center"
+          class="border-2 border-[#12110F] rounded-xl px-3 mx-1 bg-[#FEA9AA] flex justify-between content-center items-center"
           @click="searchBarEnabled = true"
         >
-          <MagnifyingGlassIcon class="h-6 w-6 bg-[#FEA9AA] content-center" />
+          <MagnifyingGlassIcon class="h-6 w-6 bg-[#FEA9AA]" />
           <input
             v-if="searchBarEnabled"
             type="text"
-            class="m-3 bg-[#FEA9AA] border-b-2 border-[#12110F] focus:border-[#12110F]"
+            class="mx-3 bg-[#FEA9AA] border-b-2 border-[#12110F] focus:outline-none"
           >
         </button>
       </div>
@@ -38,6 +38,7 @@ const searchBarEnabled = ref(false);
         v-for="drink in drinks"
         :key="drink.name"
         :name="drink.name"
+        :identifier="drink.name"
       />
     </div>
   </div>
