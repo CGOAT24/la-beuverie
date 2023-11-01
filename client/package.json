@@ -6,12 +6,15 @@
     "dev": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
-    "postinstall": "nuxt prepare"
+    "postinstall": "nuxt prepare",
+    "lint": "eslint --fix --ext .js,.vue ./"
   },
   "devDependencies": {
     "@nuxt/devtools": "latest",
     "@types/node": "^20.8.9",
     "autoprefixer": "^10.4.14",
+    "eslint": "^8.52.0",
+    "eslint-plugin-vue": "^9.18.1",
     "nuxt": "^3.8.0",
     "postcss": "^8.4.30",
     "tailwindcss": "^3.3.5"
