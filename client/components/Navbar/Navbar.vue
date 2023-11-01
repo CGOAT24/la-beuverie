@@ -11,7 +11,7 @@ const title = "La Beuverie";
         {{ title }}
       </button>
     </div>
-    <div class="flex flex-wrap justify-end">
+    <div class="flex flex-wrap justify-end mr-3">
       <NavbarButton
         class="flex justify-between content-center items-center"
         color="#FEA9AA"
