@@ -13,7 +13,6 @@ const title = "La Beuverie";
     </div>
     <div class="flex flex-wrap justify-end">
       <NavbarButton
-        :style="{ minWidth: searchBarEnabled ? '200px' : '0'}"
         class="flex justify-between content-center items-center"
         color="#FEA9AA"
         @click="searchBarEnabled = true"
@@ -22,7 +21,7 @@ const title = "La Beuverie";
         <input
           v-if="searchBarEnabled"
           type="text"
-          class="mx-3 bg-[#FEA9AA] border-b-2 border-[#12110F] focus:outline-none caret-transparent"
+          class="mx-3 bg-inherit border-b-2 border-[#12110F] focus:outline-none caret-transparent"
         >
       </NavbarButton>
       <NavbarButton color="#A5EFFF">
