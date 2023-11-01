@@ -16,6 +16,7 @@ const updateData = (text) => {
         :key="drink.name"
         :name="drink.name"
         :identifier="drink.name"
+        class="hover:scale-110 transition	ease-in-out"
       />
     </div>
   </div>
