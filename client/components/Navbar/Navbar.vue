@@ -3,6 +3,23 @@ import { MagnifyingGlassIcon, PlusIcon, FunnelIcon, UserIcon } from '@heroicons/
 const searchBarEnabled = ref(false);
 
 const title = "La Beuverie";
+
+const emits = defineEmits({
+  'searchInput': null
+});
+
+const userButtonClick = () => {
+}
+
+const addButtonClick = () => {
+
+}
+
+const filterButtonClick = () => {
+
+}
+
+const searchValueChanged = (event) => emits("searchInput", event.target.value);
 </script>
 <template>
   <div class="w-100 bg-[#FFF3E7] py-4 rounded-2xl border-4 mx-3 mt-1 border-[#12110F] shadow-[5px_5px_#12110F] flex justify-between">
@@ -22,6 +39,7 @@ const title = "La Beuverie";
           v-if="searchBarEnabled"
           type="text"
           class="mx-3 bg-inherit border-b-2 border-[#12110F] focus:outline-none caret-transparent"
+          @input="searchValueChanged"
         >
       </NavbarButton>
       <NavbarButton color="#A5EFFF">
@@ -30,7 +48,10 @@ const title = "La Beuverie";
       <NavbarButton color="#FDF0AB">
         <PlusIcon class="h-6 w-6 bg-inherit" />
       </NavbarButton>
-      <NavbarButton color="#90EE90">
+      <NavbarButton
+        color="#90EE90"
+        @click="userButtonClick"
+      >
         <UserIcon class="h-6 w-6 bg-inherit" />
       </NavbarButton>
     </div>
