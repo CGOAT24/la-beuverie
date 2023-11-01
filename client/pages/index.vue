@@ -20,11 +20,16 @@ const searchBarEnabled = ref(false);
           <PlusIcon class="h-6 w-6 bg-[#FDF0AB]" />
         </button>
         <button
-          :style="{ width: searchBarEnabled ? '200px' : '48px'}"
-          class="border-2 border-[#12110F] rounded-xl py-1 px-3 mx-1 bg-[#FEA9AA]"
-          @click="searchBarEnabled = !searchBarEnabled"
+          :style="{ minWidth: searchBarEnabled ? '200px' : '0'}"
+          class="border-2 border-[#12110F] rounded-xl py-1 px-3 mx-1 bg-[#FEA9AA] flex justify-between content-center"
+          @click="searchBarEnabled = true"
         >
-          <MagnifyingGlassIcon class="h-6 w-6 bg-[#FEA9AA]" />
+          <MagnifyingGlassIcon class="h-6 w-6 bg-[#FEA9AA] content-center" />
+          <input
+            v-if="searchBarEnabled"
+            type="text"
+            class="m-3 bg-[#FEA9AA] border-b-2 border-[#12110F] focus:border-[#12110F]"
+          >
         </button>
       </div>
     </div>
