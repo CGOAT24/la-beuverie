@@ -28,7 +28,7 @@ const searchBarEnabled = ref(false);
           <input
             v-if="searchBarEnabled"
             type="text"
-            class="mx-3 bg-[#FEA9AA] border-b-2 border-[#12110F] focus:outline-none"
+            class="mx-3 bg-[#FEA9AA] border-b-2 border-[#12110F] focus:outline-none caret-transparent"
           >
         </button>
       </div>
