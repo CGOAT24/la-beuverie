@@ -1,4 +1,4 @@
-FROM rust:1.68 AS builder
+FROM rust:alpine AS builder
 WORKDIR /code
 RUN USER=root cargo init
 COPY Cargo.toml Cargo.toml

@@ -1,4 +1,4 @@
-ARG NODE_VERSION=node:lts
+ARG NODE_VERSION=node:lts-slim
 
 FROM $NODE_VERSION AS dependency-base
 
