@@ -1,3 +1,4 @@
+use bson::Document;
 use mongodb::bson::doc;
 use mongodb::{bson, Client, Cursor};
 use mongodb::options::ClientOptions;
@@ -9,14 +10,14 @@ pub struct MongoClient {
 }
 
 impl MongoClient {
-    pub async fn get_all(&self) -> mongodb::error::Result<Cursor<bson::Document>> {
+    pub async fn get_all(&self) -> mongodb::error::Result<Cursor<Document>> {
         let db = &self.client.database(&self.database).collection(&self.collection);
         db.find(doc! {}, None).await
     }
 
     pub async fn delete(&self, id: bson::Document) {
         //TODO: something fucks up here
-        let db = &self.client.database(&self.database).collection::<bson::Document>(&self.collection);
+        let db = &self.client.database(&self.database).collection::<Document>(&self.collection);
         db.find_one_and_delete(id, None).await.expect("Error occurred while deleting document");
     }
 
