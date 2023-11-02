@@ -4,7 +4,6 @@ pub mod services;
 pub mod mongo_client;
 pub mod models;
 
-use controllers::test;
 use controllers::drink_controller;
 
 #[actix_web::main]

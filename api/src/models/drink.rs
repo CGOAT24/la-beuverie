@@ -1,5 +1,6 @@
-use actix_web::body::MessageBody;
 use bson::{doc, Document};
+use futures::TryStreamExt;
+use mongodb::Cursor;
 use serde::{Deserialize, Serialize};
 
 #[derive(Serialize, Deserialize)]
@@ -41,4 +42,12 @@ impl Drink {
             ingredients,
         }
     }
+}
+
+pub async fn cursor_to_vec(mut cursor: Cursor<Document>) -> Result<Vec<Drink>, mongodb::error::Error> {
+    let mut result = vec![];
+    while let Some(doc) = cursor.try_next().await? {
+        result.push(Drink::new(doc))
+    }
+    Ok(result)
 }

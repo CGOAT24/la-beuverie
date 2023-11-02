@@ -11,5 +11,4 @@ mongodb = "2.7.0"
 bson = { version = "2", features = ["chrono-0_4"] }
 chrono = "0.4.31"
 serde = "1.0.190"
-serde_json = { version = "1.0.108", features = [] }
 futures = { version = "0.3.29", features = [] }
