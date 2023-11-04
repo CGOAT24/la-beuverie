@@ -1,2 +1,3 @@
 pub mod test;
-pub mod drink_service;
+pub mod drink;
+pub mod tag;

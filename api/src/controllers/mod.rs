@@ -1,1 +1,2 @@
-pub mod drink_controller;
+pub mod drink;
+pub mod tag;

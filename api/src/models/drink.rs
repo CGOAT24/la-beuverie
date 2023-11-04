@@ -1,15 +1,14 @@
 use bson::{doc, Document};
-use futures::TryStreamExt;
-use mongodb::Cursor;
 use serde::{Deserialize, Serialize};
+use crate::mongo_client::mongo_client::FromDocument;
 
 #[derive(Serialize, Deserialize)]
 pub struct Drink {
-    id: String,
-    name: String,
-    directions: String,
-    tags: Vec<String>,
-    ingredients: Vec<String>
+    pub(crate) id: String,
+    pub(crate) name: String,
+    pub(crate) directions: String,
+    pub(crate) tags: Vec<String>,
+    pub(crate) ingredients: Vec<String>
 }
 
 impl Drink {
@@ -44,10 +43,11 @@ impl Drink {
     }
 }
 
-pub async fn cursor_to_vec(mut cursor: Cursor<Document>) -> Result<Vec<Drink>, mongodb::error::Error> {
-    let mut result = vec![];
-    while let Some(doc) = cursor.try_next().await? {
-        result.push(Drink::new(doc))
+impl FromDocument for Drink {
+    type Type = Drink;
+
+    fn from_document(document: Document) -> Self::Type {
+        Drink::new(document)
     }
-    Ok(result)
 }
+
