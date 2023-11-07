@@ -4,11 +4,11 @@ use crate::models::model::Model;
 
 #[derive(Serialize, Deserialize)]
 pub struct Drink {
-    pub(crate) id: String,
-    pub(crate) name: String,
-    pub(crate) directions: String,
-    pub(crate) tags: Vec<String>,
-    pub(crate) ingredients: Vec<String>
+    pub id: String,
+    pub name: String,
+    pub directions: String,
+    pub tags: Vec<String>,
+    pub ingredients: Vec<String>
 }
 
 impl Model for Drink {

@@ -20,7 +20,7 @@ jobs:
       - name: Build project
         working-directory: ./client
         run: npm run build
-  depndabot:
+  dependabot:
     runs-on: ubuntu-latest
     if: github.actor == 'dependabot[bot]'
     steps:

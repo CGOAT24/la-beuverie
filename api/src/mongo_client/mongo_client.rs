@@ -38,8 +38,8 @@ impl MongoClient {
     }
 
     pub async fn new(collection: String) -> Result<MongoClient, mongodb::error::Error> {
-        let database: String = String::new();
-        let client_options = ClientOptions::parse("mongodb://root:password@host.docker.internal:27017/test?authSource=admin").await?;
+        let database: String = "la-beuverie".to_string();
+        let client_options = ClientOptions::parse("mongodb://root:password@host.docker.internal:27017/".to_owned() + &*database + "?authSource=admin").await?;
         let client = Client::with_options(client_options)?;
 
         Ok(MongoClient {
