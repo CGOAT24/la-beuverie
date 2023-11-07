@@ -35,5 +35,5 @@ jobs:
       - name: Run tests
         if: steps.metadata.outputs.package-ecosystem == 'cargo'
         working-directory: ./api
-        run cargo test --verbose
+        run: cargo test --verbose
   
