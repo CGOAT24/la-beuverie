@@ -40,11 +40,7 @@
       "name": "Blue Margarita",
       "icon": "martini",
       "directions": "Coat rim of serving glass with lime juice, then dip rim in coarse salt. Pour ingredients over crushed ice, shake, then strain into serving glass.",
-      "ingredients": [
-        "1.5 oz of tequila",
-        "0.5 oz of blue curacao",
-        "1 oz of lime juice"
-      ],
+      "ingredients": ["1.5 oz of tequila", "0.5 oz of blue curacao", "1 oz of lime juice"],
       "category": "Tequila Drinks"
     },
     {
@@ -65,11 +61,7 @@
       "name": "Blue Cloud Cocktail",
       "icon": "hurricane",
       "directions": "Combine ingredients in blender and blend smoothly. Pour into glass then top with whipped cream and a strawberry.",
-      "ingredients": [
-        "1 oz of amaretto",
-        "0.5 oz of blue curacao",
-        "2 oz of vanilla ice cream"
-      ],
+      "ingredients": ["1 oz of amaretto", "0.5 oz of blue curacao", "2 oz of vanilla ice cream"],
       "category": "Frozen Drinks"
     },
     {
@@ -145,23 +137,14 @@
       "name": "Alabama Fizz",
       "icon": "highball",
       "directions": "Shake all ingredients except soda with crushed ice and strain into glass. Fill with club soda and garnish with 2 sprigs of fresh mint.",
-      "ingredients": [
-        "Juice of 0.5 lemon",
-        "1 tsp of powdered sugar",
-        "2 oz of gin",
-        "Club soda"
-      ],
+      "ingredients": ["Juice of 0.5 lemon", "1 tsp of powdered sugar", "2 oz of gin", "Club soda"],
       "category": "Gin Drinks"
     },
     {
       "name": "Chelsea Sidecar",
       "icon": "martini",
       "directions": "Shake ingredients with crushed ice and strain into glass.",
-      "ingredients": [
-        "Juice of 0.25 lemon",
-        "0.75 oz of triple sec",
-        "0.75 oz of gin"
-      ],
+      "ingredients": ["Juice of 0.25 lemon", "0.75 oz of triple sec", "0.75 oz of gin"],
       "category": "Gin Drinks"
     },
     {
@@ -216,11 +199,7 @@
       "name": "Margarita",
       "icon": "martini",
       "directions": "Coat rim of glass with lime juice, then coat in salt. Shake ingredients with salt then strain into glass.",
-      "ingredients": [
-        "1.5 oz of tequila",
-        "0.5 oz of triple sec",
-        "1 oz of lime juice"
-      ],
+      "ingredients": ["1.5 oz of tequila", "0.5 oz of triple sec", "1 oz of lime juice"],
       "category": "Tequila Drinks"
     },
     {
@@ -361,22 +340,14 @@
       "name": "Handball Cooler",
       "icon": "highball",
       "directions": "Pour vodka over ice in glass. Fill almost to top with club soda then top with orange juice. Stir vigorously and garnish with lime wedge.",
-      "ingredients": [
-        "1.5 oz of vodka",
-        "Club soda",
-        "1 splash of orange juice"
-      ],
+      "ingredients": ["1.5 oz of vodka", "Club soda", "1 splash of orange juice"],
       "category": "Vodka Drinks"
     },
     {
       "name": "Harvey Wallbanger",
       "icon": "highball",
       "directions": "Pour vodka and orange juice over ice into glass. Top with galliano.",
-      "ingredients": [
-        "1 oz of vodka",
-        "4 oz of orange juice",
-        "0.5 oz of golliano"
-      ],
+      "ingredients": ["1 oz of vodka", "4 oz of orange juice", "0.5 oz of golliano"],
       "category": "Vodka Drinks"
     },
     {
@@ -535,11 +506,7 @@
       "name": "C. C. Kazi",
       "icon": "shooter",
       "directions": "Shake ingredients with crushed ice and strain into glass.",
-      "ingredients": [
-        "1.25 oz of tequila",
-        "2 oz of cranberry juice",
-        "1 tsp of lime juice"
-      ],
+      "ingredients": ["1.25 oz of tequila", "2 oz of cranberry juice", "1 tsp of lime juice"],
       "category": "Shooters"
     },
     {
@@ -585,11 +552,7 @@
       "name": "Kamikaze",
       "icon": "shooter",
       "directions": "Shake ingredients with crushed ice and strain into glass.",
-      "ingredients": [
-        "0.5 oz of lime juice",
-        "0.5 oz of triple sec",
-        "0.5 oz of vodka"
-      ],
+      "ingredients": ["0.5 oz of lime juice", "0.5 oz of triple sec", "0.5 oz of vodka"],
       "category": "Shooters"
     },
     {
@@ -603,11 +566,7 @@
       "name": "Parisian Blonde",
       "icon": "shooter",
       "directions": "Shake ingredients with crushed ice and strain into glass.",
-      "ingredients": [
-        "0.75 oz of light rum",
-        "0.75 oz of triple sec",
-        "0.75 oz of jamaican rum"
-      ],
+      "ingredients": ["0.75 oz of light rum", "0.75 oz of triple sec", "0.75 oz of jamaican rum"],
       "category": "Shooters"
     },
     {
@@ -625,11 +584,7 @@
       "name": "Rocky Mountain",
       "icon": "shooter",
       "directions": "Shake ingredients with crushed ice and strain into glass.",
-      "ingredients": [
-        "1 oz of southern comfort",
-        "1 oz of amaretto",
-        "0.5 oz of lime juice"
-      ],
+      "ingredients": ["1 oz of southern comfort", "1 oz of amaretto", "0.5 oz of lime juice"],
       "category": "Shooters"
     },
     {
@@ -661,11 +616,7 @@
       "name": "Woo Woo",
       "icon": "shooter",
       "directions": "Shake ingredients with crushed ice and strain into glass.",
-      "ingredients": [
-        "0.5 oz of peach schnapps",
-        "0.5 oz of vodka",
-        "1 oz of cranberry juice"
-      ],
+      "ingredients": ["0.5 oz of peach schnapps", "0.5 oz of vodka", "1 oz of cranberry juice"],
       "category": "Shooters"
     }
   ]

@@ -1,23 +1,11 @@
-ARG NODE_VERSION=node:lts-slim
-
-FROM $NODE_VERSION AS dependency-base
-
-RUN mkdir -p /app
+FROM node:lts-alpine as build-stage
 WORKDIR /app
-
-COPY package.json .
-COPY package-lock.json .
+COPY package*.json .
 RUN npm ci
-
-FROM dependency-base AS production-base
-
 COPY . .
 RUN npm run build
 
-FROM $NODE_VERSION-slim AS production
-
-COPY --from=production-base /app/.output /app/.output
-
-ENV NODE_ENV=production
-
-CMD [ "node", "/app/.output/server/index.mjs" ]
+FROM nginx:stable-alpine as production-stage
+COPY --from=build-stage /app/dist /usr/share/nginx/html
+EXPOSE 80
+CMD ["nginx", "-g", "daemon off;"]

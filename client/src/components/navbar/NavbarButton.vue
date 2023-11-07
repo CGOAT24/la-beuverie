@@ -1,14 +1,14 @@
 <script setup lang="ts">
-    const props = defineProps({
-        color: {
-            type: String,
-            required: true
-        }
-    });
+const props = defineProps({
+  color: {
+    type: String,
+    required: true
+  }
+})
 
-    const emits = defineEmits({
-      "click": null
-    });
+const emits = defineEmits({
+  click: null
+})
 </script>
 <template>
   <button
