@@ -3,6 +3,7 @@ use futures::TryStreamExt;
 use mongodb::bson::doc;
 use mongodb::{bson, Client, Cursor};
 use mongodb::options::ClientOptions;
+use crate::models::model;
 
 pub struct MongoClient {
     client: Client,
@@ -17,13 +18,11 @@ impl MongoClient {
     }
 
     pub async fn delete(&self, id: Document) {
-        //TODO: something fucks up here
         let db = &self.client.database(&self.database).collection::<Document>(&self.collection);
         db.find_one_and_delete(id, None).await.expect("Error occurred while deleting document");
     }
 
     pub async fn update(&self, document: Document) {
-        //TODO: something fucks up here
         let db = &self.client.database(&self.database).collection(&self.collection);
         db.replace_one(document.clone(), document.clone(), None).await.expect("Error occurred while updating document");
     }
@@ -51,15 +50,10 @@ impl MongoClient {
     }
 }
 
-pub async fn cursor_to_vec<T: FromDocument>(mut cursor: Cursor<Document>) -> Result<Vec<T>, mongodb::error::Error> {
-    let mut result = vec![];
+pub async fn cursor_to_vec<T: model::Model>(mut cursor: Cursor<Document>) -> Result<Vec<T::Type>, mongodb::error::Error> {
+    let mut result: Vec<T::Type> = vec![];
     while let Some(doc) = cursor.try_next().await? {
-        result.push(T::from_document(doc));
+        result.push(T::new(doc));
     }
     Ok(result)
-}
-
-pub trait FromDocument {
-    type Type;
-    fn from_document(document: Document) -> Self::Type;
 }

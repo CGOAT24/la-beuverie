@@ -1,4 +1,5 @@
 use actix_web::{get, HttpResponse, Responder, web};
+use crate::services;
 
 pub fn config(cfg: &mut web::ServiceConfig) {
     cfg.service(get_all);

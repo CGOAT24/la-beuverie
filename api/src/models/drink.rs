@@ -1,6 +1,6 @@
 use bson::{doc, Document};
 use serde::{Deserialize, Serialize};
-use crate::mongo_client::mongo_client::FromDocument;
+use crate::models::model::Model;
 
 #[derive(Serialize, Deserialize)]
 pub struct Drink {
@@ -11,8 +11,10 @@ pub struct Drink {
     pub(crate) ingredients: Vec<String>
 }
 
-impl Drink {
-    pub fn to_document(&self) -> Document {
+impl Model for Drink {
+    type Type = Drink;
+
+    fn to_document(&self) -> Document {
         doc! {
             "id": &self.id,
             "name": &self.name,
@@ -22,7 +24,7 @@ impl Drink {
         }
     }
 
-    pub fn new(doc: Document) -> Drink {
+    fn new(doc: Document) -> Drink {
         let tags = doc.get_array("tags")
             .unwrap()
             .iter()
@@ -40,14 +42,6 @@ impl Drink {
             tags,
             ingredients,
         }
-    }
-}
-
-impl FromDocument for Drink {
-    type Type = Drink;
-
-    fn from_document(document: Document) -> Self::Type {
-        Drink::new(document)
     }
 }
 

@@ -1,7 +1,8 @@
 use bson::{doc, Document};
-use crate::mongo_client::mongo_client::MongoClient;
-use crate::models::drink::{cursor_to_vec, Drink};
+use crate::mongo_client::mongo_client::{cursor_to_vec, MongoClient};
+use crate::models::drink::Drink;
 use uuid::Uuid;
+use crate::models::model::Model;
 use crate::requests::create_drink_request::CreateDrinkRequest;
 
 async fn get_client() -> MongoClient {
