@@ -78,7 +78,7 @@ MIT
 
 ---
 <div align="center">
-    <a href="https://cgoat24.github.io/portfolio/">portfolio</a>
+    <a href="https://cgoat24.github.io/portfolio/">Portfolio</a>
     &nbsp;&middot;&nbsp;
     <a href="https://github.com/cgoat24">GitHub</a>
     &nbsp;&middot;&nbsp;

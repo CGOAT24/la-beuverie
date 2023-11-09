@@ -1,15 +1,15 @@
 use actix_web::{App, HttpServer};
 
-mod controllers;
+mod handlers;
 pub mod services;
 pub mod mongo_client;
 pub mod models;
 pub mod requests;
 
-use controllers::drink;
-use controllers::tag;
-use controllers::user;
-use controllers::{auth as auth_controller};
+use handlers::drink;
+use handlers::tag;
+use handlers::user;
+use handlers::auth;
 
 #[actix_web::main]
 async fn main() -> std::io::Result<()> {
@@ -17,7 +17,7 @@ async fn main() -> std::io::Result<()> {
         App::new()
             .configure(drink::config)
             .configure(tag::config)
-            .configure(auth_controller::config)
+            .configure(auth::config)
             .configure(user::config)
     })
         .bind(("0.0.0.0", 8000))?
