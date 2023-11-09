@@ -1,0 +1,621 @@
+[
+	{
+		"name": "Alamo Splash",
+		"icon": "highball",
+		"directions": "Mix with ice and strain into glass.",
+		"ingredients": [
+			"1/2 oz of tequila",
+			"1 oz of orange juice",
+			"1/2 oz of pineapple juice",
+			"1 splash of lemon-lime soda"
+		],
+		"category": "Tequila Drinks"
+	},
+	{
+		"name": "Red Hooter",
+		"icon": "highball",
+		"directions": "Pour tequila and amaretto over ice in glass. Fill with pineapple juice, topped with grenadine and topped with a cherry.",
+		"ingredients": [
+			"1 oz of tequila",
+			"0.75 oz of amaretto",
+			"Pineapple juice",
+			"1 oz of grenadine"
+		],
+		"category": "Tequila Drinks"
+	},
+	{
+		"name": "Blushin' Russian",
+		"icon": "hurricane",
+		"directions": "Combine ingredients in blender and blend smoothly. Pour into glass and garnish with chocolate-covered strawberry.",
+		"ingredients": [
+			"1 oz of coffee liqueur",
+			"0.25 oz of Vodka",
+			"1 scoop of vanilla ice cream",
+			"4 large fresh strawberries"
+		],
+		"category": "Frozen Drinks"
+	},
+	{
+		"name": "Blue Margarita",
+		"icon": "martini",
+		"directions": "Coat rim of serving glass with lime juice, then dip rim in coarse salt. Pour ingredients over crushed ice, shake, then strain into serving glass.",
+		"ingredients": ["1.5 oz of tequila", "0.5 oz of blue curacao", "1 oz of lime juice"],
+		"category": "Tequila Drinks"
+	},
+	{
+		"name": "Cactus Berry",
+		"icon": "martini",
+		"directions": "Shake with crushed ice, pour into salt rimmed glass",
+		"ingredients": [
+			"1.25 oz of tequila",
+			"1.25 oz of red wine",
+			"1 oz of triple sec",
+			"6.5 oz of sour mix",
+			"1 splash of lemon-lime soda",
+			"1 dash of lime juice"
+		],
+		"category": "Tequila Drinks"
+	},
+	{
+		"name": "Blue Cloud Cocktail",
+		"icon": "hurricane",
+		"directions": "Combine ingredients in blender and blend smoothly. Pour into glass then top with whipped cream and a strawberry.",
+		"ingredients": ["1 oz of amaretto", "0.5 oz of blue curacao", "2 oz of vanilla ice cream"],
+		"category": "Frozen Drinks"
+	},
+	{
+		"name": "Blue Velvet",
+		"icon": "hurricane",
+		"directions": "Mix ingredients in blender with crushed ice and blend smoothly. Pour into glass and top with whipped cream and drizzle with curacao. Top with a cherry",
+		"ingredients": [
+			"1 oz of black raspberry liqueur",
+			"1 oz of melon liqueur",
+			"4 oz of vanilla ice cream",
+			"Blue curacao"
+		],
+		"category": "Frozen Drinks"
+	},
+	{
+		"name": "Catalina Margarita",
+		"icon": "martini",
+		"directions": "Shake with crushed ice and pour into salt rimmed glass",
+		"ingredients": [
+			"1.5 oz of tequila",
+			"1 oz of peach schnapps",
+			"1 oz of blue curacao",
+			"4 oz of sour mix"
+		],
+		"category": "Tequila Drinks"
+	},
+	{
+		"name": "Hairy Sunrise",
+		"icon": "highball",
+		"directions": "Mix all ingredients except grenadine in a blender. Pour into glass. Top of with grenadine and a slice of lime.",
+		"ingredients": [
+			"0.75 oz of tequila",
+			"0.75 oz of vodka",
+			"0.5 oz of triple sec",
+			"3 oz of orange juice",
+			"2 to 3 dashes of grenadine"
+		],
+		"category": "Tequila Drinks"
+	},
+	{
+		"name": "Beer Buster",
+		"icon": "highball",
+		"directions": "Pour vodka into glass then fill with beer. Add dashed of tabasco sauce then stir lightly.",
+		"ingredients": [
+			"1.5 oz of 100 proof vodka",
+			"Chilled beer or ale",
+			"2 dashed of tabasco sauce"
+		],
+		"category": "Vodka Drinks"
+	},
+	{
+		"name": "Black Russian",
+		"icon": "old_fashioned",
+		"directions": "Pour over crushed ice into glass.",
+		"ingredients": ["1.5 oz of vodka", "0.75 of coffee liqueur"],
+		"category": "Vodka Drinks"
+	},
+	{
+		"name": "Bull Frog",
+		"icon": "highball",
+		"directions": "Pour over crushed ice in glass then garnish with a slice of lime.",
+		"ingredients": ["1.5 oz of vodka", "5 oz of lemonade"],
+		"category": "Vodka Drinks"
+	},
+	{
+		"name": "Cape Codder",
+		"icon": "highball",
+		"directions": "Pour ingredients into glass over crushed ice. Stir vigorously, then garnish with a lime wedge.",
+		"ingredients": ["1.5 oz of vodka", "5 oz of cranberry juice"],
+		"category": "Vodka Drinks"
+	},
+	{
+		"name": "Alabama Fizz",
+		"icon": "highball",
+		"directions": "Shake all ingredients except soda with crushed ice and strain into glass. Fill with club soda and garnish with 2 sprigs of fresh mint.",
+		"ingredients": ["Juice of 0.5 lemon", "1 tsp of powdered sugar", "2 oz of gin", "Club soda"],
+		"category": "Gin Drinks"
+	},
+	{
+		"name": "Chelsea Sidecar",
+		"icon": "martini",
+		"directions": "Shake ingredients with crushed ice and strain into glass.",
+		"ingredients": ["Juice of 0.25 lemon", "0.75 oz of triple sec", "0.75 oz of gin"],
+		"category": "Gin Drinks"
+	},
+	{
+		"name": "Diamond Fizz",
+		"icon": "highball",
+		"directions": "Shake ingredients with crushed ice and strain into glass with 2 ice cubes. Fill with champagne and stir vigorously.",
+		"ingredients": [
+			"Juice of 0.5 lemon",
+			"1 tsp of powdered sugar",
+			"2 oz of gin",
+			"Chilled champagne"
+		],
+		"category": "Gin Drinks"
+	},
+	{
+		"name": "Canyon Quake",
+		"icon": "wine",
+		"directions": "Mix ingredients with crushed ice in blender and blend smoothly. Pour into glass.",
+		"ingredients": [
+			"0.75 oz of irish cream liqueur",
+			"0.75 oz of brandy",
+			"1 oz of amaretto",
+			"2 oz of light cream"
+		],
+		"category": "Frozen Drinks"
+	},
+	{
+		"name": "Cranberry Cooler",
+		"icon": "hurricane",
+		"directions": "Mix ingredients in blender with crushed ice and blend smoothly. Pour into glass.",
+		"ingredients": [
+			"1.5 oz of bourbon",
+			"1.5 oz of cranberry juice",
+			"0.5 of lime juice",
+			"1 tsp of sugar"
+		],
+		"category": "Frozen Drinks"
+	},
+	{
+		"name": "Hot Pants",
+		"icon": "old_fashioned",
+		"directions": "Shake ingredients with crushed ice and pour into salt rimmed glass.",
+		"ingredients": [
+			"1.5 oz of tequila",
+			"0.5 oz of peppermint schnapps",
+			"1 tbsp of grapefruit juice",
+			"1 tsp of powdered sugar"
+		],
+		"category": "Tequila Drinks"
+	},
+	{
+		"name": "Margarita",
+		"icon": "martini",
+		"directions": "Coat rim of glass with lime juice, then coat in salt. Shake ingredients with salt then strain into glass.",
+		"ingredients": ["1.5 oz of tequila", "0.5 oz of triple sec", "1 oz of lime juice"],
+		"category": "Tequila Drinks"
+	},
+	{
+		"name": "Citronella Cooler",
+		"icon": "highball",
+		"directions": "Pour ingredients into glass containing crushed ice. Stir vigorously, then garnish with a lime wedge.",
+		"ingredients": [
+			"1.5 oz of vodka",
+			"1 dash of lime juice",
+			"2 oz of lemonade",
+			"1 oz of cranberry juice"
+		],
+		"category": "Vodka Drinks"
+	},
+	{
+		"name": "Crocodile Cooler",
+		"icon": "hurricane",
+		"directions": "Pour all ingredients except soda into glass filled with crushed ice. Top with lemon-lime soda and garnish with a cherry/lime wedge.",
+		"ingredients": [
+			"1.5 oz of citrus vodka",
+			"1 oz of melon liqueur",
+			"0.75 oz of triple sec",
+			"2 oz of sour mix",
+			"Lemon-lime soda"
+		],
+		"category": "Vodka Drinks"
+	},
+	{
+		"name": "Desert Sunrise",
+		"icon": "highball",
+		"directions": "Pour ingredients into glass over crushed ice. Top with grenadine.",
+		"ingredients": [
+			"1.25 oz of vodka",
+			"1.5 oz of orange juice",
+			"1.5 oz of pineapple juice",
+			"1 dash of grenadine"
+		],
+		"category": "Vodka Drinks"
+	},
+	{
+		"name": "Electric Jam",
+		"icon": "highball",
+		"directions": "Pour ingredients over crushed ice in glass. Top with lemon-lime soda.",
+		"ingredients": [
+			"1.25 oz of vodka",
+			"0.5 oz of blue curacao",
+			"2 oz of sour mix",
+			"Lemon-lime soda"
+		],
+		"category": "Vodka Drinks"
+	},
+	{
+		"name": "Dry Martini",
+		"icon": "martini",
+		"directions": "Mix ingredients and strain into glass. Garnish with a twist of lemon peel or an olive.",
+		"ingredients": ["1.75 oz of gin", "0.5 oz of dry vermouth"],
+		"category": "Gin Drinks"
+	},
+	{
+		"name": "Fallen Angel",
+		"icon": "martini",
+		"directions": "Mix ingredients with crushed ice and strain into glass. Garnish with a cherry.",
+		"ingredients": [
+			"Juice of 1 lime",
+			"1.5 oz of gin",
+			"1 dash of bitters",
+			"0.5 tsp of creme de menthe"
+		],
+		"category": "Gin Drinks"
+	},
+	{
+		"name": "Floradora Cooler",
+		"icon": "highball",
+		"directions": "Pour ingredients in glass with crushed glass. Stir vigorously.",
+		"ingredients": [
+			"Juice of 1 lime",
+			"0.5 tsp of powdered sugar",
+			"1 tbsp of grenadine",
+			"2 oz of club soda/ginger ale",
+			"2 oz of gin"
+		],
+		"category": "Gin Drinks"
+	},
+	{
+		"name": "Creamy Gin Sour",
+		"icon": "wine",
+		"directions": "Mix ingredients in blender with crushed ice. Pour into glass.",
+		"ingredients": [
+			"1 oz of gin",
+			"1 oz of lime juice",
+			"1 oz of lemon juice",
+			"1 oz of heavy cream",
+			"0.5 oz of triple sec",
+			"1 tsp of sugar",
+			"2 oz of club soda"
+		],
+		"category": "Frozen Drinks"
+	},
+	{
+		"name": "Citron Neon",
+		"icon": "hurricane",
+		"directions": "Mix ingredients in blender with crushed ice. Pour into glass. Garnish with lemon wedge and cherry.",
+		"ingredients": [
+			"1.5 oz of citrus vodka",
+			"1 oz of melon liqueur",
+			"0.5 oz of blue curacao",
+			"0.5 oz of lime juice",
+			"1 oz of sour mix"
+		],
+		"category": "Frozen Drinks"
+	},
+	{
+		"name": "Mexican Madras",
+		"icon": "old_fashioned",
+		"directions": "Mix ingredients in shaker with ice. Strain into glass and garnish with orange slice.",
+		"ingredients": [
+			"3 oz of cranberry juice",
+			"0.5 oz of orange juice",
+			"1 oz of gold tequila",
+			"1 dash of lime juice"
+		],
+		"category": "Tequila Drinks"
+	},
+	{
+		"name": "Purple Pancho",
+		"icon": "martini",
+		"directions": "Mix ingredient and pour into salt-rimmed glass. Garnish with lime wedge.",
+		"ingredients": [
+			"1 oz of tequila",
+			"0.5 oz of blue curacao",
+			"0.5 oz of sloe gin",
+			"2 oz of lime juice",
+			"2 oz of sour mix"
+		],
+		"category": "Tequila Drinks"
+	},
+	{
+		"name": "Handball Cooler",
+		"icon": "highball",
+		"directions": "Pour vodka over ice in glass. Fill almost to top with club soda then top with orange juice. Stir vigorously and garnish with lime wedge.",
+		"ingredients": ["1.5 oz of vodka", "Club soda", "1 splash of orange juice"],
+		"category": "Vodka Drinks"
+	},
+	{
+		"name": "Harvey Wallbanger",
+		"icon": "highball",
+		"directions": "Pour vodka and orange juice over ice into glass. Top with galliano.",
+		"ingredients": ["1 oz of vodka", "4 oz of orange juice", "0.5 oz of golliano"],
+		"category": "Vodka Drinks"
+	},
+	{
+		"name": "Long Island Iced Tea",
+		"icon": "highball",
+		"directions": "Pour ingredients over crushed ice in glass. Top with cola and garnish with lemon slice.",
+		"ingredients": [
+			"0.5 oz of vodka",
+			"0.5 oz of gin",
+			"0.5 oz of light rum",
+			"Juice of 0.5 lemon",
+			"1 dash of cola"
+		],
+		"category": "Vodka Drinks"
+	},
+	{
+		"name": "Pink Lemonade",
+		"icon": "highball",
+		"directions": "Pour ingredients over crushed ice in glass. Garnish with lemon wedge.",
+		"ingredients": [
+			"1.5 oz of citrus vodka",
+			"1 splash of triple sec",
+			"1 splash of lime juice",
+			"2 oz of sour mix",
+			"2 oz of cranberry juice"
+		],
+		"category": "Vodka Drinks"
+	},
+	{
+		"name": "Fog Horn",
+		"icon": "highball",
+		"directions": "Pour ingredients over crushed ice in glass. Top with ginger ale and stir. Garnish with a slice of lime.",
+		"ingredients": ["Juice of 1 lime", "1.5 oz of gin", "Ginger Ale"],
+		"category": "Gin Drinks"
+	},
+	{
+		"name": "Gin and sin",
+		"icon": "martini",
+		"directions": "Shake with crushed ice and strain in glass.",
+		"ingredients": [
+			"1 oz of gin",
+			"1 oz of lemon juice",
+			"1 tbsp of orange juice",
+			"1 dash of grenadine"
+		],
+		"category": "Gin Drinks"
+	},
+	{
+		"name": "Rum Runner",
+		"icon": "old_fashioned",
+		"directions": "Shake ingredients with crushed ice and strain in salt-rimmed glass over ice cubes.",
+		"ingredients": [
+			"1.5 oz of gin",
+			"Juice of 1 lime",
+			"1 oz of pineapple juice",
+			"1 tsp of sugar",
+			"1 dash of bitters"
+		],
+		"category": "Gin Drinks"
+	},
+	{
+		"name": "Frozen Daiquiri",
+		"icon": "wine",
+		"directions": "Mix ingredients in blender with crushed ice. Pour in glass and garnish with a cherry.",
+		"ingredients": [
+			"1.5 oz of light rum",
+			"1 tbsp of triple sec",
+			"1.5 oz of lime juice",
+			"1 tsp of sugar"
+		],
+		"category": "Frozen Drinks"
+	},
+	{
+		"name": "Frozen Fuzzy",
+		"icon": "wine",
+		"directions": "Mix ingredients in blender with crushed ice. Pour into glass and garnish with a lime wedge.",
+		"ingredients": [
+			"1 oz of peach schnapps",
+			"0.5 oz of triple sec",
+			"0.5 oz of lime juice",
+			"0.5 oz of grenadine",
+			"1 splash of lemon-lime soda"
+		],
+		"category": "Frozen Drinks"
+	},
+	{
+		"name": "Silk Stockings",
+		"icon": "martini",
+		"directions": "Shake ingredients with crushed ice. Strain in glass the sprinkle with cinnamon.",
+		"ingredients": [
+			"1.5 oz of tequila",
+			"1 oz of creme de cacao",
+			"1.5 oz of cream",
+			"1 dash of grenadine"
+		],
+		"category": "Tequila drinks"
+	},
+	{
+		"name": "Tijuana Taxi",
+		"icon": "highball",
+		"directions": "Pour tequila, curacao and schnapps over crushed ice in glass. Top with lemon-lime soda and garnish with an orange slice and a cherry.",
+		"ingredients": [
+			"2 oz of tequila",
+			"1 oz of blue curacao",
+			"1 oz of tropical fruit schnapps",
+			"Lemon-lime soda"
+		],
+		"category": "Tequila Drinks"
+	},
+	{
+		"name": "Affair",
+		"icon": "shooter",
+		"directions": "Shake ingredients with crushed ice and strain to glass.",
+		"ingredients": [
+			"1 oz of strawberry schnapps",
+			"1 oz of cranberry juice",
+			"1 oz of orange juice"
+		],
+		"category": "Shooters"
+	},
+	{
+		"name": "B-52",
+		"icon": "shooter",
+		"directions": "Pour carefully each ingredients into glass.",
+		"ingredients": [
+			"0.5 oz of coffee liqueur",
+			"0.5 oz of irish cream liqueur",
+			"0.5 oz of grand marnier"
+		],
+		"category": "Shooters"
+	},
+	{
+		"name": "Between The Sheets",
+		"icon": "shooter",
+		"directions": "Shake ingredients with crushed ice and strain into glass.",
+		"ingredients": [
+			"Juice of 0.25 lemon",
+			"0.5 oz of brandy",
+			"0.5 oz of triple sec",
+			"0.5 oz of light rum"
+		],
+		"category": "Shooters"
+	},
+	{
+		"name": "Buzzard's Breath",
+		"icon": "shooter",
+		"directions": "Shake ingredients with crushed ice and strain into glass.",
+		"ingredients": [
+			"0.5 oz of amaretto",
+			"0.5 oz of peppermint schnapps",
+			"0.5 oz of coffee liqueur"
+		],
+		"category": "Shooters"
+	},
+	{
+		"name": "C. C. Kazi",
+		"icon": "shooter",
+		"directions": "Shake ingredients with crushed ice and strain into glass.",
+		"ingredients": ["1.25 oz of tequila", "2 oz of cranberry juice", "1 tsp of lime juice"],
+		"category": "Shooters"
+	},
+	{
+		"name": "Galactic Ale",
+		"icon": "shooter",
+		"directions": "Shake ingredients with crushed ice and strain into glass.",
+		"ingredients": [
+			"0.625 oz of vodka",
+			"0.625 oz of blue curacao",
+			"0.5 oz of lime juice",
+			"0.25 oz of black raspberry liqueur"
+		],
+		"category": "Shooters"
+	},
+	{
+		"name": "Green Demon",
+		"icon": "shooter",
+		"directions": "Shake ingredients with crushed ice and strain into glass.",
+		"ingredients": [
+			"0.5 oz of vodka",
+			"0.5 oz of rum",
+			"0.5 oz of melon liqueur",
+			"0.5 oz of lemonade"
+		],
+		"category": "Shooters"
+	},
+	{
+		"name": "Johnny Beach",
+		"icon": "shooter",
+		"directions": "Shake ingredients with crushed ice and strain into glass.",
+		"ingredients": [
+			"0.75 oz of vodka",
+			"0.5 oz of melon liqueur",
+			"0.25 oz of pineapple juice",
+			"0.25 oz of orange juice",
+			"0.5 oz of black raspberry liqueur",
+			"0.25 oz of grapefruit juice",
+			"0.25 oz of cranberry juice"
+		],
+		"category": "Shooters"
+	},
+	{
+		"name": "Kamikaze",
+		"icon": "shooter",
+		"directions": "Shake ingredients with crushed ice and strain into glass.",
+		"ingredients": ["0.5 oz of lime juice", "0.5 oz of triple sec", "0.5 oz of vodka"],
+		"category": "Shooters"
+	},
+	{
+		"name": "Lemon Drop",
+		"icon": "shooter",
+		"directions": "Shake vodka with crushed ice and strain into glass. Dip each side of lemon wedge in sugar. Shoot vodka and bite into lemon wedge.",
+		"ingredients": ["1.5 oz of vodka", "Lime wedge", "Sugar"],
+		"category": "Shooters"
+	},
+	{
+		"name": "Parisian Blonde",
+		"icon": "shooter",
+		"directions": "Shake ingredients with crushed ice and strain into glass.",
+		"ingredients": ["0.75 oz of light rum", "0.75 oz of triple sec", "0.75 oz of jamaican rum"],
+		"category": "Shooters"
+	},
+	{
+		"name": "Purple Hooter",
+		"icon": "shooter",
+		"directions": "Shake ingredients with crushed ice and strain into chilled glass.",
+		"ingredients": [
+			"1.5 oz of citrus vodka",
+			"0.5 oz of triple sec",
+			"0.25 oz of black raspberry liqueur"
+		],
+		"category": "Shooters"
+	},
+	{
+		"name": "Rocky Mountain",
+		"icon": "shooter",
+		"directions": "Shake ingredients with crushed ice and strain into glass.",
+		"ingredients": ["1 oz of southern comfort", "1 oz of amaretto", "0.5 oz of lime juice"],
+		"category": "Shooters"
+	},
+	{
+		"name": "Sex On The Beach",
+		"icon": "shooter",
+		"directions": "Shake ingredients with crushed ice and strain into glass. Top with cranberry juice.",
+		"ingredients": [
+			"0.5 oz of black raspberry liqueur",
+			"0.5 oz of melon liqueur",
+			"0.5 oz of vodka",
+			"1 oz of pineapple juice",
+			"Cranberry juice"
+		],
+		"category": "Shooters"
+	},
+	{
+		"name": "Sour Apple",
+		"icon": "shooter",
+		"directions": "Shake ingredients with crushed ice and strain into glass.",
+		"ingredients": [
+			"0.75 oz of vodka",
+			"0.75 oz of apple liqueur",
+			"0.5 oz of melon liqueur",
+			"0.5 oz of lemon-lime soda"
+		],
+		"category": "Shooters"
+	},
+	{
+		"name": "Woo Woo",
+		"icon": "shooter",
+		"directions": "Shake ingredients with crushed ice and strain into glass.",
+		"ingredients": ["0.5 oz of peach schnapps", "0.5 oz of vodka", "1 oz of cranberry juice"],
+		"category": "Shooters"
+	}
+]
