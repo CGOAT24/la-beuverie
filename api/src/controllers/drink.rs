@@ -4,6 +4,8 @@ use crate::requests::create_drink_request::CreateDrinkRequest;
 
 pub fn config(cfg: &mut web::ServiceConfig) {
     cfg.service(get_all);
+    cfg.service(get);
+    cfg.service(create);
 }
 
 #[get("/api/drinks")]

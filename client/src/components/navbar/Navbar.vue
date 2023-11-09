@@ -5,6 +5,7 @@ import { ref } from "vue"
 
 const searchBarEnabled = ref(false)
 const title = "La Beuverie"
+const isAuthenticated = ref(true)
 const emits = defineEmits({
   searchInput: null
 })
@@ -53,7 +54,7 @@ const searchValueChanged = (event: Event) => {
       <NavbarButton color="#A5EFFF">
         <FunnelIcon class="h-6 w-6 bg-inherit" />
       </NavbarButton>
-      <NavbarButton color="#FDF0AB">
+      <NavbarButton color="#FDF0AB" v-if="isAuthenticated">
         <PlusIcon class="h-6 w-6 bg-inherit" />
       </NavbarButton>
       <NavbarButton color="#90EE90" @click="userButtonClick">

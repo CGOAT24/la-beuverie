@@ -3,7 +3,7 @@ use futures::TryStreamExt;
 use mongodb::bson::doc;
 use mongodb::{bson, Client, Cursor};
 use mongodb::options::ClientOptions;
-use crate::models::model;
+use crate::models::model::Model;
 
 pub struct MongoClient {
     client: Client,
@@ -48,9 +48,13 @@ impl MongoClient {
             database,
         })
     }
+
+    pub async fn exists(&self, _filter: Document) -> mongodb::error::Result<bool> {
+        todo!()
+    }
 }
 
-pub async fn cursor_to_vec<T: model::Model>(mut cursor: Cursor<Document>) -> Result<Vec<T::Type>, mongodb::error::Error> {
+pub async fn cursor_to_vec<T: Model>(mut cursor: Cursor<Document>) -> Result<Vec<T::Type>, mongodb::error::Error> {
     let mut result: Vec<T::Type> = vec![];
     while let Some(doc) = cursor.try_next().await? {
         result.push(T::new(doc));
