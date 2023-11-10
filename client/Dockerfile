@@ -1,8 +1,6 @@
 FROM node:lts as build
 WORKDIR /app
 COPY package*.json .
-RUN npm ci
+RUN npm ci --omit-dev
 COPY . .
-RUN npm run build
-
-CMD ["node", "/app/.svelte-kit/output/server/index.js"]
+ENTRYPOINT ["node", "build"]
