@@ -24,7 +24,7 @@
 	</div>
 	<div class="flex flex-wrap justify-end mr-3">
 		<NavbarButton
-			class="flex justify-between content-center items-center transition ease-in-out duration-700"
+			tailwind="flex justify-between content-center items-center transition ease-in-out duration-700"
 			color="#FEA9AA"
 			on:click={() => (searchBarEnabled = true)}
 		>
