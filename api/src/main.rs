@@ -1,26 +1,32 @@
 use actix_web::{App, HttpServer};
+use dotenv::dotenv;
 
+mod types;
+mod middlewares;
+mod extractors;
 mod handlers;
+
 pub mod services;
 pub mod mongo_client;
 pub mod models;
 pub mod requests;
 
-use handlers::drink;
-use handlers::tag;
-use handlers::user;
-use handlers::auth;
-
 #[actix_web::main]
 async fn main() -> std::io::Result<()> {
+    dotenv().ok();
+    env_logger::init();
+    let config = types::Config::default();
+    let auth0_config = extractors::claims::Auth0Config::default();
     HttpServer::new(move || {
         App::new()
-            .configure(drink::config)
-            .configure(tag::config)
-            .configure(auth::config)
-            .configure(user::config)
+            .app_data(auth0_config.clone())
+            .wrap(middlewares::cors::cors(&config.client_origin_url))
+            //.wrap(middlewares::err_handlers::err_handlers())
+            .wrap(middlewares::security_headers::security_headers())
+            .wrap(middlewares::logger::logger())
+            .service(handlers::routes::routes())
     })
-        .bind(("0.0.0.0", 8000))?
+        .bind((config.host, config.port))?
         .run()
         .await
 }

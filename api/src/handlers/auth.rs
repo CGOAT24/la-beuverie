@@ -9,11 +9,6 @@ use actix_web::{
 use crate::services;
 use crate::services::auth::devalidate_jwt;
 
-pub fn config(cfg: &mut web::ServiceConfig) {
-    cfg.service(login);
-    cfg.service(logout);
-}
-
 #[post("/auth/login")]
 pub async fn login(body: web::Json<LoginUserRequest>) -> impl Responder {
     let user: User = services::user::get_from_email(body.clone().email).await;
