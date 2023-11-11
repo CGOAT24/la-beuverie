@@ -1,6 +1,9 @@
-FROM node:lts as build
+FROM node:alpine AS build
+
 WORKDIR /app
+
 COPY package*.json .
-RUN npm ci --omit-dev
+RUN npm ci
 COPY . .
-ENTRYPOINT ["node", "build"]
+RUN npm run build
+CMD ["node", "build/index.js"]
