@@ -2,16 +2,16 @@ use bson::Document;
 use futures::TryStreamExt;
 use mongodb::bson::doc;
 use mongodb::{bson, Client, Cursor};
-use mongodb::options::ClientOptions;
+use mongodb::options::{ClientOptions};
 use crate::models::model::Model;
 
-pub struct MongoClient {
+pub struct DatabaseClient {
     client: Client,
     collection: String,
     database: String
 }
 
-impl MongoClient {
+impl DatabaseClient {
     pub async fn get_all(&self) -> mongodb::error::Result<Cursor<Document>> {
         let db = &self.client.database(&self.database).collection(&self.collection);
         db.find(doc! {}, None).await
@@ -37,21 +37,17 @@ impl MongoClient {
         db.insert_one(document.clone(), None).await.expect("Error occurred while inserting document");
     }
 
-    pub async fn new(collection: String) -> Result<MongoClient, mongodb::error::Error> {
+    pub async fn new(collection: String) -> Result<DatabaseClient, mongodb::error::Error> {
         let database: String = dotenv::var("MONGO_DATABASE").expect("MONGO_DATABASE must be set");
         let uri: String = dotenv::var("MONGO_URI").expect("MONGO_URI must be set");
         let client_options = ClientOptions::parse(uri).await?;
         let client = Client::with_options(client_options)?;
 
-        Ok(MongoClient {
+        Ok(DatabaseClient {
             client,
             collection,
             database,
         })
-    }
-
-    pub async fn exists(&self, _filter: Document) -> mongodb::error::Result<bool> {
-        todo!()
     }
 }
 

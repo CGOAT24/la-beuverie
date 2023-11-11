@@ -19,7 +19,7 @@ impl Model for Drink {
             "id": &self.id,
             "name": &self.name,
             "directions": &self.directions,
-            "tags": &self.ingredients,
+            "tags": &self.tags,
             "ingredients": &self.ingredients
         }
     }

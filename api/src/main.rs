@@ -6,10 +6,8 @@ mod middlewares;
 mod extractors;
 mod handlers;
 
-pub mod services;
-pub mod mongo_client;
+pub mod database;
 pub mod models;
-pub mod requests;
 
 #[actix_web::main]
 async fn main() -> std::io::Result<()> {

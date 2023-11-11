@@ -6,4 +6,5 @@ pub fn routes() -> Scope {
         .service(handler::get)
         .service(handler::create)
         .service(handler::get_all)
+        .service(handler::delete)
 }

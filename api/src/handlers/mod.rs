@@ -1,4 +1,3 @@
-mod auth;
 mod drinks;
 mod tags;
 pub mod routes;

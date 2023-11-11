@@ -121,7 +121,7 @@ impl FromRequest for Claims {
                         jwks = res.json().await.unwrap();
                     }
                     else {
-                        panic!("AAAAAAHHH");
+                        panic!("Error while retrieving jwks");
                     }
                 }
                 Err(e) => {

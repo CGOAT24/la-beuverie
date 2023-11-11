@@ -1,11 +1,11 @@
 use bson::{doc, Document};
-use crate::{mongo_client::mongo_client::MongoClient};
+use crate::database::database_client::DatabaseClient;
+use crate::handlers::users::types::CreateUserRequest;
 use crate::models::model::Model;
 use crate::models::user::User;
-use crate::requests::create_user_request::CreateUserRequest;
 
-async fn get_client() -> MongoClient {
-    MongoClient::new("users".to_string()).await.expect("error while creating mongo client")
+async fn get_client() -> DatabaseClient {
+    DatabaseClient::new("users".to_string()).await.expect("error while creating mongo client")
 }
 
 pub async fn get_from_id(id: String) -> User {
