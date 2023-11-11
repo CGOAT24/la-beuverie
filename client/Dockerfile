@@ -6,4 +6,9 @@ COPY package*.json .
 RUN npm ci
 COPY . .
 RUN npm run build
+
+FROM node:alpine as deploy
+WORKDIR /app
+COPY --from=build /app .
+
 CMD ["node", "build/index.js"]
