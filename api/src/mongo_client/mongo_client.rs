@@ -38,8 +38,9 @@ impl MongoClient {
     }
 
     pub async fn new(collection: String) -> Result<MongoClient, mongodb::error::Error> {
-        let database: String = "la-beuverie".to_string();
-        let client_options = ClientOptions::parse("mongodb://root:password@host.docker.internal:27017/".to_owned() + &*database + "?authSource=admin").await?;
+        let database: String = std::env::var("MONGO_DATABASE").expect("MONGO_DATABASE must be set");
+        let uri: String = std::env::var("MONGO_URI").expect("MONGO_URI must be set");
+        let client_options = ClientOptions::parse(uri).await?;
         let client = Client::with_options(client_options)?;
 
         Ok(MongoClient {
