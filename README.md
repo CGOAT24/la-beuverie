@@ -33,23 +33,9 @@
 
 ## Key Features
 
-* LivePreview - Make changes, See changes
-- Instantly see what your Markdown documents look like in HTML as you create them.
-* Sync Scrolling
-- While you type, LivePreview will automatically scroll to the current location you're editing.
-* GitHub Flavored Markdown
-* Syntax highlighting
-* [KaTeX](https://khan.github.io/KaTeX/) Support
-* Dark/Light mode
-* Toolbar for basic Markdown formatting
-* Supports multiple cursors
-* Save the Markdown preview as PDF
-* Emoji support in preview :tada:
-* App will keep alive in tray for quick usage
-* Full screen mode
-- Write distraction free.
-* Cross platform
-- Windows, macOS and Linux ready.
+* TODO
+- TODO
+
 
 ## How To Use
 Make sure Docker Compose is installed on your machine,
@@ -65,16 +51,16 @@ docker compose up -d
 
 This software uses the following open source packages:
 
-- [Rust](http://electron.atom.io/)
-- [Actix web](https://nodejs.org/)
-- [MongoDb](https://github.com/chjj/marked)
-- [Vuejs](http://showdownjs.github.io/showdown/)
+- [Rust]()
+- [Actix web]()
+- [MongoDb]()
+- [Svelte]()
 
 The README template was provided by [amitmerchant1990](https://github.com/amitmerchant1990/electron-markdownify#readme)
 
 ## License
 
-MIT
+[MIT](https://github.com/CGOAT24/la-beuverie/blob/main/LICENSE)
 
 ---
 <div align="center">

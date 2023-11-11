@@ -16,7 +16,7 @@ pub fn config(cfg: &mut web::ServiceConfig) {
 
 #[post("/auth/login")]
 pub async fn login(body: web::Json<LoginUserRequest>) -> impl Responder {
-    let user: User = services::user::get(body.clone().email).await;
+    let user: User = services::user::get_from_email(body.clone().email).await;
 
     let parsed_hash: PasswordHash = PasswordHash::new(&user.password).unwrap();
     let is_valid: bool = Argon2::default()

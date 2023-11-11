@@ -8,7 +8,13 @@ async fn get_client() -> MongoClient {
     MongoClient::new("users".to_string()).await.expect("error while creating mongo client")
 }
 
-pub async fn get(email: String) -> User {
+pub async fn get_from_id(id: String) -> User {
+    let client = get_client().await;
+    let data: Document = client.get(doc! { "id" : id}).await.unwrap().unwrap();
+    User::new(data)
+}
+
+pub async fn get_from_email(email: String) -> User {
     let client = get_client().await;
     let data: Document = client.get(doc! {"email": email}).await.unwrap().unwrap();
     User::new(data)
