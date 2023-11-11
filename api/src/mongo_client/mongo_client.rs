@@ -1,4 +1,5 @@
 use bson::Document;
+use dotenv::dotenv;
 use futures::TryStreamExt;
 use mongodb::bson::doc;
 use mongodb::{bson, Client, Cursor};
@@ -38,8 +39,9 @@ impl MongoClient {
     }
 
     pub async fn new(collection: String) -> Result<MongoClient, mongodb::error::Error> {
-        let database: String = std::env::var("MONGO_DATABASE").expect("MONGO_DATABASE must be set");
-        let uri: String = std::env::var("MONGO_URI").expect("MONGO_URI must be set");
+        dotenv().ok();
+        let database: String = dotenv::var("MONGO_DATABASE").expect("MONGO_DATABASE must be set");
+        let uri: String = dotenv::var("MONGO_URI").expect("MONGO_URI must be set");
         let client_options = ClientOptions::parse(uri).await?;
         let client = Client::with_options(client_options)?;
 
