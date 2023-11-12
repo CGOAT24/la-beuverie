@@ -19,7 +19,6 @@ async fn main() -> std::io::Result<()> {
         App::new()
             .app_data(auth0_config.clone())
             .wrap(middlewares::cors::cors(&config.client_origin_url))
-            //.wrap(middlewares::err_handlers::err_handlers())
             .wrap(middlewares::security_headers::security_headers())
             .wrap(middlewares::logger::logger())
             .service(handlers::routes::routes())
