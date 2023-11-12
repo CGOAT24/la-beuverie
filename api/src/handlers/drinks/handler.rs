@@ -1,4 +1,5 @@
 use actix_web::{get, post, HttpResponse, Responder, web, delete, put};
+use serde_json::json;
 use crate::extractors::claims::Claims;
 use crate::handlers::drinks::service;
 use crate::handlers::drinks::types::{CreateDrinkRequest, UpdateDrinkRequest};
@@ -17,8 +18,10 @@ async fn get(id: web::Path<String>) -> impl Responder {
 
 #[post("")]
 async fn create(request: web::Json<CreateDrinkRequest>, _claims: Claims) -> impl Responder {
-    let data = service::add(request.0).await;
-    HttpResponse::Ok().json(data)
+    if let Some(data) = service::add(request.0).await {
+        return HttpResponse::Ok().json(data)
+    }
+    HttpResponse::BadRequest().json(json!({"error": "invalid data"}))
 }
 
 #[delete("{id}")]
@@ -28,6 +31,9 @@ async fn delete(id: web::Path<String>, _claims: Claims) -> impl Responder {
 }
 
 #[put("")]
-async fn update(_request: web::Json<UpdateDrinkRequest>, _claims: Claims) -> impl Responder {
-    HttpResponse::Ok()
+async fn update(request: web::Json<UpdateDrinkRequest>, _claims: Claims) -> impl Responder {
+    if let Some(user) = service::update(request.0).await {
+        return HttpResponse::Ok().json(user)
+    }
+    HttpResponse::BadRequest().json(json!({"error": "invalid data"}))
 }

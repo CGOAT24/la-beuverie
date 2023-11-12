@@ -4,7 +4,7 @@ use crate::models::model::Model;
 
 #[derive(Serialize, Deserialize)]
 pub struct Drink {
-    #[serde(rename = "_id")]
+    #[serde(rename(deserialize = "_id"))]
     pub id: String,
     pub name: String,
     pub directions: String,
