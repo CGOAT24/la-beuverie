@@ -1,12 +1,12 @@
 use bson::{doc, Document};
-use crate::mongo_client::mongo_client::{cursor_to_vec, MongoClient};
+use crate::database::database_client::{cursor_to_vec, DatabaseClient};
 use crate::models::drink::Drink;
 use uuid::Uuid;
+use crate::handlers::drinks::types::CreateDrinkRequest;
 use crate::models::model::Model;
-use crate::requests::create_drink_request::CreateDrinkRequest;
 
-async fn get_client() -> MongoClient {
-    MongoClient::new("drinks".to_string()).await.expect("error while creating mongo client")
+async fn get_client() -> DatabaseClient {
+    DatabaseClient::new("drinks".to_string()).await.unwrap()
 }
 
 pub async fn get_all() -> Vec<Drink> {
@@ -32,4 +32,9 @@ pub async fn add(request: CreateDrinkRequest) -> Drink {
     let client = get_client().await;
     client.add(drink.to_document()).await;
     drink
+}
+
+pub async fn delete(id: String) {
+    let client = get_client().await;
+    client.delete(doc! { "id": id }).await;
 }

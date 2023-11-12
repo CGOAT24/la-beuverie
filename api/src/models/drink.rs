@@ -4,6 +4,7 @@ use crate::models::model::Model;
 
 #[derive(Serialize, Deserialize)]
 pub struct Drink {
+    #[serde(rename = "_id")]
     pub id: String,
     pub name: String,
     pub directions: String,
@@ -19,7 +20,7 @@ impl Model for Drink {
             "id": &self.id,
             "name": &self.name,
             "directions": &self.directions,
-            "tags": &self.ingredients,
+            "tags": &self.tags,
             "ingredients": &self.ingredients
         }
     }
@@ -36,9 +37,9 @@ impl Model for Drink {
             .filter_map(|bson| bson.as_str().map(String::from))
             .collect();
         Drink {
-            id: doc.get("id").unwrap().to_string(),
-            name: doc.get("name").unwrap().to_string(),
-            directions: doc.get("directions").unwrap().to_string(),
+            id: doc.get_str("id").unwrap().to_string(),
+            name: doc.get_str("name").unwrap().to_string(),
+            directions: doc.get_str("directions").unwrap().to_string(),
             tags,
             ingredients,
         }
