@@ -1,7 +1,7 @@
-use bson::Document;
+use bson::{Bson, Document};
 use futures::TryStreamExt;
 use mongodb::bson::doc;
-use mongodb::{bson, Client, Cursor};
+use mongodb::{bson, Client, Collection, Cursor};
 use mongodb::options::{ClientOptions};
 use crate::models::model::Model;
 
@@ -35,6 +35,11 @@ impl DatabaseClient {
     pub async fn add(&self, document: Document) {
         let db = &self.client.database(&self.database).collection(&self.collection);
         db.insert_one(document.clone(), None).await.expect("Error occurred while inserting document");
+    }
+
+    pub async fn unique(&self, field: String) -> mongodb::error::Result<Vec<Bson>> {
+        let db: &Collection<Document> = &self.client.database(&self.database).collection(&self.collection);
+        db.distinct(field, doc! {}, None).await
     }
 
     pub async fn new(collection: String) -> Result<DatabaseClient, mongodb::error::Error> {
