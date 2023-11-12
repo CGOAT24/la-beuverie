@@ -1,17 +1,19 @@
 use actix_web::{get, HttpResponse, post, Responder, web};
 use argon2::{Argon2, PasswordHash, PasswordVerifier};
 use crate::extractors::claims::Claims;
+use crate::handlers::types::Dto;
 use crate::handlers::users::service;
-use crate::handlers::users::types::{CreateUserRequest, LoginUserRequest};
+use crate::handlers::users::types::{CreateUserRequest, LoginUserRequest, UserDto};
 
 #[get("/me")]
-pub async fn get(_claims: Claims) -> impl Responder {
-    HttpResponse::Ok()
+pub async fn get(claims: Claims) -> impl Responder {
+    HttpResponse::Ok().json(claims)
 }
 
 #[post("")]
 pub async fn create(request: web::Json<CreateUserRequest>) -> impl Responder {
-    let user = service::create(request.0).await;
+    let data = service::create(request.0).await.unwrap();
+    let user = UserDto::from_model(data);
     HttpResponse::Ok().json(user)
 }
 
