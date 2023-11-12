@@ -16,3 +16,11 @@ pub struct UpdateDrinkRequest {
     pub tags: Vec<String>,
     pub directions: String
 }
+
+#[derive(Serialize, Deserialize, Debug)]
+pub struct ValidateDrinkRequest {
+    pub name: String,
+    pub ingredients: Vec<String>,
+    pub tags: Vec<String>,
+    pub directions: String
+}

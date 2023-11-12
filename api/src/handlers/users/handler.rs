@@ -18,7 +18,6 @@ pub async fn create(request: web::Json<CreateUserRequest>) -> impl Responder {
 #[post("/login")]
 pub async fn login(request: web::Json<LoginUserRequest>) -> impl Responder {
     if let Some(user) = service::get_from_email(request.0.email).await {
-        println!("{}", user.email);
         let parsed = PasswordHash::new(&user.password).unwrap();
         if Argon2::default().verify_password(request.0.password.as_bytes(), &parsed).is_ok() {
             let response = service::get_token().await;
