@@ -5,4 +5,5 @@ pub fn routes() -> Scope {
     web::scope("/users")
         .service(handler::get)
         .service(handler::create)
+        .service(handler::login)
 }

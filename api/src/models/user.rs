@@ -5,11 +5,11 @@ use super::model::Model;
 
 #[derive(Serialize, Deserialize)]
 pub struct User {
+    #[serde(rename = "_id")]
     pub id: String,
     pub name: String,
     pub email: String,
     pub password: String,
-    pub email_confirmed: bool
 }
 
 impl Model for User {
@@ -21,17 +21,15 @@ impl Model for User {
             "name": &self.name,
             "email": &self.email,
             "password": &self.password,
-            "email_confirmed": &self.email_confirmed,
         }
     }
 
     fn new(doc: bson::Document) -> Self::Type {
         User {
-            id: doc.get("id").unwrap().to_string(),
-            name: doc.get("name").unwrap().to_string(),
-            email: doc.get("email").unwrap().to_string(),
-            password: doc.get("password").unwrap().to_string(),
-            email_confirmed: doc.get_bool("email_confirmed").unwrap(),
+            id: doc.get_str("id").unwrap().to_string(),
+            name: doc.get_str("name").unwrap().to_string(),
+            email: doc.get_str("email").unwrap().to_string(),
+            password: doc.get_str("password").unwrap().to_string(),
         }
     }
 }

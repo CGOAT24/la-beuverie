@@ -28,6 +28,6 @@ async fn delete(id: web::Path<String>, _claims: Claims) -> impl Responder {
 }
 
 #[put("")]
-async fn update(request: web::Json<UpdateDrinkRequest>, _claims: Claims) -> impl Responder {
+async fn update(_request: web::Json<UpdateDrinkRequest>, _claims: Claims) -> impl Responder {
     HttpResponse::Ok()
 }

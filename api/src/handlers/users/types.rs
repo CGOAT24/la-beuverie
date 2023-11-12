@@ -27,3 +27,10 @@ pub struct ValidateUserRequest {
     email: String,
     password: String
 }
+
+#[derive(Serialize, Deserialize)]
+pub struct AuthResponse {
+    access_token: String,
+    token_type: String,
+    expires_in: i32
+}
