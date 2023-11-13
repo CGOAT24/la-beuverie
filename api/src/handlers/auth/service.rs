@@ -1,23 +1,12 @@
-use argon2::{Argon2, PasswordHasher};
-use argon2::password_hash::rand_core::OsRng;
-use argon2::password_hash::SaltString;
 use bson::doc;
 use crate::database::database_client::DatabaseClient;
-use crate::handlers::users::types::{AuthResponse, CreateUserRequest};
+use crate::handlers::auth::types::AuthResponse;
 use crate::models::model::Model;
-use crate::models::user::User;
 use reqwest::header;
+use crate::models::user::User;
 
 async fn get_client() -> DatabaseClient {
-    DatabaseClient::new("users".to_string()).await.expect("error while creating mongo client")
-}
-
-pub async fn get_from_id(id: String) -> Option<User> {
-    let client = get_client().await;
-    if let Some(user) = client.get(doc! { "id": id }).await.unwrap() {
-        return Some(User::new(user));
-    }
-    None
+    DatabaseClient::new("auth".to_string()).await.expect("error while creating mongo client")
 }
 
 pub async fn get_from_email(email: String) -> Option<User> {
@@ -27,21 +16,6 @@ pub async fn get_from_email(email: String) -> Option<User> {
         return Some(User::new(user));
     }
     None
-}
-
-pub async fn create(request: CreateUserRequest) -> Option<User> {
-    let argon2 = Argon2::default();
-    let password = argon2.hash_password(request.password.as_bytes(), &SaltString::generate(&mut OsRng)).unwrap().to_string();
-
-    let client = get_client().await;
-    let user = User {
-        id: uuid::Uuid::new_v4().to_string(),
-        name: request.name,
-        email: request.email,
-        password
-    };
-    client.add(user.to_document()).await;
-    Some(user)
 }
 
 pub async fn get_token() -> Option<AuthResponse> {
