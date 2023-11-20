@@ -19,7 +19,7 @@
 		<button
 			class="border-2 border-[#12110F] rounded-xl py-1 px-3 mx-1 bg-[#FEC704] tracking-wider text-3xl"
 		>
-			{title}
+			{ title }
 		</button>
 	</div>
 	<div class="flex flex-wrap justify-end mr-3">
