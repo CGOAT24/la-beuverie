@@ -14,7 +14,7 @@ derive_more = "0.99.17"
 env_logger = "0.10.1"
 envy = "0.4.2"
 jsonwebtoken = "9.1.0"
-serde = "1.0.190"
+serde = "1.0.193"
 awc = { version = "3.2.0", features = [ "openssl" ] }
 
 mongodb = "2.7.0"
