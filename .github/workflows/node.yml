@@ -18,26 +18,3 @@ jobs:
       - name: Build project
         working-directory: ./client
         run: npm run build
-  dependabot:
-    runs-on: ubuntu-latest
-    if: github.actor == 'dependabot[bot]'
-    steps:
-      - name: Dependabot metadata
-        id: metadata
-        uses: dependabot/fetch-metadata@v1
-        with:
-          github-token: "${{ secrets.GITHUB_TOKEN }}"
-      - uses: actions/checkout@v3
-      - name: Use Node.js
-        if: startsWith(steps.metadata.outputs.package-ecosystem, 'npm')
-        uses: actions/setup-node@v3
-        with:
-          node-version: "18.x"
-      - name: Install dependancies
-        if: startsWith(steps.metadata.outputs.package-ecosystem, 'npm')
-        working-directory: ./client
-        run: npm ci
-      - name: Build project
-        if: startsWith(steps.metadata.outputs.package-ecosystem, 'npm')
-        working-directory: ./client
-        run: npm run build
