@@ -1,0 +1,9 @@
+{
+    "image": "node:latest",
+    "customizations": {
+        "vscode": {
+            "extensions": ["vue.volar", "vue.vscode-typescript-vue-plugin", "dbaeumer.vscode-eslint", "esbenp.prettier-vscode", "bradlc.vscode-tailwindcss"]
+        }
+    },
+    "forwardPorts": [5173]
+}
