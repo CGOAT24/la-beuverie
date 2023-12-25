@@ -20,7 +20,7 @@ awc = { version = "3.2.0", features = [ "openssl" ] }
 mongodb = "2.7.0"
 bson = { version = "2", features = ["chrono-0_4"] }
 chrono = "0.4.31"
-futures = { version = "0.3.29", features = [] }
+futures = { version = "0.3.30", features = [] }
 uuid = "1.6.1"
 serde_json = "1.0.108"
 argon2 = "0.5.2"
