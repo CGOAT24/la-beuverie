@@ -22,6 +22,7 @@ pub struct Response {
 }
 
 #[derive(Debug, PartialEq)]
+#[allow(dead_code)]
 pub enum ErrorMessage {
     EmptyPassword,
     ExceededMaxPasswordLength(usize),
