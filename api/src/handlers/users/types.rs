@@ -1,9 +1,8 @@
 use mongodb::bson::oid::ObjectId;
 use serde::Serialize;
-use utoipa::ToSchema;
 use crate::models::user::User;
 
-#[derive(Serialize, ToSchema)]
+#[derive(Serialize)]
 pub struct UserDto {
     pub id: ObjectId,
     pub name: String,

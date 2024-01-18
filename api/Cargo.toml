@@ -21,5 +21,3 @@ uuid = { version = "1.6.1", features = ["serde", "v4"] }
 validator = { version = "0.16.1", features = ["derive"] }
 futures = "0.3.30"
 mongodb = "2.8.0"
-utoipa = { version = "4.2.0", features = ["chrono", "actix_extras"] }
-utoipa-swagger-ui = { version = "6.0.0", features = ["actix-web"] }

@@ -88,41 +88,6 @@ impl HttpError {
         }
     }
 
-    pub fn server_error(message: impl Into<String>) -> Self {
-        HttpError {
-            message: message.into(),
-            status: 500,
-        }
-    }
-
-    pub fn bad_request(message: impl Into<String>) -> Self {
-        HttpError {
-            message: message.into(),
-            status: 400,
-        }
-    }
-
-    pub fn unique_constraint_voilation(message: impl Into<String>) -> Self {
-        HttpError {
-            message: message.into(),
-            status: 409,
-        }
-    }
-
-    pub fn unauthorized(message: impl Into<String>) -> Self {
-        HttpError {
-            message: message.into(),
-            status: 401,
-        }
-    }
-
-    pub fn not_found(message: impl Into<String>) -> Self {
-        HttpError {
-            message: message.into(),
-            status: 404,
-        }
-    }
-
     pub fn into_http_response(self) -> HttpResponse {
         match self.status {
             400 => HttpResponse::BadRequest().json(Response {

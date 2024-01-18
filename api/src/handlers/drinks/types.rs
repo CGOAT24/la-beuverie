@@ -1,9 +1,8 @@
 use mongodb::bson::oid::ObjectId;
 use serde::{Deserialize, Serialize};
 use crate::models::drink::Drink;
-use utoipa::ToSchema;
 
-#[derive(Serialize, Deserialize, ToSchema)]
+#[derive(Serialize, Deserialize)]
 pub struct DrinkDto {
     pub id: ObjectId,
     pub name: String,
@@ -24,7 +23,7 @@ impl DrinkDto {
     }
 }
 
-#[derive(Serialize, Deserialize, ToSchema)]
+#[derive(Serialize, Deserialize)]
 pub struct CreateDrink {
     pub name: String,
     pub directions: String,
@@ -32,7 +31,7 @@ pub struct CreateDrink {
     pub ingredients: Vec<String>
 }
 
-#[derive(Serialize, Deserialize, ToSchema)]
+#[derive(Serialize, Deserialize)]
 pub struct UpdateDrink {
     pub id: uuid::Uuid,
     pub name: String,
