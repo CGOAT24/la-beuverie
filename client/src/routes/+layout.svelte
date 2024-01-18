@@ -13,7 +13,7 @@
 </script>
 
 <div
-	class="w-100 py-4 rounded-2xl border-4 mx-3 mt-1 border-[#12110F] shadow-[5px_5px_#12110F] flex justify-between"
+	class="w-100 py-4 rounded-2xl border-4 mx-3 mt-1 mb-5 border-[#12110F] shadow-[5px_5px_#12110F] flex justify-between"
 >
 	<div class="flex flex-wrap justify-start font-bold ml-3 content-center">
 		<button
@@ -24,7 +24,7 @@
 	</div>
 	<div class="flex flex-wrap justify-end mr-3">
 		<NavbarButton
-			tailwind="flex justify-between content-center items-center transition ease-in-out duration-700"
+			className="flex justify-between content-center items-center transition ease-in-out duration-700 "
 			color="#FEA9AA"
 			on:click={() => (searchBarEnabled = true)}
 		>
