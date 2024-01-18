@@ -1,0 +1,5 @@
+.vscode
+.git
+.gitattributes
+README.md
+Dockerfile

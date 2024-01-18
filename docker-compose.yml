@@ -14,7 +14,7 @@ services:
       - la-beuverie:/data/db
   api:
     container_name: la-beuverie-api
-    build: .
+    build: api
     ports:
       - "8000:8000"
     depends_on:
