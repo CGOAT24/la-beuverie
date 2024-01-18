@@ -1,0 +1,18 @@
+meta {
+  name: Login user
+  type: http
+  seq: 2
+}
+
+post {
+  url: 127.0.0.1:8000/api/auth/login
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "email": "fake@email.com",
+    "password": "fov086"
+  }
+}
