@@ -24,7 +24,7 @@ async fn register(
     data: web::Data<AppState>,
 ) -> impl Responder {
     let user_email = User {
-        id: uuid::Uuid::default(),
+        id: None,
         email: body.email.to_owned(),
         name: "".to_string(),
         password: "".to_string(),
@@ -43,14 +43,14 @@ async fn register(
         .expect("Error while hashing password")
         .to_string();
     let new_user = User {
-        id: uuid::Uuid::new_v4(),
+        id: None,
         name: body.name.to_string(),
         email: body.email.to_lowercase(),
         password: hashed_password
     };
     let inserted = data.db.users.create(new_user.to_owned()).await;
 
-    if inserted {
+    if inserted.id.is_some() {
         let user_response = json!({"status": "success","data": serde_json::json!({
                 "user": UserDto::new(new_user)
             })});
@@ -64,7 +64,7 @@ async fn register(
 #[post("/login")]
 async fn login(body: web::Json<LoginUser>, data: web::Data<AppState>, ) -> impl Responder {
     let login_info = data.db.users.get_from_email(User {
-        id: uuid::Uuid::default(),
+        id: None,
         email: body.email.to_owned(),
         name: "".to_string(),
         password: "".to_string()
@@ -89,7 +89,7 @@ async fn login(body: web::Json<LoginUser>, data: web::Data<AppState>, ) -> impl 
     let iat = now.timestamp() as usize;
     let exp = (now + Duration::minutes(60)).timestamp() as usize;
     let claims: TokenClaims = TokenClaims {
-        sub: user.id.to_string(),
+        sub: user.id.unwrap().to_string(),
         exp,
         iat,
     };

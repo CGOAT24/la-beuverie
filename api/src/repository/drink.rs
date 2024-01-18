@@ -24,7 +24,7 @@ impl Repo<Drink> for DrinkRepo {
         Some(self.repo.get(id).await.unwrap())
     }
 
-    async fn create(&self, t: Drink) -> bool {
+    async fn create(&self, t: Drink) -> Drink {
         self.repo.create(t).await.unwrap()
     }
 

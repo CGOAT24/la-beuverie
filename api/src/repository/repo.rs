@@ -9,7 +9,7 @@ use crate::models::model::Model;
 pub trait Repo<T: Model> {
     async fn get_all(&self) -> Vec<T>;
     async fn get(&self, id: uuid::Uuid) -> Option<T>;
-    async fn create(&self, t: T) -> bool;
+    async fn create(&self, t: T) -> T;
     async fn update(&self, t: T) -> bool;
     async fn delete(&self, id: uuid::Uuid) -> bool;
 }
@@ -19,7 +19,7 @@ pub struct BaseRepo<T: Model> {
     pub collection: Collection<T>
 }
 
-impl<T> BaseRepo<T> where T: Model + Serialize + DeserializeOwned + Unpin + Send + Sync {
+impl<T> BaseRepo<T> where T: Model + Serialize + DeserializeOwned + Unpin + Send + Sync + Clone {
     pub async fn init(collection: Collection<T>) -> BaseRepo<T> {
         BaseRepo {
             collection
@@ -36,9 +36,10 @@ impl<T> BaseRepo<T> where T: Model + Serialize + DeserializeOwned + Unpin + Send
         Ok(doc)
     }
 
-    pub async fn create(&self, model: T) -> Result<bool, Error> {
-        self.collection.insert_one(model, None).await.unwrap();
-        Ok(true)
+    pub async fn create(&self, mut model: T) -> Result<T, Error> {
+        let result = self.collection.insert_one(model.clone(), None).await.unwrap();
+        model.set_id(result.inserted_id.as_object_id().unwrap());
+        Ok(model)
     }
 
     pub async fn update(&self, model: T) -> Result<bool, Error> {

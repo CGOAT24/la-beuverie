@@ -5,6 +5,7 @@ use actix_web::error::ErrorUnauthorized;
 use actix_web::{dev::Payload, Error as ActixWebError};
 use actix_web::{http, web, FromRequest, HttpMessage, HttpRequest};
 use jsonwebtoken::{decode, DecodingKey, Validation};
+use mongodb::bson::oid::ObjectId;
 use serde::{Deserialize, Serialize};
 
 use crate::AppState;
@@ -29,7 +30,7 @@ impl fmt::Display for ErrorResponse {
 }
 
 pub struct JwtMiddleware {
-    pub user_id: uuid::Uuid,
+    pub user_id: ObjectId,
 }
 
 impl FromRequest for JwtMiddleware {
@@ -70,9 +71,10 @@ impl FromRequest for JwtMiddleware {
             }
         };
 
-        let user_id = uuid::Uuid::parse_str(claims.sub.as_str()).unwrap();
+
+        let user_id = ObjectId::parse_str(claims.sub.as_str()).unwrap();
         req.extensions_mut()
-            .insert::<uuid::Uuid>(user_id.to_owned());
+            .insert::<ObjectId>(user_id.to_owned());
 
         ready(Ok(JwtMiddleware { user_id }))
     }

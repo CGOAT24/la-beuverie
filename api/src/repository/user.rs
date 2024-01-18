@@ -29,7 +29,7 @@ impl Repo<User> for UserRepo {
         Some(self.repo.get(id).await.unwrap())
     }
 
-    async fn create(&self, t: User) -> bool {
+    async fn create(&self, t: User) -> User {
         self.repo.create(t).await.unwrap()
     }
 
