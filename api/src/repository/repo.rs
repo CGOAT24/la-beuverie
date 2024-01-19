@@ -58,6 +58,6 @@ async fn cursor_to_vec<T>(mut cursor: Cursor<T>) -> Result<Vec<T>, mongodb::erro
     while let Some(doc) = cursor.next().await {
         result.push(doc.unwrap());
     }
-    return Ok(result);
+    Ok(result)
 }
 

@@ -7,6 +7,7 @@ use mongodb::Client;
 use repository::db_client::DbClient;
 use crate::repository::drink::DrinkRepo;
 use crate::repository::user::UserRepo;
+use crate::repository::tag::TagRepo;
 use crate::utils::config::Config;
 
 mod models;
@@ -38,6 +39,7 @@ async fn main() -> std::io::Result<()> {
         db: DbClient {
             users: UserRepo::init(database.clone()).await,
             drinks: DrinkRepo::init(database.clone()).await,
+            tags: TagRepo::init(database.clone()).await
         },
     };
 
