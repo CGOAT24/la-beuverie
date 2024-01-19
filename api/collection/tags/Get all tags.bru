@@ -1,0 +1,15 @@
+meta {
+  name: Get all tags
+  type: http
+  seq: 1
+}
+
+get {
+  url: 127.0.0.1:8000/api/tags
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI2NWE5NTI1OTcyZWQxMmNmMjNkMmFjZTYiLCJpYXQiOjE3MDU2Nzg2MjcsImV4cCI6MTcwNTY4MjIyN30.254y5N3ud26JNBghJbprt_EZ5_VwbyJeC1XKV5dcmsA
+}

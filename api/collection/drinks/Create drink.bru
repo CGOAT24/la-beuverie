@@ -1,0 +1,32 @@
+meta {
+  name: Create drink
+  type: http
+  seq: 2
+}
+
+post {
+  url: 127.0.0.1:8000/api/drinks
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI2NWE5NTI1OTcyZWQxMmNmMjNkMmFjZTYiLCJpYXQiOjE3MDU2Nzg2MjcsImV4cCI6MTcwNTY4MjIyN30.254y5N3ud26JNBghJbprt_EZ5_VwbyJeC1XKV5dcmsA
+}
+
+body:json {
+  {
+    "name": "Alamo Splash",
+    "directions": "Mix with ice and strain into glass.",
+    "ingredients": [
+      "1/2 oz of tequila",
+      "1 oz of orange juice",
+      "1/2 oz of pineapple juice",
+      "1 splash of lemon-lime soda"
+    ],
+    "tags": [
+      "tequila",
+      "fruity"
+    ]
+  }
+}
