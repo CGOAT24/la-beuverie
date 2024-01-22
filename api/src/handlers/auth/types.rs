@@ -1,10 +1,9 @@
-use mongodb::bson::oid::ObjectId;
 use serde::{Deserialize, Serialize};
 use crate::models::user::User;
 
 #[derive(Serialize)]
 pub struct UserDto {
-    pub id: ObjectId,
+    pub id: String,
     pub name: String,
     pub email: String
 }
@@ -12,7 +11,7 @@ pub struct UserDto {
 impl UserDto {
     pub fn new(model: User) -> Self {
         UserDto {
-            id: model.id.unwrap(),
+            id: model.id.unwrap().to_string(),
             name: model.name,
             email: model.email,
         }

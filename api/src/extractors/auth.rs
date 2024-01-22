@@ -5,6 +5,7 @@ use futures_util::future::{ready, LocalBoxFuture, Ready};
 use std::rc::Rc;
 use std::task::{Context, Poll};
 use futures_util::FutureExt;
+use mongodb::bson::oid::ObjectId;
 
 use crate::{utils, AppState};
 use crate::models::user::User;
@@ -115,7 +116,7 @@ impl<S> Service<ServiceRequest> for AuthMiddleware<S>
         async move {
             let user_id = user_id.as_str();
 
-            let result = cloned_app_state.db.users.get(uuid::Uuid::parse_str(user_id).unwrap()).await;
+            let result = cloned_app_state.db.users.get(ObjectId::parse_str(user_id).unwrap()).await;
             let user = result.ok_or(ErrorUnauthorized(ErrorResponse {
                 status: "fail".to_string(),
                 message: ErrorMessage::UserNoLongerExist.to_string(),
