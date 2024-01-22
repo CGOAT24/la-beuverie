@@ -1,3 +1,4 @@
+use mongodb::bson::oid::ObjectId;
 use mongodb::Database;
 use crate::models::drink::Drink;
 use crate::repository::repo::{BaseRepo, Repo};
@@ -20,7 +21,7 @@ impl Repo<Drink> for DrinkRepo {
         self.repo.get_all().await.unwrap()
     }
 
-    async fn get(&self, id: uuid::Uuid) -> Option<Drink> {
+    async fn get(&self, id: ObjectId) -> Option<Drink> {
         Some(self.repo.get(id).await.unwrap())
     }
 
@@ -32,7 +33,7 @@ impl Repo<Drink> for DrinkRepo {
         self.repo.update(t).await.unwrap()
     }
 
-    async fn delete(&self, id: uuid::Uuid) -> bool {
+    async fn delete(&self, id: ObjectId) -> bool {
         self.repo.delete(id).await.unwrap()
     }
 }

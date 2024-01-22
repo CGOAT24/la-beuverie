@@ -1,4 +1,5 @@
 use mongodb::bson::doc;
+use mongodb::bson::oid::ObjectId;
 use mongodb::Database;
 use crate::models::user::User;
 use crate::repository::repo::{BaseRepo, Repo};
@@ -25,7 +26,7 @@ impl Repo<User> for UserRepo {
         self.repo.get_all().await.unwrap()
     }
 
-    async fn get(&self, id: uuid::Uuid) -> Option<User> {
+    async fn get(&self, id: ObjectId) -> Option<User> {
         Some(self.repo.get(id).await.unwrap())
     }
 
@@ -37,7 +38,7 @@ impl Repo<User> for UserRepo {
         self.repo.update(t).await.unwrap()
     }
 
-    async fn delete(&self, id: uuid::Uuid) -> bool {
+    async fn delete(&self, id: ObjectId) -> bool {
         self.repo.delete(id).await.unwrap()
     }
 }

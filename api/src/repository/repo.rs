@@ -1,6 +1,7 @@
 use futures_util::StreamExt;
-use mongodb::bson::{doc};
+use mongodb::bson::doc;
 use mongodb::{Collection, Cursor};
+use mongodb::bson::oid::ObjectId;
 use mongodb::error::Error;
 use serde::de::DeserializeOwned;
 use serde::Serialize;
@@ -8,10 +9,10 @@ use crate::models::model::Model;
 
 pub trait Repo<T: Model> {
     async fn get_all(&self) -> Vec<T>;
-    async fn get(&self, id: uuid::Uuid) -> Option<T>;
+    async fn get(&self, id: ObjectId) -> Option<T>;
     async fn create(&self, t: T) -> T;
     async fn update(&self, t: T) -> bool;
-    async fn delete(&self, id: uuid::Uuid) -> bool;
+    async fn delete(&self, id: ObjectId) -> bool;
 }
 
 #[derive(Clone)]
@@ -31,8 +32,9 @@ impl<T> BaseRepo<T> where T: Model + Serialize + DeserializeOwned + Unpin + Send
         Ok(cursor_to_vec(list).await.unwrap())
     }
 
-    pub async fn get(&self, id: uuid::Uuid) -> Result<T, Error> {
-        let doc = self.collection.find_one(doc! {"_id": id.to_string()}, None).await.unwrap().unwrap();
+    pub async fn get(&self, id: ObjectId) -> Result<T, Error> {
+        println!("{}", id);
+        let doc = self.collection.find_one(doc! {"_id": id}, None).await.unwrap().unwrap();
         Ok(doc)
     }
 
@@ -47,7 +49,7 @@ impl<T> BaseRepo<T> where T: Model + Serialize + DeserializeOwned + Unpin + Send
         Ok(true)
     }
 
-    pub async fn delete(&self, id: uuid::Uuid) -> Result<bool, Error> {
+    pub async fn delete(&self, id: ObjectId) -> Result<bool, Error> {
         self.collection.find_one_and_delete(doc! {"_id": id.to_string()}, None).await.unwrap();
         Ok(true)
     }
