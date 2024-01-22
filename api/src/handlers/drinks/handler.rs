@@ -17,8 +17,8 @@ async fn get_all(_: jwt_auth::JwtMiddleware, data: web::Data<AppState>) -> impl 
 }
 
 #[get("/{id}")]
-async fn get(path: web::Path<ObjectId>, _: jwt_auth::JwtMiddleware, data: web::Data<AppState>) -> impl Responder {
-    let model = data.db.drinks.get(path.into_inner()).await.unwrap();
+async fn get(path: web::Path<String>, _: jwt_auth::JwtMiddleware, data: web::Data<AppState>) -> impl Responder {
+    let model = data.db.drinks.get(ObjectId::parse_str(path.into_inner()).unwrap()).await.unwrap();
     let drink = DrinkDto::new(model);
     HttpResponse::Ok().json(Response::with_data(Status::SUCCESS, drink))
 }
@@ -37,9 +37,9 @@ async fn create(body: web::Json<CreateDrink>, data: web::Data<AppState>, _: jwt_
 }
 
 #[put("/{id}")]
-async fn update(path: web::Path<ObjectId>, body: web::Json<UpdateDrink>, data: web::Data<AppState>, _: jwt_auth::JwtMiddleware) -> impl Responder {
+async fn update(path: web::Path<String>, body: web::Json<UpdateDrink>, data: web::Data<AppState>, _: jwt_auth::JwtMiddleware) -> impl Responder {
     let input = Drink {
-        id: Some(path.into_inner()),
+        id: Some(ObjectId::parse_str(path.into_inner()).unwrap()),
         name: body.name.clone(),
         directions: body.directions.clone(),
         ingredients: body.ingredients.clone(),
@@ -50,7 +50,7 @@ async fn update(path: web::Path<ObjectId>, body: web::Json<UpdateDrink>, data: w
 }
 
 #[delete("/{id}")]
-async fn delete(path: web::Path<ObjectId>, data: web::Data<AppState>, _: jwt_auth::JwtMiddleware) -> impl Responder {
-    data.db.drinks.delete(path.into_inner()).await;
+async fn delete(path: web::Path<String>, data: web::Data<AppState>, _: jwt_auth::JwtMiddleware) -> impl Responder {
+    data.db.drinks.delete(ObjectId::parse_str(path.into_inner()).unwrap()).await;
     HttpResponse::Ok().json(Response::new(Status::SUCCESS))
 }

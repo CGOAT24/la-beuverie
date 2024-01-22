@@ -33,7 +33,6 @@ impl<T> BaseRepo<T> where T: Model + Serialize + DeserializeOwned + Unpin + Send
     }
 
     pub async fn get(&self, id: ObjectId) -> Result<T, Error> {
-        println!("{}", id);
         let doc = self.collection.find_one(doc! {"_id": id}, None).await.unwrap().unwrap();
         Ok(doc)
     }
@@ -45,12 +44,12 @@ impl<T> BaseRepo<T> where T: Model + Serialize + DeserializeOwned + Unpin + Send
     }
 
     pub async fn update(&self, model: T) -> Result<bool, Error> {
-        self.collection.replace_one(doc! {"_id": model.get_id().to_string()}, model, None).await.unwrap();
+        self.collection.replace_one(doc! {"_id": model.get_id()}, model, None).await.unwrap();
         Ok(true)
     }
 
     pub async fn delete(&self, id: ObjectId) -> Result<bool, Error> {
-        self.collection.find_one_and_delete(doc! {"_id": id.to_string()}, None).await.unwrap();
+        self.collection.delete_one(doc! {"_id": id}, None).await.unwrap();
         Ok(true)
     }
 }
