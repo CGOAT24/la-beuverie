@@ -1,0 +1,21 @@
+on:
+  push:
+    branches: [main]
+
+name: Create Release
+
+jobs:
+  build:
+    name: Create Release
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Create Release
+        id: create_release
+        uses: xaprier/actions-semver@latest
+        with:
+          draft: false
+          prerelease: false
+          include-letter-v: true
+          token: ${{ secrets.GITHUB_TOKEN }}
