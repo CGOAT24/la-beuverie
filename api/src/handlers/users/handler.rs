@@ -1,6 +1,7 @@
 use actix_web::{get, HttpMessage, HttpRequest, HttpResponse, Responder, web};
-use serde_json::json;
-use crate::{AppState};
+use crate::AppState;
+use crate::handlers::response::{Response, Status};
+use crate::handlers::users::types::UserDto;
 use crate::repository::repo::Repo;
 use crate::utils::jwt_auth;
 
@@ -15,12 +16,5 @@ async fn me(
 
     let user = data.db.users.get(*user_id).await.unwrap();
 
-    let json_response = json!({
-        "status":  "success",
-        "data": serde_json::json!({
-            "user": crate::handlers::users::types::UserDto::new(user)
-        })
-    });
-
-    HttpResponse::Ok().json(json_response)
+    HttpResponse::Ok().json(Response::with_data(Status::SUCCESS, UserDto::new(user)))
 }

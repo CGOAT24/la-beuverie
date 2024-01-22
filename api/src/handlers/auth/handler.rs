@@ -13,9 +13,8 @@ use argon2::{
 use chrono::{prelude::*, Duration};
 use jsonwebtoken::{encode, EncodingKey, Header};
 use serde_json::json;
-use crate::handlers::auth::types::{CreateUser, LoginUser};
-use types::UserDto;
-use crate::handlers::auth::types;
+use crate::handlers::auth::types::{CreateUser, LoginUser, UserDto};
+use crate::handlers::response::{Response, Status};
 use crate::utils::jwt_auth;
 
 #[post("/register")]
@@ -32,9 +31,7 @@ async fn register(
     let exists: bool = data.db.users.get_from_email(user_email).await.is_some();
 
     if exists {
-        return HttpResponse::Conflict().json(
-            json!({"status": "fail","message": "User with that email already exists"}),
-        );
+        return HttpResponse::Conflict().json(Response::with_message(Status::SUCCESS, "User with that email already exists"));
     }
 
     let salt = SaltString::generate(&mut OsRng);
@@ -51,14 +48,11 @@ async fn register(
     let inserted = data.db.users.create(new_user.to_owned()).await;
 
     if inserted.id.is_some() {
-        let user_response = json!({"status": "success","data": serde_json::json!({
-                "user": UserDto::new(new_user)
-            })});
+        let user_response = Response::with_data(Status::SUCCESS, UserDto::new(new_user));
 
         return HttpResponse::Ok().json(user_response);
     }
-    HttpResponse::InternalServerError()
-        .json(json!({"status": "error","message": "Error while creating new user"}))
+    HttpResponse::InternalServerError().json(Response::with_message(Status::SUCCESS, "Error while creating new user"))
 }
 
 #[post("/login")]
@@ -79,8 +73,7 @@ async fn login(body: web::Json<LoginUser>, data: web::Data<AppState>, ) -> impl 
     });
 
     if !is_valid {
-        return HttpResponse::BadRequest()
-            .json(json!({"status": "fail", "message": "Invalid email or password"}));
+        return HttpResponse::BadRequest().json(Response::with_message(Status::ERROR, "Invalid email or password"));
     }
 
     let user = login_info.unwrap();
@@ -107,9 +100,7 @@ async fn login(body: web::Json<LoginUser>, data: web::Data<AppState>, ) -> impl 
         .http_only(true)
         .finish();
 
-    HttpResponse::Ok()
-        .cookie(cookie)
-        .json(json!({"status": "success", "token": token}))
+    HttpResponse::Ok().cookie(cookie).json(Response::with_data(Status::SUCCESS, json!({ "token": token })))
 }
 
 #[get("/logout")]
@@ -122,5 +113,5 @@ async fn logout(_: jwt_auth::JwtMiddleware) -> impl Responder {
 
     HttpResponse::Ok()
         .cookie(cookie)
-        .json(json!({"status": "success"}))
+        .json(Response::new(Status::SUCCESS))
 }

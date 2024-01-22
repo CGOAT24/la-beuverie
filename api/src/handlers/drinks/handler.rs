@@ -1,8 +1,8 @@
 use actix_web::{delete, get, HttpResponse, post, put, Responder, web};
 use mongodb::bson::oid::ObjectId;
-use serde_json::json;
 use crate::AppState;
 use crate::handlers::drinks::types::{CreateDrink, DrinkDto, UpdateDrink};
+use crate::handlers::response::{Response, Status};
 use crate::models::drink::Drink;
 use crate::repository::repo::Repo;
 use crate::utils::jwt_auth;
@@ -13,16 +13,14 @@ async fn get_all(_: jwt_auth::JwtMiddleware, data: web::Data<AppState>) -> impl 
         DrinkDto::new(x.clone())
     }).collect();
 
-    let response = json!({ "data": drinks});
-    HttpResponse::Ok().json(response)
+    HttpResponse::Ok().json(Response::with_data(Status::SUCCESS, drinks))
 }
 
 #[get("/{id}")]
 async fn get(path: web::Path<uuid::Uuid>, _: jwt_auth::JwtMiddleware, data: web::Data<AppState>) -> impl Responder {
     let model = data.db.drinks.get(path.into_inner()).await.unwrap();
     let drink = DrinkDto::new(model);
-    let response = json!({ "data": drink });
-    HttpResponse::Ok().json(response)
+    HttpResponse::Ok().json(Response::with_data(Status::SUCCESS, drink))
 }
 
 #[post("")]
@@ -34,8 +32,8 @@ async fn create(body: web::Json<CreateDrink>, data: web::Data<AppState>, _: jwt_
         ingredients: body.ingredients.clone(),
         tags: body.tags.clone()
     };
-    data.db.drinks.create(input.clone()).await;
-    HttpResponse::Ok().json(json!({ "data": input}))
+    let drink = data.db.drinks.create(input.clone()).await;
+    HttpResponse::Ok().json(Response::with_data(Status::SUCCESS, drink))
 }
 
 #[put("/{id}")]
@@ -48,11 +46,11 @@ async fn update(path: web::Path<ObjectId>, body: web::Json<UpdateDrink>, data: w
         tags: body.tags.clone()
     };
     data.db.drinks.update(input.clone()).await;
-    HttpResponse::Ok().json(json!({ "data": input}))
+    HttpResponse::Ok().json(Response::with_data(Status::SUCCESS, input))
 }
 
 #[delete("/{id}")]
 async fn delete(path: web::Path<uuid::Uuid>, data: web::Data<AppState>, _: jwt_auth::JwtMiddleware) -> impl Responder {
     data.db.drinks.delete(path.into_inner()).await;
-    HttpResponse::Ok()
+    HttpResponse::Ok().json(Response::new(Status::SUCCESS))
 }
