@@ -1,5 +1,6 @@
-pub(crate) mod auth;
-mod users;
-pub(crate) mod routes;
-mod drinks;
-mod tags;
+pub mod auth;
+pub mod users;
+pub mod routes;
+pub mod drinks;
+pub mod tags;
+mod response;
