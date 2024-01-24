@@ -15,9 +15,9 @@
 <div
 	class="w-100 py-4 rounded-2xl border-4 mx-3 mt-1 mb-5 border-[#12110F] shadow-[5px_5px_#12110F] flex justify-between"
 >
-	<div class="flex flex-wrap justify-start font-bold ml-3 content-center">
+	<div class="flex flex-wrap justify-start font-bold ml-3 content-center" id="title">
 		<button
-			class="border-2 border-[#12110F] rounded-xl py-1 px-3 mx-1 bg-[#FEC704] tracking-wider text-3xl"
+			class="border-2 border-[#12110F] rounded-xl py-1 px-3 mx-1 bg-[#FEC704] text-3xl"
 		>
 			{ title }
 		</button>
