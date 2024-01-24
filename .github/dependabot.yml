@@ -4,7 +4,11 @@ updates:
     directory: "/client"
     schedule:
       interval: "weekly"
+    commit-message:
+      prefix: "patch"
   - package-ecosystem: "cargo"
     directory: "/api"
     schedule:
       interval: "weekly"
+    commit-message:
+      prefix: "patch"
