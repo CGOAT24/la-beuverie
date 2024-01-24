@@ -4,6 +4,11 @@ on:
 
 name: Create Release
 
+permissions:
+  pull-requests: write
+  issues: write
+  repository-projects: write
+
 jobs:
   build:
     name: Create Release
