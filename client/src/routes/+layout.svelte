@@ -13,11 +13,11 @@
 </script>
 
 <div
-	class="w-100 py-4 rounded-2xl border-4 mx-3 mt-1 mb-5 border-[#12110F] shadow-[5px_5px_#12110F] flex justify-between"
+	class="w-100 py-4 rounded-2xl border-4 mx-3 mt-1 mb-5 border-black shadow-[5px_5px_#000000] flex justify-between"
 >
 	<div class="flex flex-wrap justify-start font-bold ml-3 content-center" id="title">
 		<button
-			class="border-2 border-[#12110F] rounded-xl py-1 px-3 mx-1 bg-[#FEC704] text-3xl"
+			class="border-2 border-black rounded-xl py-1 px-3 mx-1 bg-[#FEC704] text-3xl"
 		>
 			{ title }
 		</button>
@@ -32,7 +32,7 @@
 			{#if searchBarEnabled}
 				<input
 					type="text"
-					class="mx-3 bg-inherit border-b-2 border-[#12110F] focus:outline-none caret-transparent transition ease-in-out duration-700"
+					class="mx-3 bg-inherit border-b-2 border-black focus:outline-none caret-transparent transition ease-in-out duration-700"
 					on:input={searchValueChanged}
 				/>
 			{/if}
