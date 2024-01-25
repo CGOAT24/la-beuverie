@@ -35,4 +35,6 @@ jobs:
         run: git tag ${{ steps.ver.outputs.version }}
 
       - name: Push tag to repository
-        run: git push origin ${{ steps.ver.outputs.version }} --follow-tags -u github-actions:${{ secrets.GH_TOKEN }}
+        run: git push origin ${{ steps.ver.outputs.version }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
