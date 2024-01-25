@@ -6,4 +6,4 @@ export default {
 	async getAll(): Promise<string[]> {
 		return (await axios.get<string[]>(BASE_URL)).data;
 	}
-}
+};

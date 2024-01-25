@@ -1,5 +1,5 @@
 import axios from "axios";
-import type { CreateDrinkRequest, Drink, UpdateDrinkRequest } from '$lib/types/drink';
+import type { CreateDrinkRequest, Drink, UpdateDrinkRequest } from "$lib/types/drink";
 
 const BASE_URL = `http://127.0.0.1:8000/api/drinks`;
 
@@ -19,4 +19,4 @@ export default {
 	async delete(id: string): Promise<void> {
 		return (await axios.delete(`${BASE_URL}/${id}`)).data;
 	}
-}
+};
