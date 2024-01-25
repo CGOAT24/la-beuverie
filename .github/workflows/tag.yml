@@ -37,4 +37,4 @@ jobs:
       - name: Push tag to repository
         run: git push origin ${{ steps.ver.outputs.version }}
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
