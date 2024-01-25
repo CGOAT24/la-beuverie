@@ -18,11 +18,22 @@ jobs:
         uses: actions/checkout@v2
         with:
           fetch-depth: 0
-      - name: Create Release
-        id: create_release
-        uses: xaprier/actions-semver@latest
+      - uses: paulhatch/semantic-version@v5.3.0
         with:
-          draft: false
-          prerelease: false
-          include-letter-v: true
-          token: ${{ secrets.GITHUB_TOKEN }}
+          tag_prefix: "v"
+          major_pattern: "(MAJOR|BREAKING)"
+          major_regexp_flags: ""
+          # Same as above except indicating a minor change, supports regular expressions wrapped with '/'
+          minor_pattern: "(MINOR|FEAT)"
+          # A string which indicates the flags used by the `minor_pattern` regular expression. Supported flags: idgs
+          minor_regexp_flags: ""
+          # A string to determine the format of the version output
+          version_format: "${major}.${minor}.${patch}"
+          # If this is set to true, *every* commit will be treated as a new version.
+          bump_each_commit: false
+          # If true, the body of commits will also be searched for major/minor patterns to determine the version type.
+          search_commit_body: false
+          # The output method used to generate list of users, 'csv' or 'json'.
+          user_format_type: "json"
+          # If true, the branch will be used to select the maximum version.
+          version_from_branch: false
