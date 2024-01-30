@@ -27,7 +27,7 @@ jobs:
           minor_pattern: "(MINOR|FEAT)"
           minor_regexp_flags: ""
           version_format: "${major}.${minor}.${patch}"
-          bump_each_commit: false
+          bump_each_commit: true
           search_commit_body: false
           user_format_type: "json"
           version_from_branch: false
