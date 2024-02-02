@@ -4,6 +4,7 @@
 	import Marquee from "../components/Marquee.svelte";
 
 	let searchBarEnabled = false;
+	let searchBarValue = "";
 	let isAuthenticated = true;
 
 	const searchValueChanged = () => {};
@@ -32,6 +33,7 @@
 					type="text"
 					class="mx-2 bg-inherit border-b-2 border-black focus:outline-none caret-transparent transition ease-in-out duration-700"
 					on:input={searchValueChanged}
+					value={searchBarValue}
 				/>
 			{/if}
 		</NavbarButton>
