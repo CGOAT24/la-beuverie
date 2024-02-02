@@ -3,14 +3,20 @@
 
 	export let icon: string;
 	export let color: string;
-	export let className: string | undefined = undefined;
+	export let className: string = "";
 </script>
 
 <button
-	class="${className} border-2 border-[#12110F] rounded-xl py-1 px-3 mx-1"
+	class="{className} border-2 border-[#12110F] rounded-xl p-3 mx-1"
 	style="background-color: {color}"
 	on:click
 >
-	<Icon icon="{icon}" class="h-6 w-6 bg-inherit" />
+	<Icon {icon} class="h-6 w-6 bg-inherit" />
 	<slot />
 </button>
+
+<style>
+	button {
+		height: 100%;
+	}
+</style>

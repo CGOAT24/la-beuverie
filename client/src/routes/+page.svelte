@@ -5,6 +5,8 @@
 
 <div class="flex flex-wrap justify-stretch">
 	{#each drinks as drink}
-		<Card name={drink.name} />
+		<a href="/drinks/{drink.id}">
+			<Card name={drink.name} />
+		</a>
 	{/each}
 </div>
