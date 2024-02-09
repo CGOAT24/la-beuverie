@@ -24,7 +24,7 @@
 	<div class="flex flex-wrap justify-end mr-3">
 		<NavbarButton
 			className="flex justify-between items-center"
-			color="#FEA9AA"
+			color="#FF7A5C"
 			icon="heroicons:magnifying-glass"
 			on:click={() => (searchBarEnabled = true)}
 		>
@@ -37,10 +37,10 @@
 				/>
 			{/if}
 		</NavbarButton>
-		<NavbarButton color="#A5EFFF" on:click={showFilterModal} icon="heroicons:funnel" />
+		<NavbarButton color="#87CEEB" on:click={showFilterModal} icon="heroicons:funnel" />
 		{#if isAuthenticated}
 			<a href="/drinks/add">
-				<NavbarButton color="#FDF0AB" icon="heroicons:plus" />
+				<NavbarButton color="#F4D738" icon="heroicons:plus" />
 			</a>
 		{/if}
 		<a href="/users/me">
@@ -48,6 +48,6 @@
 		</a>
 	</div>
 </div>
-<div class="m-5">
+<div class="m-5 flex justify-center">
 	<slot />
 </div>

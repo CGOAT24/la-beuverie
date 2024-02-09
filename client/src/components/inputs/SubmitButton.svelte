@@ -1,6 +1,6 @@
 <script lang="ts">
 	export let name: string;
-	export let color: string = "#bc95d4";
+	export let color: string = "#A388EE";
 </script>
 
 <input

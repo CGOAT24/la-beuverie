@@ -1,3 +1,3 @@
 mod types;
 mod handler;
-pub(crate) mod routes;
+pub mod routes;
