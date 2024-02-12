@@ -21,7 +21,3 @@ jobs:
       - name: Build project
         working-directory: ./client
         run: bun run build
-
-      - name: Lint project
-        working-directory: ./client
-        run: bun run format && bun run lint

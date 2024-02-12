@@ -16,4 +16,5 @@ jobs:
         with:
           rust-version: 'stable'
       - name: Build
+        working-directory: ./api
         run: cargo build --release
