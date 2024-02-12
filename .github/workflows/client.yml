@@ -1,0 +1,22 @@
+name: Client build
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+    branches: ["main"]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Use Node.js
+	      uses: oven-sh/setup-bun@v1
+      - name: Install dependancies
+        working-directory: ./client
+        run: bun install
+      - name: Build project
+        working-directory: ./client
+        run: bun build
+      - name: Lint project
+        working-directory: ./client
+        run: bun run format && bun run lint
