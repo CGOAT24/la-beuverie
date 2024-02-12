@@ -33,8 +33,11 @@
 		}
 	};
 
-	const closeDropdown = () => {
-		isOpen = false;
+	const closeDropdown = (event: { relatedTarget: Node}) => {
+		const container = document.getElementById("container");
+		if(!container?.contains(event.relatedTarget)) {
+			isOpen = false;
+		}
 	};
 
 	const dispatchSelectedOptions = () => {
@@ -53,6 +56,8 @@
 	tabindex="0"
 	class="relative inline-block rounded-md font-bold shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] w-full"
 	on:keydown={handleKeyDown}
+	on:focusout={closeDropdown}
+	id="container"
 >
 	<div class="relative">
 		<div
