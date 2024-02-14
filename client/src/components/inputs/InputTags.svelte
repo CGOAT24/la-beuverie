@@ -33,9 +33,9 @@
 		}
 	};
 
-	const closeDropdown = (event: { relatedTarget: Node}) => {
+	const closeDropdown = (event: { relatedTarget: Node }) => {
 		const container = document.getElementById("container");
-		if(!container?.contains(event.relatedTarget)) {
+		if (!container?.contains(event.relatedTarget)) {
 			isOpen = false;
 		}
 	};
@@ -54,7 +54,7 @@
 <div
 	role="button"
 	tabindex="0"
-	class="relative inline-block rounded-md font-bold shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] w-full"
+	class="relative inline-block rounded font-bold shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] w-full"
 	on:keydown={handleKeyDown}
 	on:focusout={closeDropdown}
 	id="container"
@@ -69,7 +69,7 @@
 		>
 			{#each selectedOptions as option}
 				<div
-					class="px-2 py-1 rounded-full mr-1 mb-1 border-black border-2"
+					class="px-2 py-1 rounded mr-1 mb-1 border-black border-2"
 					style="background-color: {getTagColor()}"
 				>
 					{option}

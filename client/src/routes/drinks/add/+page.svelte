@@ -2,9 +2,10 @@
 	import InputText from "../../../components/inputs/InputText.svelte";
 	import TextArea from "../../../components/inputs/TextArea.svelte";
 	import type { CreateDrinkRequest } from "$lib/types/drink";
-	import Button from "../../../components/inputs/SubmitButton.svelte";
 	import InputTags from "../../../components/inputs/InputTags.svelte";
 	import Row from "../../../components/Row.svelte";
+	import InputIngredients from "../../../components/inputs/InputIngredients.svelte";
+	import SubmitButton from "../../../components/inputs/SubmitButton.svelte";
 
 	const input: CreateDrinkRequest = {} as CreateDrinkRequest;
 
@@ -28,7 +29,10 @@
 			<InputTags />
 		</Row>
 		<Row>
-			<Button name="Add" />
+			<InputIngredients />
+		</Row>
+		<Row>
+			<SubmitButton name="Add" />
 		</Row>
 	</div>
 </form>
