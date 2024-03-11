@@ -3,22 +3,30 @@
 	export let rows: string[] = [];
 
 	const addRow = () => (rows = [...rows, ""]);
+
+	const update = (event: { target: { value: string }}, i: number) => {
+		const value = event.target.value;
+		if (value) {
+			rows[i] = event.target.value;
+		}
+	}
 </script>
 
 <div class="w-full">
 	<table class="w-full shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
 		<tr>
-			<th class="font-bold text-xl">Ingredient</th>
+			<th class="font-bold text-xl">Ingredients</th>
 		</tr>
-		{#each rows as row}
+		{#each rows as row, i}
 			<tr>
-				<td
-					><input
+				<td>
+					<input
 						class="w-full h-full outline-none p-1 font-bold text-right"
 						type="text"
 						value={row}
-					/></td
-				>
+						on:change={(e) => update(e, i)}
+					/>
+				</td>
 			</tr>
 		{/each}
 	</table>

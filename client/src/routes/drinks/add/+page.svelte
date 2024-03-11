@@ -7,16 +7,16 @@
 	import InputIngredients from "../../../components/inputs/InputIngredients.svelte";
 	import SubmitButton from "../../../components/inputs/SubmitButton.svelte";
 
-	const input: CreateDrinkRequest = {} as CreateDrinkRequest;
+	const input: CreateDrinkRequest = {
+		name: "",
+		ingredients: [""],
+		tags: [],
+		directions: ""
+	};
 
-	/*
-	export interface CreateDrinkRequest {
-		name: string;
-		directions: string;
-		tags: string[];
-		ingredients: string[];
+	const add = () => {
+		console.log(input);
 	}
-	 */
 </script>
 
 <form class="flex justify-center content-center">
@@ -26,13 +26,13 @@
 			<TextArea bind:value={input.directions} name="directions" placeholder="Directions" />
 		</Row>
 		<Row>
-			<InputTags />
+			<InputTags bind:selectedOptions={input.tags}/>
 		</Row>
 		<Row>
-			<InputIngredients />
+			<InputIngredients bind:rows={input.ingredients} />
 		</Row>
 		<Row>
-			<SubmitButton name="Add" />
+			<SubmitButton name="Add" on:click={add}/>
 		</Row>
 	</div>
 </form>

@@ -10,6 +10,9 @@ export default {
 	async get(id: string): Promise<Drink> {
 		return (await axios.get<Drink>(`${BASE_URL}/${id}`)).data;
 	},
+	async getFromName(name: string): Promise<Drink> {
+		return (await axios.get<Drink>(`${BASE_URL}?name=${name}`)).data;
+	},
 	async create(request: CreateDrinkRequest): Promise<Drink> {
 		return (await axios.post<Drink>(`${BASE_URL}`, request)).data;
 	},

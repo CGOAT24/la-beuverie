@@ -1,12 +1,8 @@
 <script lang="ts">
-	import { createEventDispatcher } from "svelte";
-
-	let options = ["Option 1", "Option 2", "Option 3"];
-	let selectedOptions: string[] = [];
+	export let options = ["Option 1", "Option 2", "Option 3"];
+	export let selectedOptions: string[] = [];
 	let customValue = "";
 	let isOpen = false;
-
-	const dispatch = createEventDispatcher();
 
 	const toggleDropdown = () => (isOpen = !isOpen);
 
@@ -38,10 +34,6 @@
 		if (!container?.contains(event.relatedTarget)) {
 			isOpen = false;
 		}
-	};
-
-	const dispatchSelectedOptions = () => {
-		dispatch("selected", selectedOptions);
 	};
 
 	const getTagColor = (): string => {
