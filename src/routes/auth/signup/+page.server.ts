@@ -2,7 +2,7 @@ import { type Actions, fail, redirect } from '@sveltejs/kit';
 import { Argon2id } from 'oslo/password';
 import { lucia } from '$lib/server/auth';
 import prisma from '$lib/prisma';
-import { validate } from '$lib/validations/signupUserValidator';
+import { asyncValidate, validate } from '$lib/validations/signupUserValidator';
 
 export const actions: Actions = {
 	default: async (event) => {
@@ -10,9 +10,17 @@ export const actions: Actions = {
 		const username = formData.get('username') as string;
 		const password = formData.get('password') as string;
 
-		const { errors, valid } = await validate({ username, password });
-		if (!valid) {
-			return fail(400, errors);
+		{
+			const { errors, valid } = validate({ username, password });
+			if (!valid) {
+				return fail(400, errors);
+			}
+		}
+		{
+			const { errors, valid } = await asyncValidate({ username, password });
+			if (!valid) {
+				return fail(400, errors);
+			}
 		}
 
 		const hashedPassword = await new Argon2id().hash(password);

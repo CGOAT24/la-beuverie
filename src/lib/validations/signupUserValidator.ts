@@ -5,7 +5,7 @@ export interface SignupUserRequest {
 	password: string;
 }
 
-export const validate = async (request: SignupUserRequest): Promise<App.ValidationResponse> => {
+export const validate = (request: SignupUserRequest): App.ValidationResponse => {
 	const errors: Record<string, unknown> = {};
 	if (!request.username) {
 		errors.username = 'Username is required';
@@ -15,6 +15,21 @@ export const validate = async (request: SignupUserRequest): Promise<App.Validati
 		errors.username = 'Invalid username';
 	}
 
+	if (request.password.length < 6 || request.password.length > 255) {
+		errors.password = 'Password length must be at least 6 characters';
+	}
+
+	return {
+		errors: errors,
+		valid: Object.keys(errors).length === 0
+	};
+};
+
+export const asyncValidate = async (
+	request: SignupUserRequest
+): Promise<App.ValidationResponse> => {
+	const errors: Record<string, unknown> = {};
+
 	const duplicate = await prisma.user.findUnique({
 		where: {
 			username: request.username
@@ -23,10 +38,6 @@ export const validate = async (request: SignupUserRequest): Promise<App.Validati
 
 	if (duplicate) {
 		errors.username = 'Username is already used';
-	}
-
-	if (request.password.length < 6 || request.password.length > 255) {
-		errors.password = 'Password length must be at least 6 characters';
 	}
 
 	return {
