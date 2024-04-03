@@ -25,6 +25,9 @@
 	</a>
 
 	<div class="flex flex-wrap justify-end mr-3">
+		<a href="https://github.com/cgoat24/la-beuverie">
+			<NavbarButton color="#FFFFFF" icon="simple-icons:github" />
+		</a>
 		<NavbarButton
 			className="flex justify-between items-center"
 			color="#FF7A5C"

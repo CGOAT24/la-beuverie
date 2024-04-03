@@ -3,17 +3,20 @@
 	import Card from '../components/Card.svelte';
 
 	export let data: PageServerLoad;
-	const { drinks } = data;
 </script>
 
 <div class="flex flex-wrap justify-stretch">
-	{#if drinks.length > 0}
-		{#each drinks as drink}
-			<a href="/drinks/{drink.id}">
-				<Card name={drink.name} />
-			</a>
-		{/each}
-	{:else}
-		No drinks!
-	{/if}
+	{#await data.drinks}
+		Loading...
+	{:then drinks}
+		{#if drinks.length > 0}
+			{#each drinks as drink}
+				<a href="/drinks/{drink.id}">
+					<Card name={drink.name} />
+				</a>
+			{/each}
+		{:else}
+			No drinks!
+		{/if}
+	{/await}
 </div>
