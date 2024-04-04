@@ -1,4 +1,3 @@
-
 <h1 align="center">
   <br>
   <a href="https://github.com/cgoat24/la-beuverie"><img src="static/logo.png" alt="La Beuverie" width="200"></a>
@@ -23,9 +22,10 @@
 ![screenshot](./static/screenshot.png)
 
 ## Roadmap
+
 - [ ] Validation error messages
 - [ ] Viewing, adding and modifying recipes
-- [ ] Filtering and search 
+- [ ] Filtering and search
 - [ ] Mobile support
 
 ## Dev setup
@@ -45,10 +45,8 @@ $ bun install
 # Start the database.
 $ docker compose up -d
 
-# Write connection string to the environment file.
-# Make sure to change the database connection string 
-# for the actual connection string
-$ echo "DATABASE_PRISMA_URL=<database connection string>" >> .env
+# Write the database connection string to the environment file.
+$ echo "DATABASE_PRISMA_URL=postgresql://postgres:password@127.0.0.1:5432/la-beuveurie" > .env
 
 # Run migrations
 $ bun run postinstall
