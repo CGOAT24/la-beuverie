@@ -1,0 +1,22 @@
+.chip.svelte-eor3qk {
+	margin: 0.5rem;
+	padding: 0.25rem 0.5rem;
+	background-color: #007bff;
+	color: #fff;
+	border-radius: 0.25rem;
+	cursor: pointer;
+}
+table.svelte-viqbt3.svelte-viqbt3.svelte-viqbt3 {
+	border-spacing: 0;
+	border-collapse: separate;
+	border-radius: 0.25rem;
+	border: 2px solid black;
+}
+table.svelte-viqbt3 th.svelte-viqbt3.svelte-viqbt3:not(:last-child),
+table.svelte-viqbt3 td.svelte-viqbt3.svelte-viqbt3:not(:last-child) {
+	border-right: 2px solid black;
+}
+table.svelte-viqbt3 > tr.svelte-viqbt3:not(:last-child) > td.svelte-viqbt3,
+table.svelte-viqbt3 > tr.svelte-viqbt3:not(:last-child) > th.svelte-viqbt3 {
+	border-bottom: 2px solid black;
+}
