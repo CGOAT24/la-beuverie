@@ -30,7 +30,7 @@
 
 ## Dev setup
 
-To clone and run this application, you'll need [Git](https://git-scm.com), [Docker](https://www.docker.com/) and [Bun](https://www.bun.sh). From your command line:
+To clone and run this application, you'll need [Git](https://git-scm.com), [Docker](https://www.docker.com/) and [Node](https://nodejs.org/). From your command line:
 
 ```bash
 # Clone this repository.
@@ -40,7 +40,7 @@ $ git clone https://github.com/cgoat24/la-beuverie
 $ cd la-beuverie
 
 # Install dependencies.
-$ bun install
+$ npm install
 
 # Start the database.
 $ docker compose up -d
@@ -49,23 +49,22 @@ $ docker compose up -d
 $ echo "DATABASE_PRISMA_URL=postgresql://postgres:password@127.0.0.1:5432/la-beuveurie" > .env
 
 # Run migrations
-$ bun run postinstall
+$ npm run postinstall
 
 # Optional: seed the database
-$ bun run seed
+$ npx prisma db seed
 
 # Run tests
-$ bun run test
+$ npm run test
 
 # Start the app.
-$ bun run dev
+$ npm run dev
 ```
 
 ## Credits
 
 This software uses the following open source packages:
 
-- [Bun](https://www.bun.sh)
 - [Sveltekit](https://kit.svelte.dev/)
 - [Prisma](https://www.prisma.io/)
 - [Lucia](https://lucia-auth.com/)
