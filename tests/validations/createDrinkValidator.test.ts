@@ -1,29 +1,31 @@
-import { expect, test } from 'vitest';
+import { describe, expect, it } from 'vitest';
 import { type CreateDrinkRequest, validate } from '$lib/validations/createDrinkValidator';
 
-test('invalid input should not be valid', () => {
-	const invalidDrink: CreateDrinkRequest = {
-		name: '',
-		directions: '',
-		tags: [],
-		ingredients: []
-	};
+describe("createDrink validation", () => {
+	it("invalid input should not be valid", () => {
+		const invalidDrink: CreateDrinkRequest = {
+			name: '',
+			directions: '',
+			tags: [],
+			ingredients: []
+		};
 
-	const { errors, valid } = validate(invalidDrink);
+		const { errors, valid } = validate(invalidDrink);
 
-	expect(valid).toBe(false);
-	expect(Object.keys(errors).length).toBeGreaterThan(0);
-});
+		expect(valid).toBe(false);
+		expect(Object.keys(errors).length).toBeGreaterThan(0);
+	});
 
-test('valid input should be valid', () => {
-	const drink: CreateDrinkRequest = {
-		directions: 'Mix all ingredients together and serve.',
-		ingredients: ['2oz of Vodka', '1oz of orange juice'],
-		name: 'Screwdriver',
-		tags: ['Orange', 'Vodka', 'Classic']
-	};
+	it('valid input should be valid', () => {
+		const drink: CreateDrinkRequest = {
+			directions: 'Mix all ingredients together and serve.',
+			ingredients: ['2oz of Vodka', '1oz of orange juice'],
+			name: 'Screwdriver',
+			tags: ['Orange', 'Vodka', 'Classic']
+		};
 
-	const { errors, valid } = validate(drink);
-	expect(valid).toBe(true);
-	expect(Object.keys(errors).length).toBe(0);
+		const { errors, valid } = validate(drink);
+		expect(valid).toBeTruthy();
+		expect(Object.keys(errors).length).toBe(0);
+	})
 });
