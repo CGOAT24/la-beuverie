@@ -2,3 +2,13 @@
 pnpm-lock.yaml
 package-lock.json
 yarn.lock
+.github/
+.vercel/
+.svelte-kit/
+static
+node_modules
+*.json
+*.config.*
+README.md
+.prettierrc
+.eslintrc.cjs

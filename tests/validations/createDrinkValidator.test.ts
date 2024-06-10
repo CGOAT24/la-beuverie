@@ -1,8 +1,8 @@
 import { describe, expect, it } from 'vitest';
 import { type CreateDrinkRequest, validate } from '$lib/validations/createDrinkValidator';
 
-describe("createDrink validation", () => {
-	it("invalid input should not be valid", () => {
+describe('createDrink validation', () => {
+	it('invalid input should not be valid', () => {
 		const invalidDrink: CreateDrinkRequest = {
 			name: '',
 			directions: '',
@@ -27,5 +27,5 @@ describe("createDrink validation", () => {
 		const { errors, valid } = validate(drink);
 		expect(valid).toBeTruthy();
 		expect(Object.keys(errors).length).toBe(0);
-	})
+	});
 });
