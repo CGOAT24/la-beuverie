@@ -3,6 +3,7 @@
 	import NavbarButton from '../components/NavbarButton.svelte';
 	import Marquee from '../components/Marquee.svelte';
 	import type { LayoutData } from '../../.svelte-kit/types/src/routes/$types';
+	import Icon from '@iconify/svelte';
 
 	let searchBarEnabled = false;
 	let searchBarValue = '';
@@ -37,10 +38,13 @@
 			{#if searchBarEnabled}
 				<input
 					type="text"
-					class="mx-2 bg-inherit border-b-2 border-black focus:outline-none caret-transparent transition ease-in-out duration-700"
+					class="mx-2 bg-[#FF7A5C] border-b-2 border-black focus:outline-none caret-transparent transition ease-in-out duration-700"
 					on:input={searchValueChanged}
 					value={searchBarValue}
 				/>
+				<button on:click={() => (searchBarEnabled = false)}>
+					<Icon icon="heroicons:x-mark" class="h-6 w-6 bg-inherit" />
+				</button>
 			{/if}
 		</NavbarButton>
 		<NavbarButton color="#90EE90" on:click={showFilterModal} icon="heroicons:funnel" />
