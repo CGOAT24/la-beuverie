@@ -8,8 +8,13 @@ export const drinkService = {
 			data: drink
 		});
 	},
-	getAll: async (): Promise<Drink[]> => {
-		return prisma.drink.findMany();
+	getAll: async (): Promise<{ id: string; name: string }[]> => {
+		return prisma.drink.findMany({
+			select: {
+				id: true,
+				name: true
+			}
+		});
 	},
 	get: async (id: string): Promise<Drink | null> => {
 		return prisma.drink.findUnique({
