@@ -14,9 +14,7 @@
 		directions: ''
 	};
 
-	const add = () => {
-		console.log(input);
-	};
+	const add = () => {};
 </script>
 
 <form class="flex justify-center content-center">

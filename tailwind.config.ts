@@ -2,7 +2,13 @@
 export default {
 	content: ['./src/**/*.{html,js,svelte,ts}'],
 	theme: {
+		colors: {
+			'black': "#12110F"
+		},
 		extend: {
+			boxShadow: {
+				'default': '5px 5px 0 1px #12110F',
+			},
 			animation: {
 				marquee: 'marquee 5s linear infinite',
 				marquee2: 'marquee2 5s linear infinite'

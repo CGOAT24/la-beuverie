@@ -25,7 +25,7 @@
 	</a>
 
 	<div class="flex flex-wrap justify-end mr-3">
-		<a href="https://github.com/cgoat24/la-beuverie">
+		<a href="https://github.com/cgoat24/la-beuverie" target="_blank">
 			<NavbarButton color="#FFFFFF" icon="simple-icons:github" />
 		</a>
 		<NavbarButton

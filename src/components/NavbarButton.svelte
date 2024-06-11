@@ -7,7 +7,7 @@
 </script>
 
 <button
-	class="{className} border-2 border-[#12110F] rounded-xl p-3 mx-1"
+	class="{className} border-2 border-black rounded-xl p-3 mx-1"
 	style="background-color: {color}"
 	on:click
 >
