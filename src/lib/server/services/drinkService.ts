@@ -17,5 +17,14 @@ export const drinkService = {
 				id
 			}
 		});
+	},
+	getTags: async (): Promise<string[]> => {
+		const drinks = await prisma.drink.findMany({
+			select: {
+				tags: true
+			}
+		});
+		const tags = drinks.map((drink) => drink.tags);
+		return Array.from(new Set(tags.flat()));
 	}
 };

@@ -46,7 +46,7 @@ $ npm install
 $ docker compose up -d
 
 # Write the database connection string to the environment file.
-$ echo "DATABASE_PRISMA_URL=postgresql://postgres:password@127.0.0.1:5432/la-beuveurie" > .env
+$ echo "DATABASE_PRISMA_URL=postgresql://postgres:password@127.0.0.1:5432/la-beuverie" > .env
 
 # Run migrations
 $ npm run postinstall
