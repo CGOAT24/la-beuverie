@@ -23,6 +23,8 @@
 	<div>
 		<Row>
 			<InputText placeholder="Name" name="name" bind:value={input.name} />
+		</Row>
+		<Row>
 			<InputTags bind:selectedOptions={input.tags} />
 		</Row>
 		<Row>
