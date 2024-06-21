@@ -62,6 +62,6 @@
 		{/if}
 	</div>
 </div>
-<div class="m-5 flex justify-center">
+<div class="m-5 flex justify-center w-fit h-full">
 	<slot />
 </div>

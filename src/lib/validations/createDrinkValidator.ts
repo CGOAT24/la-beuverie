@@ -3,6 +3,7 @@ export interface CreateDrinkRequest {
 	directions: string;
 	tags: string[];
 	ingredients: string[];
+	author: string;
 }
 
 export const validate = (request: CreateDrinkRequest): App.ValidationResponse => {

@@ -10,6 +10,25 @@
 			rows[i] = event.target.value;
 		}
 	};
+
+	const removeRow = (i: number) => {
+		rows = rows.filter((_, num) => num !== i);
+	};
+
+	const isHoveringDeleteBtn: Map<number, boolean> = new Map();
+
+	const setIsHoveringTrue = (i: number) => {
+		isHoveringDeleteBtn.set(i, true);
+	};
+
+	const setIsHoveringFalse = (i: number) => {
+		isHoveringDeleteBtn.set(i, false);
+	};
+
+	const isHovering = (i: number): boolean => {
+		console.log(i);
+		return isHoveringDeleteBtn.get(i) ?? false;
+	};
 </script>
 
 <div class="w-full">
@@ -20,12 +39,27 @@
 		{#each rows as row, i}
 			<tr>
 				<td>
-					<input
-						class="w-full h-full outline-none p-1 font-bold text-right"
-						type="text"
-						value={row}
-						on:change={(e) => update(e, i)}
-					/>
+					<div
+						class="flex justify-between"
+						style:background-color={isHovering(i) ? '#FF6B6B' : 'inherit'}
+					>
+						<input
+							class="w-full h-full outline-none p-1 font-bold text-right"
+							style:background-color={isHovering(i) ? '#FF6B6B' : 'inherit'}
+							type="text"
+							value={row}
+							on:change={(e) => update(e, i)}
+						/>
+						<button
+							class="relative flex justify-center rounded-3xl border-black border-2 translate-x-5 bg-[#FF0000] mx-1"
+							on:click={() => removeRow(i)}
+							on:mouseover={() => setIsHoveringTrue(i)}
+							on:focus={() => setIsHoveringTrue(i)}
+							on:mouseleave={() => setIsHoveringFalse(i)}
+						>
+							<Icon icon="heroicons:minus" class="h-6 w-6 bg-inherit" />
+						</button>
+					</div>
 				</td>
 			</tr>
 		{/each}
