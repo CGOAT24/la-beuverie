@@ -7,7 +7,8 @@ describe('createDrink validation', () => {
 			name: '',
 			directions: '',
 			tags: [],
-			ingredients: []
+			ingredients: [],
+			userId: ''
 		};
 
 		const { errors, valid } = validate(invalidDrink);
@@ -21,7 +22,8 @@ describe('createDrink validation', () => {
 			directions: 'Mix all ingredients together and serve.',
 			ingredients: ['2oz of Vodka', '1oz of orange juice'],
 			name: 'Screwdriver',
-			tags: ['Orange', 'Vodka', 'Classic']
+			tags: ['Orange', 'Vodka', 'Classic'],
+			userId: '2342904-534593-fasd'
 		};
 
 		const { errors, valid } = validate(drink);
