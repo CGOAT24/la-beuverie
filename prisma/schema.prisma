@@ -12,6 +12,7 @@ model User {
   username String    @unique
   password String
   Session  Session[]
+  Drink    Drink[]
 }
 
 model Drink {
@@ -20,6 +21,8 @@ model Drink {
   directions  String
   tags        String[]
   ingredients String[]
+  author      User     @relation(fields: [userId], references: [id])
+  userId      String
 }
 
 model Session {

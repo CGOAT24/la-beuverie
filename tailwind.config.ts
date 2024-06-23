@@ -7,7 +7,9 @@ export default {
 		},
 		extend: {
 			boxShadow: {
-				'default': '5px 5px 0 1px #12110F',
+				'small': '2px 2px 0 0 #12110F',
+				'medium': '4px 4px 0 0 #12110F',
+				'large': '5px 5px 0 1px #12110F'
 			},
 			animation: {
 				marquee: 'marquee 5s linear infinite',

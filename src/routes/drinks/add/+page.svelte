@@ -1,36 +1,62 @@
 <script lang="ts">
 	import InputText from '../../../components/inputs/InputText.svelte';
-	import TextArea from '../../../components/inputs/TextArea.svelte';
-	import type { CreateDrinkRequest } from '$lib/types/drink';
 	import InputTags from '../../../components/inputs/InputTags.svelte';
 	import Row from '../../../components/Row.svelte';
 	import InputIngredients from '../../../components/inputs/InputIngredients.svelte';
-	import SubmitButton from '../../../components/inputs/SubmitButton.svelte';
+	import RichTextEditor from '../../../components/inputs/RichTextEditor.svelte';
+	import type { CreateDrinkRequest } from '$lib/validations/createDrinkValidator';
+	import { browser } from '$app/environment';
 
 	const input: CreateDrinkRequest = {
 		name: '',
-		ingredients: [''],
+		ingredients: [],
 		tags: [],
-		directions: ''
+		directions: '',
+		userId: ''
 	};
 
-	const add = () => {};
+	const add = async () => {
+		const result = await fetch('/drinks/add', {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json'
+			},
+			body: JSON.stringify(input)
+		});
+		const response = await result.json();
+
+		if (response.errors) {
+			//TODO
+			return;
+		}
+
+		if (browser) {
+			window.location.href = `/drinks/${response.id}`;
+		}
+	};
 </script>
 
-<form class="flex justify-center content-center">
-	<div>
+<div class="flex justify-center">
+	<form class="flex justify-center content-center flex-wrap w-2/3">
 		<Row>
 			<InputText placeholder="Name" name="name" bind:value={input.name} />
+		</Row>
+		<Row>
 			<InputTags bind:selectedOptions={input.tags} />
 		</Row>
 		<Row>
-			<TextArea bind:value={input.directions} name="directions" placeholder="Directions" />
+			<RichTextEditor bind:value={input.directions} />
 		</Row>
 		<Row>
 			<InputIngredients bind:rows={input.ingredients} />
 		</Row>
 		<Row>
-			<SubmitButton name="Add" on:click={add} />
+			<button
+				on:click={add}
+				class="flex cursor-pointer items-center rounded-md border-2 border-black px-10 py-3 font-bold shadow-medium transition-all hover:translate-x-[3px] hover:translate-y-[3px] hover:shadow-none bg-[#A388EE]"
+			>
+				Add
+			</button>
 		</Row>
-	</div>
-</form>
+	</form>
+</div>

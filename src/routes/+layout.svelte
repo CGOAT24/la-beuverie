@@ -10,6 +10,7 @@
 
 	export let data: LayoutData;
 	const { isAuthenticated } = data;
+	const githubLink = 'https://github.com/cgoat24/la-beuverie';
 
 	const searchValueChanged = () => {};
 
@@ -17,7 +18,7 @@
 </script>
 
 <div
-	class="w-100 py-4 rounded-2xl border-4 mx-3 mt-1 mb-5 border-black shadow-[5px_5px_#000000] flex justify-between"
+	class="w-100 py-4 rounded-2xl border-4 mx-3 mt-1 mb-5 border-black shadow-large flex justify-between overflow-x-hidden"
 >
 	<a href="/">
 		<div class="flex flex-wrap justify-start font-bold ml-3 content-center h-full">
@@ -26,7 +27,7 @@
 	</a>
 
 	<div class="flex flex-wrap justify-end mr-3">
-		<a href="https://github.com/cgoat24/la-beuverie" target="_blank">
+		<a href={githubLink} target="_blank">
 			<NavbarButton color="#FFFFFF" icon="simple-icons:github" />
 		</a>
 		<NavbarButton
@@ -62,6 +63,6 @@
 		{/if}
 	</div>
 </div>
-<div class="m-5 flex justify-center">
+<div class="m-5 w-full h-full">
 	<slot />
 </div>
