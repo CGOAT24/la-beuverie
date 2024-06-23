@@ -6,9 +6,9 @@
 	export let data: PageServerLoad;
 </script>
 
-<div class="flex flex-wrap">
+<div class="flex flex-wrap w-full">
 	<Row>
-		<h1 class="font-extrabold text-9xl italic">{data.drink.name}</h1>
+		<h1 class="font-extrabold text-8xl italic">{data.drink.name}</h1>
 	</Row>
 	<Row>
 		<ul>
@@ -18,14 +18,13 @@
 		</ul>
 	</Row>
 	<Row>
-		<p>{data.drink.directions}</p>
-	</Row>
-	<Row>
-		<h2>Ingredients</h2>
-		<ul>
+		<table class="border-black border-2 w-full h-full px-5">
 			{#each data.drink.ingredients as ingredient}
-				<li>{ingredient}</li>
+				<tr class="border-2">
+					<td class="w-full p-2">{ingredient}</td>
+				</tr>
 			{/each}
-		</ul>
+		</table>
+		<p class="w-full px-5 h-full">{data.drink.directions}</p>
 	</Row>
 </div>

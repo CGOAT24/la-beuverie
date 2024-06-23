@@ -2,75 +2,83 @@
 	import { Editor } from '@tiptap/core';
 	import { onMount } from 'svelte';
 	import { StarterKit } from '@tiptap/starter-kit';
-	import RichTextEditorButton from './RichTextEditorButton.svelte';
-	import type { RichTextEditorButtonProps } from '../../../app';
 
-	export let value = '';
+	export let value: string = '';
+	const content = value;
 
 	let element: Element;
 	let editor: Editor;
-	let editorOptions: RichTextEditorButtonProps[];
+
+	const buttonClass = 'p-2 h-full';
+	const activeColor = '#BAFCA2';
+	const supportLists = false;
 
 	onMount(() => {
 		editor = new Editor({
+			editorProps: {
+				attributes: {
+					class: 'focus:outline-none'
+				}
+			},
 			element: element,
+			autofocus: false,
 			extensions: [StarterKit],
-			content: value,
+			content: content,
 			onTransaction: () => {
 				editor = editor;
+			},
+			onUpdate: ({ editor }) => {
+				value = editor.getHTML();
 			}
 		});
-
-		editorOptions = [
-			{
-				name: 'Bold',
-				active: editor.isActive('bold'),
-				onClick: function () {
-					this.active = editor.isActive('bold');
-				}
-			},
-			{
-				name: 'Italic',
-				active: editor.isActive('italic'),
-				onClick: function () {
-					editor.chain().focus().toggleItalic().run();
-					this.active = editor.isActive('italic');
-					console.log(this.active);
-				}
-			},
-			{
-				name: 'Strike',
-				onClick: () => editor.chain().focus().toggleStrike().run()
-			},
-			{
-				name: 'Bullet list',
-				onClick: () => editor.chain().focus().toggleBulletList().run()
-			},
-			{
-				name: 'Ordered list',
-				onClick: () => editor.chain().focus().toggleOrderedList().run()
-			}
-		];
 	});
 </script>
 
-<div class="border-black shadow-[4px_4px_0px_1px_#12110F] border-2 rounded">
+<div class="border-black shadow-large border-2 rounded w-full">
 	{#if editor}
-		<div class="border-black border-b-2 py-2 px-4">
-			<button
-				on:click={() => editor.chain().focus().toggleBold().run()}
-				style:background-color={editor.isActive('bold') ? '#00FF00' : 'inherit'}
-				class="border-black border-2 rounded shadow-small p-2 mx-2"
-			>
-				Bold
-			</button>
+		<div class="border-black border-b-2 flex justify-between">
+			<div class="basis-1/3">
+				<button
+					on:click={() => editor.chain().focus().toggleBold().run()}
+					style:background-color={editor.isActive('bold') ? activeColor : 'inherit'}
+					class={buttonClass}
+				>
+					Bold
+				</button>
+				<button
+					on:click={() => editor.chain().focus().toggleItalic().run()}
+					style:background-color={editor.isActive('italic') ? activeColor : 'inherit'}
+					class={buttonClass}
+				>
+					Italic
+				</button>
+				<button
+					on:click={() => editor.chain().focus().toggleStrike().run()}
+					style:background-color={editor.isActive('strike') ? activeColor : 'inherit'}
+					class={buttonClass}
+				>
+					Strike
+				</button>
+				{#if supportLists}
+					<button
+						on:click={() => editor.chain().focus().toggleBulletList().run()}
+						style:background-color={editor.isActive('bulletList') ? activeColor : 'inherit'}
+						class={buttonClass}
+					>
+						Bullet list
+					</button>
+					<button
+						on:click={() => editor.chain().focus().toggleOrderedList().run()}
+						style:background-color={editor.isActive('orderedList') ? activeColor : 'inherit'}
+						class={buttonClass}
+					>
+						Ordered list
+					</button>
+				{/if}
+			</div>
+			<div class="justify-center font-bold text-xl text-center my-auto basis-1/3">Directions</div>
+			<div class="basis-1/3" />
 		</div>
 	{/if}
-	<div bind:this={element} />
+	<div bind:this={element} class="m-1" />
 </div>
-
-<style>
-	button.active {
-		background-color: #00ff00;
-	}
-</style>
