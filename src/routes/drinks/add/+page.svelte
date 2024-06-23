@@ -5,6 +5,7 @@
 	import InputIngredients from '../../../components/inputs/InputIngredients.svelte';
 	import RichTextEditor from '../../../components/inputs/RichTextEditor.svelte';
 	import type { CreateDrinkRequest } from '$lib/validations/createDrinkValidator';
+	import { browser } from '$app/environment';
 
 	const input: CreateDrinkRequest = {
 		name: '',
@@ -22,14 +23,23 @@
 			},
 			body: JSON.stringify(input)
 		});
-		console.log(result);
+		const response = await result.json();
+		
+		if (response.errors) {
+			//TODO
+			return;
+		}
+
+		if (browser) {
+			window.location.href = `/drinks/${response.id}`;
+		}
 	};
 </script>
 
 <div class="flex justify-center">
 	<form class="flex justify-center content-center flex-wrap w-2/3">
 		<Row>
-			<InputText placeholder="Name" name="name" bind:value={input.name} required={true} />
+			<InputText placeholder="Name" name="name" bind:value={input.name} />
 		</Row>
 		<Row>
 			<InputTags bind:selectedOptions={input.tags} />
