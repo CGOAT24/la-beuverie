@@ -2,7 +2,6 @@
 	import type { PageServerLoad } from '../../../../.svelte-kit/types/src/routes/drinks/[id]/$types';
 	import Row from '../../../components/Row.svelte';
 	import Pill from '../../../components/Pill.svelte';
-	import RichTextEditor from '../../../components/inputs/RichTextEditor.svelte';
 	import RichText from '../../../components/RichText.svelte';
 
 	export let data: PageServerLoad;
@@ -11,10 +10,10 @@
 <div class="flex justify-center">
 	<div class="w-2/3">
 		<Row>
-			<h1 class="font-extrabold text-8xl italic">{data.drink.name}</h1>
+			<h1 class="font-extrabold text-8xl italic text-left w-full">{data.drink.name}</h1>
 		</Row>
 		<Row>
-			<ul class="flex flex-wrap justify-start w-full ">
+			<ul class="flex flex-wrap justify-start w-full">
 				{#each data.drink.tags as tag}
 					<li><Pill text={tag} /></li>
 				{/each}
@@ -28,8 +27,7 @@
 					</tr>
 				{/each}
 			</table>
-			<RichText bind:value={data.drink.directions}/>
+			<RichText bind:value={data.drink.directions} />
 		</Row>
 	</div>
-	
 </div>

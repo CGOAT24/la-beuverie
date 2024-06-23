@@ -6,10 +6,9 @@
 	export let value: string = '';
 
 	let element: Element;
-	let editor: Editor;
 
 	onMount(() => {
-		editor = new Editor({
+		new Editor({
 			editorProps: {
 				attributes: {
 					class: 'focus:outline-none'
@@ -18,7 +17,7 @@
 			element: element,
 			extensions: [StarterKit],
 			content: value,
-            editable: false
+			editable: false
 		});
 	});
 </script>
