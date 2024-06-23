@@ -24,7 +24,7 @@
 			body: JSON.stringify(input)
 		});
 		const response = await result.json();
-		
+
 		if (response.errors) {
 			//TODO
 			return;

@@ -7,7 +7,7 @@ export const POST = async (event) => {
 
 	const { errors, valid } = await validate(data);
 	if (!valid) {
-		return Response.json({errors: errors});
+		return Response.json({ errors: errors });
 	}
 
 	const drink = await drinkService.create(data);
