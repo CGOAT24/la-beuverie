@@ -1,31 +1,26 @@
-export interface CreateDrinkRequest {
-	name: string;
-	directions: string;
-	tags: string[];
-	ingredients: string[];
-	userId: string;
-}
+import { type SafeParseReturnType, z } from 'zod';
+import { drinkService } from '$lib/server/services/drinkService';
 
-export const validate = (request: CreateDrinkRequest): App.ValidationResponse => {
-	const errors: Record<string, unknown> = {};
-	if (!request.name) {
-		errors.name = 'Name is required';
-	}
+const CreateDrinkRequest = z.object({
+	name: z
+		.string()
+		.min(3)
+		.max(100)
+		.refine(
+			async (name) => {
+				return (await drinkService.getFromName(name)) !== null;
+			},
+			{
+				message: 'Name already exists'
+			}
+		),
+	directions: z.string().min(3).max(1000),
+	tags: z.string().array(),
+	ingredients: z.string().array().nonempty(),
+	userId: z.string().uuid()
+});
 
-	if (!request.directions) {
-		errors.directions = 'Directions are required';
-	}
-
-	if (request.ingredients.length === 0) {
-		errors.ingredients = 'At least one ingredient is required';
-	}
-
-	if (request.userId.length === 0) {
-		errors.author = 'Author is required';
-	}
-
-	return {
-		errors: errors,
-		valid: Object.keys(errors).length === 0
-	};
-};
+export const validate = async (
+	request: Request.CreateDrink
+): Promise<SafeParseReturnType<Request.CreateDrink, Request.CreateDrink>> =>
+	await CreateDrinkRequest.safeParseAsync(request);

@@ -1,47 +1,38 @@
 import { userService } from '$lib/server/services/userService';
 import { verifyPassword } from '$lib/server/hash';
+import { type SafeParseReturnType, z } from 'zod';
 
-export interface LoginUserRequest {
-	username: string;
-	password: string;
-	credentials: string;
-}
+const LoginUserRequest = z
+	.object({
+		username: z
+			.string()
+			.min(3)
+			.max(50)
+			.refine(
+				async (username) => {
+					const user = await userService.getFromUsername(username);
+					return !!user;
+				},
+				{
+					message: "User doesn't exist"
+				}
+			),
+		password: z.string().min(1)
+	})
+	.refine(
+		async (user) => {
+			const password = (await userService.getFromUsername(user.username))?.password;
+			return await verifyPassword(user.password, password ?? '');
+		},
+		{
+			message: 'Invalid credentials'
+		}
+	);
 
-export const validate = async (request: LoginUserRequest): Promise<App.ValidationResponse> => {
-	const errors: Record<string, unknown> = {};
-	if (!request.username) {
-		errors.username = 'Invalid credentials';
-	}
+export type LoginUserRequest = z.infer<typeof LoginUserRequest>;
 
-	if (!request.password) {
-		errors.password = 'Invalid credentials';
-	}
-
-	if (Object.keys(errors).length > 0) {
-		return {
-			errors: errors,
-			valid: false
-		};
-	}
-
-	const user = await userService.getFromUsername(request.username);
-
-	if (!user) {
-		errors.credentials = 'Invalid credentials';
-		return {
-			errors: errors,
-			valid: false
-		};
-	}
-
-	const validPassword = verifyPassword(request.password, user.password);
-
-	if (!validPassword) {
-		errors.credentials = 'Invalid credentials';
-	}
-
-	return {
-		errors: errors,
-		valid: Object.keys(errors).length === 0
-	};
+export const validate = async (
+	request: LoginUserRequest
+): Promise<SafeParseReturnType<LoginUserRequest, LoginUserRequest>> => {
+	return await LoginUserRequest.safeParseAsync(request);
 };

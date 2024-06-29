@@ -1,13 +1,13 @@
 import { drinkService } from '$lib/server/services/drinkService.js';
-import { validate, type CreateDrinkRequest } from '$lib/validations/createDrinkValidator';
+import { validate } from '$lib/validations/createDrinkValidator';
 
 export const POST = async (event) => {
-	const data: CreateDrinkRequest = await event.request.json();
+	const data: Request.CreateDrink = await event.request.json();
 	data.userId = event.locals.user?.id ?? '';
 
-	const { errors, valid } = await validate(data);
-	if (!valid) {
-		return Response.json({ errors: errors });
+	const { success, error } = await validate(data);
+	if (!success) {
+		return Response.json({ errors: error?.errors });
 	}
 
 	const drink = await drinkService.create(data);

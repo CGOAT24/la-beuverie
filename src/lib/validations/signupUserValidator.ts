@@ -1,35 +1,29 @@
-import prisma from '$lib/prisma';
+import { type SafeParseReturnType, z } from 'zod';
+import { userService } from '$lib/server/services/userService';
 
-export interface SignupUserRequest {
-	username: string;
-	password: string;
-}
+const SignupUserRequest = z.object({
+	username: z
+		.string()
+		.min(3)
+		.max(100)
+		.superRefine(async (username, ctx) => {
+			if ((await userService.getFromUsername(username)) !== null) {
+				ctx.addIssue({
+					code: z.ZodIssueCode.custom,
+					message: 'username already taken'
+				});
+			}
+			if (!/^[a-z0-9_-]+$/.test(username)) {
+				ctx.addIssue({
+					code: z.ZodIssueCode.custom,
+					message: 'invalid username'
+				});
+			}
+		}),
+	password: z.string().min(8)
+});
 
-export const validate = async (request: SignupUserRequest): Promise<App.ValidationResponse> => {
-	const errors: Record<string, unknown> = {};
-	if (!request.username) {
-		errors.username = 'Username is required';
-	} else if (request.username.length < 3 || request.username.length > 31) {
-		errors.username = 'Username length must be between 3 and 31';
-	} else if (!/^[a-z0-9_-]+$/.test(request.username)) {
-		errors.username = 'Invalid username';
-	}
-
-	if (request.password.length < 6 || request.password.length > 255) {
-		errors.password = 'Password length must be at least 6 characters';
-	}
-
-	const duplicate = await prisma.user.findUnique({
-		where: {
-			username: request.username
-		}
-	});
-	if (duplicate) {
-		errors.username = 'Username is already used';
-	}
-
-	return {
-		errors: errors,
-		valid: Object.keys(errors).length === 0
-	};
-};
+export const validate = async (
+	request: Request.SignupUser
+): Promise<SafeParseReturnType<Request.SignupUser, Request.SignupUser>> =>
+	await SignupUserRequest.safeParseAsync(request);

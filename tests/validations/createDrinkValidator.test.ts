@@ -7,27 +7,29 @@ describe('createDrink validation', () => {
 			name: '',
 			directions: '',
 			tags: [],
-			ingredients: [],
+			ingredients: [''],
 			userId: ''
 		};
 
-		const { errors, valid } = validate(invalidDrink);
+		const { error, success, data } = validate(invalidDrink);
 
-		expect(valid).toBe(false);
-		expect(Object.keys(errors).length).toBeGreaterThan(0);
+		expect(success).toBe(false);
+		expect(error).toBeDefined();
+		expect(data).toBeUndefined();
 	});
 
 	it('valid input should be valid', () => {
 		const drink: CreateDrinkRequest = {
-			directions: 'Mix all ingredients together and serve.',
-			ingredients: ['2oz of Vodka', '1oz of orange juice'],
+			directions: `<p>Mix all ingredients together and serve.</p>`,
+			ingredients: ['2oz of vodka', '1oz of orange juice'],
 			name: 'Screwdriver',
 			tags: ['Orange', 'Vodka', 'Classic'],
-			userId: '2342904-534593-fasd'
+			userId: '6e7caa84-bd44-4f1d-984b-6b9c2e2c67d1'
 		};
 
-		const { errors, valid } = validate(drink);
-		expect(valid).toBeTruthy();
-		expect(Object.keys(errors).length).toBe(0);
+		const { error, success, data } = validate(drink);
+		expect(success).toBeTruthy();
+		expect(error).toBeUndefined();
+		expect(data).toBeDefined();
 	});
 });

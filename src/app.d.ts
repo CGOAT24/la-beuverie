@@ -1,5 +1,7 @@
 // See https://kit.svelte.dev/docs/types#app
 // for information about these interfaces
+import { z } from 'zod';
+
 declare global {
 	namespace App {
 		interface Locals {
@@ -10,6 +12,10 @@ declare global {
 			valid: boolean;
 			errors: Record<string, unknown>;
 		}
+	}
+	namespace Request {
+		type CreateDrink = z.infer<typeof CreateDrinkRequest>;
+		type ReplaceDrink = z.infer<typeof ReplaceDrinkRequest>;
 	}
 }
 
