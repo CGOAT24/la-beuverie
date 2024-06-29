@@ -1,9 +1,8 @@
 import { expect, test } from 'vitest';
-import type { Drink } from '@prisma/client';
-import { validate } from '$lib/validations/updateDrinkValidator';
+import { validate } from '$lib/validations/replaceDrinkValidator';
 
-test('invalid input should not be valid', () => {
-	const invalidDrink: Drink = {
+test('invalid input should not be valid', async () => {
+	const invalidDrink: Request.ReplaceDrink = {
 		id: '',
 		name: '',
 		directions: '',
@@ -11,22 +10,23 @@ test('invalid input should not be valid', () => {
 		ingredients: []
 	};
 
-	const { errors, valid } = validate(invalidDrink);
-
-	expect(valid).toBe(false);
-	expect(Object.keys(errors).length).toBeGreaterThan(0);
+	const { error, success } = await validate(invalidDrink);
+	expect(success).toBe(false);
+	expect(error).toBeDefined();
 });
 
-test('valid input should be valid', () => {
-	const drink: Drink = {
-		id: '0000-1111-AAAA-BBBB',
+test('valid input should be valid', async () => {
+	const drink: Request.ReplaceDrink = {
+		id: '6e7caa84-bd44-4f1d-984b-6b9c2e2c67d1',
 		directions: 'Mix all ingredients together and serve.',
 		ingredients: ['2oz of Vodka', '1oz of orange juice'],
-		name: 'Screwdriver',
-		tags: ['Orange', 'Vodka', 'Classic']
+		name: 'unique name',
+		tags: ['Orange', 'Vodka', 'Classic'],
+		userId: '6e7caa84-bd44-4f1d-984b-6b9c2e2c67d1'
 	};
 
-	const { errors, valid } = validate(drink);
-	expect(valid).toBe(true);
-	expect(Object.keys(errors).length).toBe(0);
+	const { error, success } = await validate(drink);
+	console.log({ error, success, drink });
+	expect(success).toBeTruthy();
+	expect(error).toBeUndefined();
 });
