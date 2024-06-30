@@ -22,7 +22,7 @@ describe('createDrink validation', () => {
 		const drink: Request.CreateDrink = {
 			directions: `<p>Mix all ingredients together and serve.</p>`,
 			ingredients: ['2oz of vodka', '1oz of orange juice'],
-			name: 'Screwdriver',
+			name: 'TEST - unique drink name',
 			tags: ['Orange', 'Vodka', 'Classic'],
 			userId: '6e7caa84-bd44-4f1d-984b-6b9c2e2c67d1'
 		};

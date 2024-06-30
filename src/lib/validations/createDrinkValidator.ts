@@ -8,7 +8,7 @@ const CreateDrinkRequest = z.object({
 		.max(100)
 		.refine(
 			async (name) => {
-				return (await drinkService.getFromName(name)) !== null;
+				return (await drinkService.getFromName(name)) === null;
 			},
 			{
 				message: 'Name already exists'
