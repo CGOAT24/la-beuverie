@@ -11,7 +11,7 @@
 </script>
 
 <input
-	class="rounded-md border-2 border-black p-[10px] font-bold shadow-medium outline-none"
+	class="rounded-md border-2 border-black p-[10px] font-bold shadow-medium outline-none bg-default"
 	{type}
 	{name}
 	{placeholder}

@@ -3,7 +3,8 @@ export default {
 	content: ['./src/**/*.{html,js,svelte,ts}'],
 	theme: {
 		colors: {
-			'black': "#12110F"
+			'black': "#12110F",
+			'default': "#FFF0E8"
 		},
 		extend: {
 			boxShadow: {

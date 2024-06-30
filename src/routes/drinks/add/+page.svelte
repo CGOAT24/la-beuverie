@@ -4,10 +4,9 @@
 	import Row from '../../../components/Row.svelte';
 	import InputIngredients from '../../../components/inputs/InputIngredients.svelte';
 	import RichTextEditor from '../../../components/inputs/RichTextEditor.svelte';
-	import type { CreateDrinkRequest } from '$lib/validations/createDrinkValidator';
 	import { browser } from '$app/environment';
 
-	const input: CreateDrinkRequest = {
+	const input: Request.CreateDrink = {
 		name: '',
 		ingredients: [],
 		tags: [],
@@ -26,7 +25,7 @@
 		const response = await result.json();
 
 		if (response.errors) {
-			//TODO
+			console.log(response);
 			return;
 		}
 

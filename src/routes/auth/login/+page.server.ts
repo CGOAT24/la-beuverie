@@ -8,10 +8,10 @@ import { authService } from '$lib/server/services/authService';
 export const actions: Actions = {
 	default: async (event) => {
 		const input = parse<LoginUserRequest>(await event.request.formData());
-		const { errors, valid } = await validate(input);
+		const { success, error } = await validate(input);
 
-		if (!valid) {
-			return fail(400, errors);
+		if (!success) {
+			return fail(400, error);
 		}
 
 		const user: User | null = await userService.getFromUsername(input.username);

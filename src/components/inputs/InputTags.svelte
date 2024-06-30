@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { getColor } from '$lib/randomColorGenerator';
+
 	export let selectedOptions: string[] = [];
 	let chipInput = '';
 
@@ -34,8 +36,9 @@
 	{#each selectedOptions as chip, index}
 		<button
 			type="button"
-			class="m-2 py-1 px-2 bg-[#87CEEB] rounded cursor-pointer"
+			class="m-1 py-1 px-2 rounded cursor-pointer border-2 bg-default"
 			on:click={() => removeChip(index)}
+			style:background-color={getColor()}
 		>
 			{chip}
 		</button>
@@ -47,7 +50,7 @@
 		on:input={handleInput}
 		on:blur={handleBlur}
 		placeholder={selectedOptions.length === 0 ? 'Enter a tag' : ''}
-		class="outline-none"
+		class="outline-none bg-default"
 		name="tags"
 	/>
 </div>

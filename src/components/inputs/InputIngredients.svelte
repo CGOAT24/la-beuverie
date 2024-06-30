@@ -26,13 +26,13 @@
 				<td>
 					<div class="flex justify-between">
 						<input
-							class="w-full h-full outline-none p-1 font-bold text-right"
+							class="w-full h-full outline-none p-1 font-bold text-right bg-default"
 							type="text"
 							value={row}
 							on:change={(e) => update(e, i)}
 						/>
 						<button
-							class="relative flex justify-center rounded-3xl border-black border-2 translate-x-5 bg-[#FF0000] mx-1"
+							class="relative flex justify-center rounded-3xl border-black border-2 translate-x-5 bg-[#FF6B6B] mx-1"
 							on:click={() => removeRow(i)}
 						>
 							<Icon icon="heroicons:minus" class="h-6 w-6 bg-inherit" />

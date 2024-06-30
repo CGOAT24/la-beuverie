@@ -18,7 +18,7 @@
 </script>
 
 <div
-	class="w-100 py-4 rounded-2xl border-4 mx-3 mt-1 mb-5 border-black shadow-large flex justify-between overflow-x-hidden"
+	class="w-100 py-4 rounded-2xl border-4 mx-3 mt-1 mb-5 border-black shadow-large flex justify-between overflow-x-hidden bg-[#FFF0E8]"
 >
 	<a href="/">
 		<div class="flex flex-wrap justify-start font-bold ml-3 content-center h-full">
@@ -32,14 +32,14 @@
 		</a>
 		<NavbarButton
 			className="flex justify-between items-center"
-			color="#FF7A5C"
+			color="#FFB2EF"
 			icon="heroicons:magnifying-glass"
 			on:click={() => (searchBarEnabled = true)}
 		>
 			{#if searchBarEnabled}
 				<input
 					type="text"
-					class="mx-2 bg-[#FF7A5C] border-b-2 border-black focus:outline-none caret-transparent transition ease-in-out duration-700"
+					class="mx-2 bg-[#FFB2EF] border-b-2 border-black focus:outline-none caret-transparent transition ease-in-out duration-700"
 					on:input={searchValueChanged}
 					value={searchBarValue}
 				/>
