@@ -42,7 +42,7 @@
 		"@iconify/svelte": "^4.0.2",
 		"@lucia-auth/adapter-prisma": "^4.0.1",
 		"@prisma/client": "^5.15.0",
-		"@sveltejs/adapter-vercel": "^5.3.2",
+		"@sveltejs/adapter-vercel": "^5.4.0",
 		"@tiptap/core": "^2.4.0",
 		"@tiptap/extension-bullet-list": "^2.4.0",
 		"@tiptap/extension-color": "^2.4.0",
