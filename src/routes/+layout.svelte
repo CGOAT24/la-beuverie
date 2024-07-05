@@ -4,6 +4,7 @@
 	import Marquee from '../components/Marquee.svelte';
 	import type { LayoutData } from '../../.svelte-kit/types/src/routes/$types';
 	import Icon from '@iconify/svelte';
+	import { drinks } from '$lib/stores/drinksStore';
 
 	let searchBarEnabled = false;
 	let searchBarValue = '';
@@ -12,7 +13,13 @@
 	const { isAuthenticated } = data;
 	const githubLink = 'https://github.com/cgoat24/la-beuverie';
 
-	const searchValueChanged = () => {};
+	const searchValueChanged = async () => {
+		if (searchBarValue.length > 0) {
+			await drinks.search(searchBarValue);
+		} else {
+			await drinks.getAll();
+		}
+	};
 
 	const showFilterModal = () => {};
 </script>
@@ -41,9 +48,14 @@
 					type="text"
 					class="mx-2 bg-[#FFB2EF] border-b-2 border-black focus:outline-none caret-transparent transition ease-in-out duration-700"
 					on:input={searchValueChanged}
-					value={searchBarValue}
+					bind:value={searchBarValue}
 				/>
-				<button on:click={() => (searchBarEnabled = false)}>
+				<button
+					on:click={async () => {
+						searchBarEnabled = false;
+						await searchValueChanged();
+					}}
+				>
 					<Icon icon="heroicons:x-mark" class="h-6 w-6 bg-inherit" />
 				</button>
 			{/if}

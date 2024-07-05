@@ -15,8 +15,8 @@
 		if (!drink) {
 			return;
 		}
-		const result = await fetch(`/drinks/${drink.id}/edit`, {
-			method: 'POST',
+		const result = await fetch(`api/drinks/${drink.id}`, {
+			method: 'PUT',
 			headers: {
 				'Content-Type': 'application/json'
 			},
@@ -38,7 +38,7 @@
 		if (!drink) {
 			return;
 		}
-		const result = await fetch(`/drinks/${drink.id}`, {
+		const result = await fetch(`api/drinks/${drink.id}`, {
 			method: 'DELETE'
 		});
 
