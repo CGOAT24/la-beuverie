@@ -1,6 +1,6 @@
 import prisma from '$lib/prisma';
 
-//https://github.com/prisma/prisma/issues/7986
+//source: https://github.com/prisma/prisma/issues/7986
 const fuzzySearch = (field: string, search?: string) => {
 	if (!search || !search.length) return undefined;
 
