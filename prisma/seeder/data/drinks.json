@@ -8,7 +8,8 @@
 			"1/2 oz of pineapple juice",
 			"1 splash of lemon-lime soda"
 		],
-		"tags": ["Tequila", "Fruity"]
+		"tags": ["Tequila", "Fruity"],
+		"userId": ""
 	},
 	{
 		"name": "Red Hooter",
@@ -19,7 +20,8 @@
 			"Pineapple juice",
 			"1 oz of grenadine"
 		],
-		"tags": ["Tequila"]
+		"tags": ["Tequila"],
+		"userId": ""
 	},
 	{
 		"name": "Blushin' Russian",
@@ -30,13 +32,15 @@
 			"1 scoop of vanilla ice cream",
 			"4 large fresh strawberries"
 		],
-		"tags": ["Vodka", "Frozen"]
+		"tags": ["Vodka", "Frozen"],
+		"userId": ""
 	},
 	{
 		"name": "Blue Margarita",
 		"directions": "Coat rim of serving glass with lime juice, then dip rim in coarse salt. Pour ingredients over crushed ice, shake, then strain into serving glass.",
 		"ingredients": ["1.5 oz of tequila", "0.5 oz of blue curacao", "1 oz of lime juice"],
-		"tags": ["Tequila", "Classic"]
+		"tags": ["Tequila", "Classic"],
+		"userId": ""
 	},
 	{
 		"name": "Cactus Berry",
@@ -49,13 +53,15 @@
 			"1 splash of lemon-lime soda",
 			"1 dash of lime juice"
 		],
-		"tags": ["Default"]
+		"tags": ["Default"],
+		"userId": ""
 	},
 	{
 		"name": "Blue Cloud Cocktail",
 		"directions": "Combine ingredients in blender and blend smoothly. Pour into glass then top with whipped cream and a strawberry.",
 		"ingredients": ["1 oz of amaretto", "0.5 oz of blue curacao", "2 oz of vanilla ice cream"],
-		"tags": ["Default"]
+		"tags": ["Default"],
+		"userId": ""
 	},
 	{
 		"name": "Blue Velvet",
@@ -66,7 +72,8 @@
 			"4 oz of vanilla ice cream",
 			"Blue curacao"
 		],
-		"tags": ["Default"]
+		"tags": ["Default"],
+		"userId": ""
 	},
 	{
 		"name": "Catalina Margarita",
@@ -77,7 +84,8 @@
 			"1 oz of blue curacao",
 			"4 oz of sour mix"
 		],
-		"tags": ["Default"]
+		"tags": ["Default"],
+		"userId": ""
 	},
 	{
 		"name": "Hairy Sunrise",
@@ -89,7 +97,8 @@
 			"3 oz of orange juice",
 			"2 to 3 dashes of grenadine"
 		],
-		"tags": ["Default"]
+		"tags": ["Default"],
+		"userId": ""
 	},
 	{
 		"name": "Beer Buster",
@@ -99,37 +108,43 @@
 			"Chilled beer or ale",
 			"2 dashed of tabasco sauce"
 		],
-		"tags": ["Default"]
+		"tags": ["Default"],
+		"userId": ""
 	},
 	{
 		"name": "Black Russian",
 		"directions": "Pour over crushed ice into glass.",
 		"ingredients": ["1.5 oz of vodka", "0.75 of coffee liqueur"],
-		"tags": ["Default"]
+		"tags": ["Default"],
+		"userId": ""
 	},
 	{
 		"name": "Bull Frog",
 		"directions": "Pour over crushed ice in glass then garnish with a slice of lime.",
 		"ingredients": ["1.5 oz of vodka", "5 oz of lemonade"],
-		"tags": ["Default"]
+		"tags": ["Default"],
+		"userId": ""
 	},
 	{
 		"name": "Cape Codder",
 		"directions": "Pour ingredients into glass over crushed ice. Stir vigorously, then garnish with a lime wedge.",
 		"ingredients": ["1.5 oz of vodka", "5 oz of cranberry juice"],
-		"tags": ["Default"]
+		"tags": ["Default"],
+		"userId": ""
 	},
 	{
 		"name": "Alabama Fizz",
 		"directions": "Shake all ingredients except soda with crushed ice and strain into glass. Fill with club soda and garnish with 2 sprigs of fresh mint.",
 		"ingredients": ["Juice of 0.5 lemon", "1 tsp of powdered sugar", "2 oz of gin", "Club soda"],
-		"tags": ["Default"]
+		"tags": ["Default"],
+		"userId": ""
 	},
 	{
 		"name": "Chelsea Sidecar",
 		"directions": "Shake ingredients with crushed ice and strain into glass.",
 		"ingredients": ["Juice of 0.25 lemon", "0.75 oz of triple sec", "0.75 oz of gin"],
-		"tags": ["Default"]
+		"tags": ["Default"],
+		"userId": ""
 	},
 	{
 		"name": "Diamond Fizz",
@@ -140,7 +155,8 @@
 			"2 oz of gin",
 			"Chilled champagne"
 		],
-		"tags": ["Default"]
+		"tags": ["Default"],
+		"userId": ""
 	},
 	{
 		"name": "Canyon Quake",
@@ -151,7 +167,8 @@
 			"1 oz of amaretto",
 			"2 oz of light cream"
 		],
-		"tags": ["Default"]
+		"tags": ["Default"],
+		"userId": ""
 	},
 	{
 		"name": "Cranberry Cooler",
@@ -162,7 +179,8 @@
 			"0.5 of lime juice",
 			"1 tsp of sugar"
 		],
-		"tags": ["Default"]
+		"tags": ["Default"],
+		"userId": ""
 	},
 	{
 		"name": "Hot Pants",
@@ -173,13 +191,15 @@
 			"1 tbsp of grapefruit juice",
 			"1 tsp of powdered sugar"
 		],
-		"tags": ["Default"]
+		"tags": ["Default"],
+		"userId": ""
 	},
 	{
 		"name": "Margarita",
 		"directions": "Coat rim of glass with lime juice, then coat in salt. Shake ingredients with salt then strain into glass.",
 		"ingredients": ["1.5 oz of tequila", "0.5 oz of triple sec", "1 oz of lime juice"],
-		"tags": ["Default"]
+		"tags": ["Default"],
+		"userId": ""
 	},
 	{
 		"name": "Citronella Cooler",
@@ -190,7 +210,8 @@
 			"2 oz of lemonade",
 			"1 oz of cranberry juice"
 		],
-		"tags": ["Default"]
+		"tags": ["Default"],
+		"userId": ""
 	},
 	{
 		"name": "Crocodile Cooler",
@@ -202,7 +223,8 @@
 			"2 oz of sour mix",
 			"Lemon-lime soda"
 		],
-		"tags": ["Default"]
+		"tags": ["Default"],
+		"userId": ""
 	},
 	{
 		"name": "Desert Sunrise",
@@ -213,7 +235,8 @@
 			"1.5 oz of pineapple juice",
 			"1 dash of grenadine"
 		],
-		"tags": ["Default"]
+		"tags": ["Default"],
+		"userId": ""
 	},
 	{
 		"name": "Electric Jam",
@@ -224,13 +247,15 @@
 			"2 oz of sour mix",
 			"Lemon-lime soda"
 		],
-		"tags": ["Default"]
+		"tags": ["Default"],
+		"userId": ""
 	},
 	{
 		"name": "Dry Martini",
 		"directions": "Mix ingredients and strain into glass. Garnish with a twist of lemon peel or an olive.",
 		"ingredients": ["1.75 oz of gin", "0.5 oz of dry vermouth"],
-		"tags": ["Default"]
+		"tags": ["Default"],
+		"userId": ""
 	},
 	{
 		"name": "Fallen Angel",
@@ -241,7 +266,8 @@
 			"1 dash of bitters",
 			"0.5 tsp of creme de menthe"
 		],
-		"tags": ["Default"]
+		"tags": ["Default"],
+		"userId": ""
 	},
 	{
 		"name": "Floradora Cooler",
@@ -253,7 +279,8 @@
 			"2 oz of club soda/ginger ale",
 			"2 oz of gin"
 		],
-		"tags": ["Default"]
+		"tags": ["Default"],
+		"userId": ""
 	},
 	{
 		"name": "Creamy Gin Sour",
@@ -267,7 +294,8 @@
 			"1 tsp of sugar",
 			"2 oz of club soda"
 		],
-		"tags": ["Default"]
+		"tags": ["Default"],
+		"userId": ""
 	},
 	{
 		"name": "Citron Neon",
@@ -279,7 +307,8 @@
 			"0.5 oz of lime juice",
 			"1 oz of sour mix"
 		],
-		"tags": ["Default"]
+		"tags": ["Default"],
+		"userId": ""
 	},
 	{
 		"name": "Mexican Madras",
@@ -290,7 +319,8 @@
 			"1 oz of gold tequila",
 			"1 dash of lime juice"
 		],
-		"tags": ["Default"]
+		"tags": ["Default"],
+		"userId": ""
 	},
 	{
 		"name": "Purple Pancho",
@@ -302,19 +332,22 @@
 			"2 oz of lime juice",
 			"2 oz of sour mix"
 		],
-		"tags": ["Default"]
+		"tags": ["Default"],
+		"userId": ""
 	},
 	{
 		"name": "Handball Cooler",
 		"directions": "Pour vodka over ice in glass. Fill almost to top with club soda then top with orange juice. Stir vigorously and garnish with lime wedge.",
 		"ingredients": ["1.5 oz of vodka", "Club soda", "1 splash of orange juice"],
-		"tags": ["Default"]
+		"tags": ["Default"],
+		"userId": ""
 	},
 	{
 		"name": "Harvey Wallbanger",
 		"directions": "Pour vodka and orange juice over ice into glass. Top with galliano.",
 		"ingredients": ["1 oz of vodka", "4 oz of orange juice", "0.5 oz of golliano"],
-		"tags": ["Default"]
+		"tags": ["Default"],
+		"userId": ""
 	},
 	{
 		"name": "Long Island Iced Tea",
@@ -326,7 +359,8 @@
 			"Juice of 0.5 lemon",
 			"1 dash of cola"
 		],
-		"tags": ["Default"]
+		"tags": ["Default"],
+		"userId": ""
 	},
 	{
 		"name": "Pink Lemonade",
@@ -338,13 +372,15 @@
 			"2 oz of sour mix",
 			"2 oz of cranberry juice"
 		],
-		"tags": ["Default"]
+		"tags": ["Default"],
+		"userId": ""
 	},
 	{
 		"name": "Fog Horn",
 		"directions": "Pour ingredients over crushed ice in glass. Top with ginger ale and stir. Garnish with a slice of lime.",
 		"ingredients": ["Juice of 1 lime", "1.5 oz of gin", "Ginger Ale"],
-		"tags": ["Default"]
+		"tags": ["Default"],
+		"userId": ""
 	},
 	{
 		"name": "Gin and sin",
@@ -355,7 +391,8 @@
 			"1 tbsp of orange juice",
 			"1 dash of grenadine"
 		],
-		"tags": ["Default"]
+		"tags": ["Default"],
+		"userId": ""
 	},
 	{
 		"name": "Rum Runner",
@@ -367,7 +404,8 @@
 			"1 tsp of sugar",
 			"1 dash of bitters"
 		],
-		"tags": ["Default"]
+		"tags": ["Default"],
+		"userId": ""
 	},
 	{
 		"name": "Frozen Daiquiri",
@@ -378,7 +416,8 @@
 			"1.5 oz of lime juice",
 			"1 tsp of sugar"
 		],
-		"tags": ["Default"]
+		"tags": ["Default"],
+		"userId": ""
 	},
 	{
 		"name": "Frozen Fuzzy",
@@ -390,7 +429,8 @@
 			"0.5 oz of grenadine",
 			"1 splash of lemon-lime soda"
 		],
-		"tags": ["Default"]
+		"tags": ["Default"],
+		"userId": ""
 	},
 	{
 		"name": "Silk Stockings",
@@ -401,7 +441,8 @@
 			"1.5 oz of cream",
 			"1 dash of grenadine"
 		],
-		"tags": ["Default"]
+		"tags": ["Default"],
+		"userId": ""
 	},
 	{
 		"name": "Tijuana Taxi",
@@ -412,7 +453,8 @@
 			"1 oz of tropical fruit schnapps",
 			"Lemon-lime soda"
 		],
-		"tags": ["Default"]
+		"tags": ["Default"],
+		"userId": ""
 	},
 	{
 		"name": "Affair",
@@ -422,7 +464,8 @@
 			"1 oz of cranberry juice",
 			"1 oz of orange juice"
 		],
-		"tags": ["Default"]
+		"tags": ["Default"],
+		"userId": ""
 	},
 	{
 		"name": "B-52",
@@ -432,7 +475,8 @@
 			"0.5 oz of irish cream liqueur",
 			"0.5 oz of grand marnier"
 		],
-		"tags": ["Default"]
+		"tags": ["Default"],
+		"userId": ""
 	},
 	{
 		"name": "Between The Sheets",
@@ -443,7 +487,8 @@
 			"0.5 oz of triple sec",
 			"0.5 oz of light rum"
 		],
-		"tags": ["Default"]
+		"tags": ["Default"],
+		"userId": ""
 	},
 	{
 		"name": "Buzzard's Breath",
@@ -453,13 +498,15 @@
 			"0.5 oz of peppermint schnapps",
 			"0.5 oz of coffee liqueur"
 		],
-		"tags": ["Default"]
+		"tags": ["Default"],
+		"userId": ""
 	},
 	{
 		"name": "C. C. Kazi",
 		"directions": "Shake ingredients with crushed ice and strain into glass.",
 		"ingredients": ["1.25 oz of tequila", "2 oz of cranberry juice", "1 tsp of lime juice"],
-		"tags": ["Default"]
+		"tags": ["Default"],
+		"userId": ""
 	},
 	{
 		"name": "Galactic Ale",
@@ -470,7 +517,8 @@
 			"0.5 oz of lime juice",
 			"0.25 oz of black raspberry liqueur"
 		],
-		"tags": ["Default"]
+		"tags": ["Default"],
+		"userId": ""
 	},
 	{
 		"name": "Green Demon",
@@ -481,7 +529,8 @@
 			"0.5 oz of melon liqueur",
 			"0.5 oz of lemonade"
 		],
-		"tags": ["Default"]
+		"tags": ["Default"],
+		"userId": ""
 	},
 	{
 		"name": "Johnny Beach",
@@ -495,25 +544,29 @@
 			"0.25 oz of grapefruit juice",
 			"0.25 oz of cranberry juice"
 		],
-		"tags": ["Default"]
+		"tags": ["Default"],
+		"userId": ""
 	},
 	{
 		"name": "Kamikaze",
 		"directions": "Shake ingredients with crushed ice and strain into glass.",
 		"ingredients": ["0.5 oz of lime juice", "0.5 oz of triple sec", "0.5 oz of vodka"],
-		"tags": ["Default"]
+		"tags": ["Default"],
+		"userId": ""
 	},
 	{
 		"name": "Lemon Drop",
 		"directions": "Shake vodka with crushed ice and strain into glass. Dip each side of lemon wedge in sugar. Shoot vodka and bite into lemon wedge.",
 		"ingredients": ["1.5 oz of vodka", "Lime wedge", "Sugar"],
-		"tags": ["Default"]
+		"tags": ["Default"],
+		"userId": ""
 	},
 	{
 		"name": "Parisian Blonde",
 		"directions": "Shake ingredients with crushed ice and strain into glass.",
 		"ingredients": ["0.75 oz of light rum", "0.75 oz of triple sec", "0.75 oz of jamaican rum"],
-		"tags": ["Default"]
+		"tags": ["Default"],
+		"userId": ""
 	},
 	{
 		"name": "Purple Hooter",
@@ -523,13 +576,15 @@
 			"0.5 oz of triple sec",
 			"0.25 oz of black raspberry liqueur"
 		],
-		"tags": ["Default"]
+		"tags": ["Default"],
+		"userId": ""
 	},
 	{
 		"name": "Rocky Mountain",
 		"directions": "Shake ingredients with crushed ice and strain into glass.",
 		"ingredients": ["1 oz of southern comfort", "1 oz of amaretto", "0.5 oz of lime juice"],
-		"tags": ["Default"]
+		"tags": ["Default"],
+		"userId": ""
 	},
 	{
 		"name": "Sex On The Beach",
@@ -541,7 +596,8 @@
 			"1 oz of pineapple juice",
 			"Cranberry juice"
 		],
-		"tags": ["Default"]
+		"tags": ["Default"],
+		"userId": ""
 	},
 	{
 		"name": "Sour Apple",
@@ -552,12 +608,14 @@
 			"0.5 oz of melon liqueur",
 			"0.5 oz of lemon-lime soda"
 		],
-		"tags": ["Default"]
+		"tags": ["Default"],
+		"userId": ""
 	},
 	{
 		"name": "Woo Woo",
 		"directions": "Shake ingredients with crushed ice and strain into glass.",
 		"ingredients": ["0.5 oz of peach schnapps", "0.5 oz of vodka", "1 oz of cranberry juice"],
-		"tags": ["Default"]
+		"tags": ["Default"],
+		"userId": ""
 	}
 ]
