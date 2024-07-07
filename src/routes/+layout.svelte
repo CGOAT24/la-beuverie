@@ -5,6 +5,7 @@
 	import type { LayoutData } from '../../.svelte-kit/types/src/routes/$types';
 	import Icon from '@iconify/svelte';
 	import { drinks } from '$lib/stores/drinksStore';
+	import { tags } from '$lib/stores/tagsStore';
 	import FilterModal from '../components/FilterModal.svelte';
 
 	let searchBarEnabled = false;
@@ -60,7 +61,7 @@
 				</button>
 			{/if}
 		</NavbarButton>
-		<FilterModal bind:visible={filterModalVisible}>
+		<FilterModal bind:visible={filterModalVisible} bind:tags={$tags}>
 			<NavbarButton
 				color="#90EE90"
 				on:click={() => (filterModalVisible = !filterModalVisible)}
