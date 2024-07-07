@@ -5,9 +5,11 @@
 	import type { LayoutData } from '../../.svelte-kit/types/src/routes/$types';
 	import Icon from '@iconify/svelte';
 	import { drinks } from '$lib/stores/drinksStore';
+	import FilterModal from '../components/FilterModal.svelte';
 
 	let searchBarEnabled = false;
 	let searchBarValue = '';
+	let filterModalVisible = false;
 
 	export let data: LayoutData;
 	const { isAuthenticated } = data;
@@ -20,8 +22,6 @@
 			await drinks.getAll();
 		}
 	};
-
-	const showFilterModal = () => {};
 </script>
 
 <div
@@ -53,14 +53,20 @@
 				<button
 					on:click={async () => {
 						searchBarEnabled = false;
-						await searchValueChanged();
+						await drinks.getAll();
 					}}
 				>
 					<Icon icon="heroicons:x-mark" class="h-6 w-6 bg-inherit" />
 				</button>
 			{/if}
 		</NavbarButton>
-		<NavbarButton color="#90EE90" on:click={showFilterModal} icon="heroicons:funnel" />
+		<FilterModal bind:visible={filterModalVisible}>
+			<NavbarButton
+				color="#90EE90"
+				on:click={() => (filterModalVisible = !filterModalVisible)}
+				icon="heroicons:funnel"
+			/>
+		</FilterModal>
 		<a href="/drinks/add">
 			<NavbarButton color="#F4D738" icon="heroicons:plus" />
 		</a>
