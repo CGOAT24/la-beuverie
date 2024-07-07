@@ -45,5 +45,14 @@ export const searchService = {
 				...fuzzySearch('name', text)
 			}
 		});
+	},
+	filter: async (tags: string[]): Promise<{ id: string; name: string }[]> => {
+		return prisma.drink.findMany({
+			where: {
+				tags: {
+					hasSome: tags
+				}
+			}
+		});
 	}
 };

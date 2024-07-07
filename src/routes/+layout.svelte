@@ -5,7 +5,6 @@
 	import type { LayoutData } from '../../.svelte-kit/types/src/routes/$types';
 	import Icon from '@iconify/svelte';
 	import { drinks } from '$lib/stores/drinksStore';
-	import { tags } from '$lib/stores/tagsStore';
 	import FilterModal from '../components/FilterModal.svelte';
 
 	let searchBarEnabled = false;
@@ -15,6 +14,14 @@
 	export let data: LayoutData;
 	const { isAuthenticated } = data;
 	const githubLink = 'https://github.com/cgoat24/la-beuverie';
+	let { tags } = data;
+
+	let tagsFilter = tags.map((x) => {
+		return {
+			value: x,
+			enabled: false
+		};
+	});
 
 	const searchValueChanged = async () => {
 		if (searchBarValue.length > 0) {
@@ -23,10 +30,19 @@
 			await drinks.getAll();
 		}
 	};
+
+	const filterValueChanged = async () => {
+		const enabledTags = tagsFilter.filter((x) => x.enabled).map((x) => x.value);
+		if (enabledTags.length > 0) {
+			await drinks.filter(enabledTags);
+		} else {
+			await drinks.getAll();
+		}
+	};
 </script>
 
 <div
-	class="w-100 py-4 rounded-2xl border-4 mx-3 mt-1 mb-5 border-black shadow-large flex justify-between overflow-x-hidden bg-[#FFF0E8]"
+	class="w-100 py-4 rounded-2xl border-4 mx-3 mt-1 mb-5 border-black shadow-large flex justify-between overflow-x-hidden bg-default"
 >
 	<a href="/">
 		<div class="flex flex-wrap justify-start font-bold ml-3 content-center h-full">
@@ -61,7 +77,11 @@
 				</button>
 			{/if}
 		</NavbarButton>
-		<FilterModal bind:visible={filterModalVisible} bind:tags={$tags}>
+		<FilterModal
+			bind:visible={filterModalVisible}
+			bind:tags={tagsFilter}
+			on:update={filterValueChanged}
+		>
 			<NavbarButton
 				color="#90EE90"
 				on:click={() => (filterModalVisible = !filterModalVisible)}

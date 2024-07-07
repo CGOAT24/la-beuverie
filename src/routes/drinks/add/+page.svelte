@@ -15,7 +15,7 @@
 	};
 
 	const add = async () => {
-		const result = await fetch('api/drinks', {
+		const result = await fetch('/api/drinks', {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json'

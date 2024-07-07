@@ -25,7 +25,7 @@
 		<Row>
 			<ul class="flex flex-wrap justify-start w-full">
 				{#each drink.tags as tag}
-					<li><Pill text={tag} /></li>
+					<li class="my-2"><Pill text={tag} /></li>
 				{/each}
 			</ul>
 		</Row>
