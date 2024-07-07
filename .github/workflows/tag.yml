@@ -52,7 +52,7 @@ jobs:
 
       - name: Create new tag
         run: |
-          git config --global user.name "github-actions"
-          git config --global user.email "github-actions@github.com"
+          git config --global user.name "Chad Gauthier"
+          git config --global user.email "chad.gauthier32@gmail.com"
           git tag -a "v$NEW_VERSION" -m "Release $NEW_VERSION"
           git push origin --tags
