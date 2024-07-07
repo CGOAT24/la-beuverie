@@ -63,7 +63,4 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           tag_name: "v${{ env.NEW_VERSION }}"
-          release_name: "v${{ env.NEW_VERSION }}"
-          body: "Release of version ${{ env.NEW_VERSION }}"
-          draft: false
-          prerelease: false
+          title: "v${{ env.NEW_VERSION }}"
