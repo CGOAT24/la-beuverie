@@ -4,6 +4,10 @@ import { hashPassword } from '../../src/lib/server/hash';
 
 export class UserSeeder extends Seeder {
 	async up(): Promise<void> {
+		if (process.env.NODE_ENV === 'production') {
+			console.log('\x1b[43m%s\x1b[0m', 'Skipping users');
+			return;
+		}
 		console.log('\x1b[44m%s\x1b[0m', 'Seeding users');
 
 		const data = await Promise.all(
@@ -20,7 +24,12 @@ export class UserSeeder extends Seeder {
 
 		console.log('\x1b[42m%s\x1b[0m', 'Done');
 	}
+
 	async down(): Promise<void> {
+		if (process.env.NODE_ENV === 'production') {
+			console.log('\x1b[43m%s\x1b[0m', 'Skipping users');
+			return;
+		}
 		console.log('\x1b[44m%s\x1b[0m', 'Deleting users...');
 		await this.prisma.user.deleteMany();
 		console.log('\x1b[42m%s\x1b[0m', 'Done');
