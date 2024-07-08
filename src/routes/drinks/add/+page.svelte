@@ -6,9 +6,12 @@
 	import RichTextEditor from '../../../components/inputs/RichTextEditor.svelte';
 	import { browser } from '$app/environment';
 
+	export let data;
+	const { tags } = data;
+
 	const input: Request.CreateDrink = {
 		name: '',
-		ingredients: [],
+		ingredients: [''],
 		tags: [],
 		directions: '',
 		userId: ''
@@ -36,12 +39,12 @@
 </script>
 
 <div class="flex justify-center">
-	<form class="flex justify-center content-center flex-wrap w-2/3">
+	<div class="flex justify-center content-center flex-wrap w-2/3">
 		<Row>
 			<InputText placeholder="Name" name="name" bind:value={input.name} />
 		</Row>
 		<Row>
-			<InputTags bind:selectedOptions={input.tags} />
+			<InputTags bind:selectedOptions={input.tags} options={tags} />
 		</Row>
 		<Row>
 			<RichTextEditor bind:value={input.directions} />
@@ -57,5 +60,5 @@
 				Add
 			</button>
 		</Row>
-	</form>
+	</div>
 </div>
