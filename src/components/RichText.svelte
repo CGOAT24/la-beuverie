@@ -11,7 +11,7 @@
 		new Editor({
 			editorProps: {
 				attributes: {
-					class: 'focus:outline-none'
+					class: 'focus:outline-none text-justify leading-relaxed'
 				}
 			},
 			element: element,
@@ -22,6 +22,6 @@
 	});
 </script>
 
-<div class="border-black shadow-medium border-2 w-full ml-5">
+<div class="border-black shadow-medium border-2 w-full ml-5 rounded">
 	<div bind:this={element} class="m-1" />
 </div>

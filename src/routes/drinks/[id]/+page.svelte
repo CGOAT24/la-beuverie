@@ -30,9 +30,9 @@
 			</ul>
 		</Row>
 		<Row>
-			<table class="border-black border-2 px-5 w-full mr-5 shadow-medium">
+			<table class="w-full mr-5 shadow-medium border-2 border-black rounded border-separate">
 				{#each drink.ingredients as ingredient}
-					<tr class="border-2">
+					<tr>
 						<td class="w-full p-2">{ingredient}</td>
 					</tr>
 				{/each}
