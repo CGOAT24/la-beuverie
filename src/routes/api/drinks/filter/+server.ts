@@ -1,10 +1,15 @@
 import type { RequestHandler } from '@sveltejs/kit';
 import { searchService } from '$lib/server/services/searchService';
+import { createResponse } from '$lib/utils/HTTPRequest';
 
 export const GET: RequestHandler = async ({ url }) => {
 	const tags = [...url.searchParams.getAll('tag')];
 	if (!tags) {
-		return Response.error();
+		return createResponse({
+			errors: {
+				tags: ['missing value']
+			}
+		});
 	}
-	return Response.json(await searchService.filter(tags));
+	return createResponse({ data: await searchService.filter(tags) });
 };

@@ -8,6 +8,10 @@ declare global {
 			user: import('lucia').User | null;
 			session: import('lucia').Session | null;
 		}
+		interface Response {
+			errors?: Record<string, string[]>;
+			data?: unknown;
+		}
 	}
 	namespace Request {
 		type CreateDrink = z.infer<typeof CreateDrinkRequest>;

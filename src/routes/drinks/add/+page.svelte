@@ -5,9 +5,13 @@
 	import InputIngredients from '../../../components/inputs/InputIngredients.svelte';
 	import RichTextEditor from '../../../components/inputs/RichTextEditor.svelte';
 	import { browser } from '$app/environment';
+	import { writable } from 'svelte/store';
+	import ValidatedInput from '../../../components/inputs/ValidatedInput.svelte';
+	import { request } from '$lib/utils/HTTPRequest';
 
 	export let data;
 	const { tags } = data;
+	const errors = writable<Record<string, string[]>>({});
 
 	const input: Request.CreateDrink = {
 		name: '',
@@ -18,22 +22,15 @@
 	};
 
 	const add = async () => {
-		const result = await fetch('/api/drinks', {
-			method: 'POST',
-			headers: {
-				'Content-Type': 'application/json'
-			},
-			body: JSON.stringify(input)
-		});
-		const response = await result.json();
+		const response = await request.post('/api/drinks', input);
 
 		if (response.errors) {
-			console.log(response);
+			errors.set(response.errors);
 			return;
 		}
 
-		if (browser) {
-			window.location.href = `/drinks/${response.id}`;
+		if (browser && response.data?.id) {
+			window.location.href = `/drinks/${response.data.id}`;
 		}
 	};
 </script>
@@ -41,16 +38,25 @@
 <div class="flex justify-center">
 	<div class="flex justify-center content-center flex-wrap w-2/3">
 		<Row>
-			<InputText placeholder="Name" name="name" bind:value={input.name} />
+			<ValidatedInput errors={$errors.name}>
+				<div class="w-1/3"></div>
+				<InputText placeholder="Name" name="name" bind:value={input.name} />
+			</ValidatedInput>
 		</Row>
 		<Row>
-			<InputTags bind:selectedOptions={input.tags} options={tags} />
+			<ValidatedInput errors={$errors.tags}>
+				<InputTags bind:selectedOptions={input.tags} options={tags} />
+			</ValidatedInput>
 		</Row>
 		<Row>
-			<RichTextEditor bind:value={input.directions} />
+			<ValidatedInput errors={$errors.directions}>
+				<RichTextEditor bind:value={input.directions} />
+			</ValidatedInput>
 		</Row>
 		<Row>
-			<InputIngredients bind:rows={input.ingredients} />
+			<ValidatedInput errors={$errors.ingredients}>
+				<InputIngredients bind:rows={input.ingredients} />
+			</ValidatedInput>
 		</Row>
 		<Row>
 			<button

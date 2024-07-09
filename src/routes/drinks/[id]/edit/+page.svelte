@@ -6,31 +6,28 @@
 	import Row from '../../../../components/Row.svelte';
 	import { browser } from '$app/environment';
 	import Tooltip from '../../../../components/Tooltip.svelte';
+	import { request } from '$lib/utils/HTTPRequest';
+	import ValidatedInput from '../../../../components/inputs/ValidatedInput.svelte';
+	import { writable } from 'svelte/store';
 
 	export let data;
 	const { drink } = data;
 	let deleteModalVisible = false;
+	const errors = writable<Record<string, string[]>>({});
 
 	const update = async () => {
 		if (!drink) {
 			return;
 		}
-		const result = await fetch(`api/drinks/${drink.id}`, {
-			method: 'PUT',
-			headers: {
-				'Content-Type': 'application/json'
-			},
-			body: JSON.stringify(drink)
-		});
-		const response = await result.json();
+		const response = await request.put(`/api/drinks/${drink.id}`, drink);
 
 		if (response.errors) {
-			console.log(response);
+			errors.set(response.errors);
 			return;
 		}
 
-		if (browser) {
-			window.location.href = `/drinks/${response.id}`;
+		if (browser && response.data?.id) {
+			window.location.href = `/drinks/${response.data.id}`;
 		}
 	};
 
@@ -38,12 +35,10 @@
 		if (!drink) {
 			return;
 		}
-		const result = await fetch(`api/drinks/${drink.id}`, {
-			method: 'DELETE'
-		});
+		const result = await request.delete(`/api/drinks/${drink.id}`);
 
-		if (!result.ok) {
-			console.log(result);
+		if (result.errors) {
+			errors.set(result.errors);
 			return;
 		}
 
@@ -56,16 +51,24 @@
 <div class="flex justify-center">
 	<div class="w-2/3 flex justify-center content-center flex-wrap">
 		<Row>
-			<InputText placeholder="Name" name="name" bind:value={drink.name} />
+			<ValidatedInput errors={$errors.name}>
+				<InputText placeholder="Name" name="name" bind:value={drink.name} />
+			</ValidatedInput>
 		</Row>
 		<Row>
-			<InputTags bind:selectedOptions={drink.tags} />
+			<ValidatedInput errors={$errors.tags}>
+				<InputTags bind:selectedOptions={drink.tags} />
+			</ValidatedInput>
 		</Row>
 		<Row>
-			<RichTextEditor bind:value={drink.directions} />
+			<ValidatedInput errors={$errors.directions}>
+				<RichTextEditor bind:value={drink.directions} />
+			</ValidatedInput>
 		</Row>
 		<Row>
-			<InputIngredients bind:rows={drink.ingredients} />
+			<ValidatedInput errors={$errors.ingredients}>
+				<InputIngredients bind:rows={drink.ingredients} />
+			</ValidatedInput>
 		</Row>
 		<Row>
 			<button

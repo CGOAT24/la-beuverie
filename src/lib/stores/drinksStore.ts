@@ -1,4 +1,5 @@
 import { writable } from 'svelte/store';
+import { request } from '$lib/utils/HTTPRequest';
 
 const createStore = () => {
 	const { subscribe, set } = writable<{ id: string; name: string }[]>([]);
@@ -6,21 +7,21 @@ const createStore = () => {
 	return {
 		subscribe,
 		getAll: async () => {
-			const data = await (
-				await fetch(`http://localhost:5173/api/drinks`, { method: 'GET' })
-			).json();
+			const { data } = await request.get(`http://localhost:5173/api/drinks`);
 			set(data);
 		},
 		search: async (text: string) => {
 			const url = new URL(`http://localhost:5173/api/drinks/search`);
 			url.searchParams.append('q', text);
-			set(await (await fetch(url.toString(), { method: 'GET' })).json());
+			const { data } = await request.get(url);
+			set(data);
 		},
 		filter: async (tags: string[]) => {
 			const url = new URL(`http://localhost:5173/api/drinks/filter`);
 			const params = new URLSearchParams(tags.map((x) => ['tag', x]));
 			url.search = params.toString();
-			set(await (await fetch(url.toString(), { method: 'GET' })).json());
+			const { data } = await request.get(url);
+			set(data);
 		}
 	};
 };
