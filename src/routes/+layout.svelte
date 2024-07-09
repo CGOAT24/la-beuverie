@@ -16,7 +16,7 @@
 	const githubLink = 'https://github.com/cgoat24/la-beuverie';
 	let { tags } = data;
 
-	let tagsFilter = tags.map((x) => {
+	let tagsFilter: { value: string; enabled: boolean }[] = tags.map((x: string) => {
 		return {
 			value: x,
 			enabled: false

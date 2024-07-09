@@ -9,17 +9,13 @@
 </script>
 
 <div class="flex flex-wrap justify-stretch">
-	{#await $drinks}
-		Loading...
-	{:then $drinks}
-		{#if $drinks.length > 0}
-			{#each $drinks as drink}
-				<a href="/drinks/{drink.id}">
-					<Card name={drink.name} />
-				</a>
-			{/each}
-		{:else}
-			No drinks!
-		{/if}
-	{/await}
+	{#if $drinks.length > 0}
+		{#each $drinks as drink}
+			<a href="/drinks/{drink.id}">
+				<Card name={drink.name} />
+			</a>
+		{/each}
+	{:else}
+		No drinks!
+	{/if}
 </div>
