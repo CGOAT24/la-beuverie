@@ -6,7 +6,7 @@
 </script>
 
 <div
-	class="inline-block py-2 px-4 rounded-2xl border-4 border-black shadow-default font-bold"
+	class="inline-block py-2 px-4 rounded-2xl border-4 border-black shadow-large font-bold mx-2"
 	style="background-color: {backgroundColor};"
 >
 	{text}

@@ -10,28 +10,40 @@
 			rows[i] = event.target.value;
 		}
 	};
+
+	const removeRow = (i: number) => {
+		rows = rows.filter((_, num) => num !== i);
+	};
 </script>
 
 <div class="w-full">
-	<table class="w-full shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+	<table class="w-full shadow-medium">
 		<tr>
 			<th class="font-bold text-xl">Ingredients</th>
 		</tr>
 		{#each rows as row, i}
 			<tr>
 				<td>
-					<input
-						class="w-full h-full outline-none p-1 font-bold text-right"
-						type="text"
-						value={row}
-						on:change={(e) => update(e, i)}
-					/>
+					<div class="flex justify-between">
+						<input
+							class="w-full h-full outline-none p-1 font-bold text-right bg-default"
+							type="text"
+							value={row}
+							on:change={(e) => update(e, i)}
+						/>
+						<button
+							class="relative flex justify-center rounded-3xl border-black border-2 translate-x-5 bg-[#FF6B6B] mx-1"
+							on:click={() => removeRow(i)}
+						>
+							<Icon icon="heroicons:minus" class="h-6 w-6 bg-inherit" />
+						</button>
+					</div>
 				</td>
 			</tr>
 		{/each}
 	</table>
 	<button
-		class="relative flex justify-center rounded border-black border-2 text-center bg-[#FFDB58] scale-125 -translate-y-1 -translate-x-1 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all hover:translate-x-[-1px] hover:translate-y-[-1px] hover:shadow-none"
+		class="relative flex justify-center rounded border-black border-2 text-center bg-[#FFDB58] scale-125 -translate-y-1 -translate-x-1 shadow-small transition-all hover:translate-x-[-1px] hover:translate-y-[-1px] hover:shadow-none"
 		on:click={addRow}
 	>
 		<Icon icon="heroicons:plus" class="h-6 w-6 bg-inherit" />

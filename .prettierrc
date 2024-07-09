@@ -3,6 +3,10 @@
 	"singleQuote": true,
 	"trailingComma": "none",
 	"printWidth": 100,
+	"tabWidth": 2,
+	"semi": true,
+	"quoteProps": "consistent",
+	"bracketSpacing": true,
 	"plugins": ["prettier-plugin-svelte"],
 	"overrides": [{ "files": "*.svelte", "options": { "parser": "svelte" } }]
 }

@@ -1,6 +1,5 @@
 import prisma from '$lib/prisma';
 import type { User } from '@prisma/client';
-import type { SignupUserRequest } from '$lib/validations/signupUserValidator';
 import { hashPassword } from '$lib/server/hash';
 
 export const userService = {
@@ -11,7 +10,7 @@ export const userService = {
 			}
 		});
 	},
-	createUser: async (input: SignupUserRequest): Promise<User | null> => {
+	createUser: async (input: Request.SignupUser): Promise<User | null> => {
 		const hashedPassword = await hashPassword(input.password);
 
 		return prisma.user.create({

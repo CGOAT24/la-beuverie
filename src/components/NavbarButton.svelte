@@ -9,9 +9,8 @@
 <button
 	class="{className} border-2 border-black rounded-xl p-3 mx-1"
 	style="background-color: {color}"
-	on:click
 >
-	<Icon {icon} class="h-6 w-6 bg-inherit" />
+	<button on:click><Icon {icon} class="h-6 w-6 bg-inherit" /></button>
 	<slot />
 </button>
 

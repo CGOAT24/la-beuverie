@@ -21,13 +21,6 @@
 
 ![screenshot](./static/screenshot.png)
 
-## Roadmap
-
-- [ ] Validation error messages
-- [ ] Viewing, adding and modifying recipes
-- [ ] Filtering and search
-- [ ] Mobile support
-
 ## Dev setup
 
 To clone and run this application, you'll need [Git](https://git-scm.com), [Docker](https://www.docker.com/) and [Node](https://nodejs.org/). From your command line:
@@ -46,13 +39,13 @@ $ npm install
 $ docker compose up -d
 
 # Write the database connection string to the environment file.
-$ echo "DATABASE_PRISMA_URL=postgresql://postgres:password@127.0.0.1:5432/la-beuveurie" > .env
+$ echo "DATABASE_PRISMA_URL=postgresql://postgres:password@127.0.0.1:5432/la-beuverie" > .env
 
 # Run migrations
 $ npm run postinstall
 
 # Optional: seed the database
-$ npx prisma db seed
+$ npm run seed:up
 
 # Run tests
 $ npm run test
@@ -60,14 +53,6 @@ $ npm run test
 # Start the app.
 $ npm run dev
 ```
-
-## Credits
-
-This software uses the following open source packages:
-
-- [Sveltekit](https://kit.svelte.dev/)
-- [Prisma](https://www.prisma.io/)
-- [Lucia](https://lucia-auth.com/)
 
 ## License
 
