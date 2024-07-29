@@ -58,7 +58,7 @@
 		"@tiptap/extension-text": "^2.4.0",
 		"@tiptap/extension-text-style": "^2.5.5",
 		"@tiptap/pm": "^2.4.0",
-		"@tiptap/starter-kit": "^2.4.0",
+		"@tiptap/starter-kit": "^2.5.7",
 		"argon2": "^0.40.3",
 		"autoprefixer": "^10.4.19",
 		"lucia": "^3.2.0",
