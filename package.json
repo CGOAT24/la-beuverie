@@ -60,7 +60,7 @@
 		"@tiptap/pm": "^2.6.4",
 		"@tiptap/starter-kit": "^2.5.7",
 		"argon2": "^0.40.3",
-		"autoprefixer": "^10.4.19",
+		"autoprefixer": "^10.4.20",
 		"lucia": "^3.2.0",
 		"postcss": "^8.4.39",
 		"tailwindcss": "^3.4.13",
