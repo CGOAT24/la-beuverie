@@ -28,12 +28,12 @@ jobs:
 
       - name: Determine new version
         id: new_version
+        env:
+          COMMIT_MESSAGE: ${{ github.event.head_commit.message }}
         run: |
           MAJOR=$(echo $CURRENT_VERSION | cut -d. -f1)
           MINOR=$(echo $CURRENT_VERSION | cut -d. -f2)
           PATCH=$(echo $CURRENT_VERSION | cut -d. -f3)
-
-          COMMIT_MESSAGE="${{ github.event.head_commit.message }}"
 
           if echo "$COMMIT_MESSAGE" | grep -iq "MAJOR"; then
             MAJOR=$((MAJOR + 1))
