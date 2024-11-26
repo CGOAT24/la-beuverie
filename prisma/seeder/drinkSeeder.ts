@@ -1,5 +1,6 @@
 import { Seeder } from './seeder';
 import drinks from './data/drinks.json';
+import { randomInt } from 'crypto';
 
 export class DrinkSeeder extends Seeder {
 	async up(): Promise<void> {
@@ -11,7 +12,7 @@ export class DrinkSeeder extends Seeder {
 		});
 
 		const data = drinks.map((x) => {
-			x.userId = userIds[Math.floor(Math.random() * userIds.length)].id;
+			x.userId = userIds[randomInt(userIds.length)].id;
 			return x;
 		});
 
