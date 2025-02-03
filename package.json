@@ -49,7 +49,7 @@
 		"@sveltejs/adapter-vercel": "^5.4.8",
 		"@tiptap/core": "^2.4.0",
 		"@tiptap/extension-bullet-list": "^2.8.0",
-		"@tiptap/extension-color": "^2.6.4",
+		"@tiptap/extension-color": "^2.11.5",
 		"@tiptap/extension-document": "^2.4.0",
 		"@tiptap/extension-heading": "^2.10.2",
 		"@tiptap/extension-list-item": "^2.8.0",
